@@ -16,6 +16,9 @@ import {
 } from "lucide-react";
 
 import logoAsset from "@/assets/bonim-logo.png.asset.json";
+import dividerCozy from "@/assets/divider-cozy-interior.png.asset.json";
+import dividerSunbeam from "@/assets/divider-glass-sunbeam.png.asset.json";
+import dividerWindow from "@/assets/divider-window.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -88,6 +91,10 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
+function Divider({ image }: { image: { url: string } }) {
+  return <div aria-hidden="true" className="divider-band" style={{ backgroundImage: `url(${image.url})` }} />;
+}
 
 function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
@@ -200,6 +207,8 @@ function Index() {
         </p>
       </section>
 
+      <Divider image={dividerWindow} />
+
       <section className="blue-band">
         <div className="section-shell narrow">
           <SectionHeading number="03">Мы диспетчеры</SectionHeading>
@@ -240,6 +249,8 @@ function Index() {
           отличие в толщине профиля своими глазами.
         </p>
       </section>
+
+      <Divider image={dividerSunbeam} />
 
       <section className="soft-band">
         <div className="section-shell">
@@ -367,6 +378,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <Divider image={dividerCozy} />
 
       <section id="calculation" className="section-shell form-section">
         <div className="form-copy">
