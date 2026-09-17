@@ -139,7 +139,7 @@
     color: var(--color-deep-blue);
     filter: drop-shadow(0 3px 5px color-mix(in oklch, var(--color-deep-blue) 18%, transparent));
   }
-  .hero-title-sub { display: block; margin-top: 14px; font-size: clamp(21px, 2.6vw, 32px); line-height: 1.3; font-weight: 400; letter-spacing: -0.01em; color: var(--color-foreground); }
+  .hero-title-sub { display: block; margin-top: 14px; font-size: clamp(24px, 3.2vw, 38px); line-height: 1.28; font-weight: 400; letter-spacing: -0.01em; color: var(--color-foreground); }
   @supports (-webkit-text-fill-color: transparent) {
     .hero-title-main {
       background:
