@@ -92,8 +92,12 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function Divider({ image }: { image: { url: string } }) {
-  return <div aria-hidden="true" className="divider-band" style={{ backgroundImage: `url(${image.url})` }} />;
+function Divider({ image, text }: { image: { url: string }; text?: string }) {
+  return (
+    <div className="divider-band" style={{ backgroundImage: `url(${image.url})` }} aria-hidden={text ? undefined : "true"}>
+      {text ? <p className="divider-text">{text}</p> : null}
+    </div>
+  );
 }
 
 function BrandMark({ compact = false }: { compact?: boolean }) {
@@ -207,7 +211,7 @@ function Index() {
         </p>
       </section>
 
-      <Divider image={dividerWindow} />
+      <Divider image={dividerWindow} text="Ещё один сезон без остекления – ещё один сезон впустую" />
 
       <section className="blue-band">
         <div className="section-shell narrow">
@@ -250,7 +254,7 @@ function Index() {
         </p>
       </section>
 
-      <Divider image={dividerSunbeam} />
+      <Divider image={dividerSunbeam} text="Один замер – и балкон начинает работать на вас, а не простаивать" />
 
       <section className="soft-band">
         <div className="section-shell">
@@ -379,7 +383,7 @@ function Index() {
         </div>
       </section>
 
-      <Divider image={dividerCozy} />
+      <Divider image={dividerCozy} text="Вот каким может быть ваш вечер на балконе. Осталось оставить заявку" />
 
       <section id="calculation" className="section-shell form-section">
         <div className="form-copy">
