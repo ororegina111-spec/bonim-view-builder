@@ -6,10 +6,12 @@ import {
   Check,
   ChevronDown,
   Eye,
+  Facebook,
   FileCheck2,
   MessageCircle,
   MoveHorizontal,
   Ruler,
+  Send,
   ShieldCheck,
 } from "lucide-react";
 
@@ -398,6 +400,15 @@ function Index() {
           <div className="footer-links">
             <a href="https://modernbuilding.co.il/confidenc/ii/" target="_blank" rel="noreferrer">Политика конфиденциальности</a>
             <span>Условия оказания услуг</span>
+            <div className="footer-contacts">
+              <div className="footer-socials">
+                <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
+                <a href="ЗАПОЛНИТЬ_TELEGRAM" target="_blank" rel="noreferrer" aria-label="Telegram"><Send /></a>
+              </div>
+              <p>ЗАПОЛНИТЬ_НОМЕР</p>
+              <p>ЗАПОЛНИТЬ_АДРЕС</p>
+              <p>ЗАПОЛНИТЬ_НОМЕР_КОМПАНИИ</p>
+            </div>
           </div>
           <p dir="rtl">בונים בלקונים / BONIM BALCONIM</p>
         </div>
