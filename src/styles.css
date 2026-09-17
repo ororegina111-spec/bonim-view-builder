@@ -181,6 +181,12 @@
   .site-footer .brand-mark p { color: var(--color-primary-foreground); }
   .footer-links { display: grid; gap: 12px; text-align: center; }
   .footer-links a { color: inherit; }
+  .footer-contacts { display: grid; gap: 8px; margin-top: 16px; font-size: 14px; line-height: 1.5; color: color-mix(in oklch, var(--color-primary-foreground) 80%, transparent); }
+  .footer-contacts p { margin: 0; }
+  .footer-socials { display: flex; justify-content: center; gap: 12px; margin-bottom: 8px; }
+  .footer-socials a { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid color-mix(in oklch, var(--color-primary-foreground) 35%, transparent); border-radius: var(--radius-md); color: var(--color-primary-foreground); transition: background .15s ease; }
+  .footer-socials a:hover { background: color-mix(in oklch, var(--color-primary-foreground) 12%, transparent); }
+  .footer-socials svg { width: 20px; height: 20px; }
   .footer-grid > p { justify-self: end; font-weight: 800; }
   .mobile-whatsapp { display: none; }
 }
