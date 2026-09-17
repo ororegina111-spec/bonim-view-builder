@@ -282,7 +282,7 @@
   .statement { padding: 24px; font-size: 17px; }
   .large-copy { font-size: 20px; }
   .comparison-table { border: 0; }
-  .compare-head { display: none; }
+  .compare-row.compare-head { display: none; }
   .compare-row { display: grid; grid-template-columns: 1fr; margin-bottom: 4px; border: 0; }
   .compare-row > * { padding: 16px 20px; }
   .compare-row > * + * { box-shadow: inset 0 1px 0 var(--hairline); }
