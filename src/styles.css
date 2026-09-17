@@ -148,7 +148,7 @@
 
   .comparison-table { display: grid; gap: 12px; border: 0; }
   .table-row { display: grid; grid-template-columns: 1fr 1.4fr .7fr 2fr; border-radius: var(--radius-card); background: var(--surface-glass-strong); backdrop-filter: blur(18px); box-shadow: var(--shadow-soft); }
-  .table-row > * { padding: 24px; border: 0; line-height: 1.55; color: var(--color-foreground); }
+  .table-row > * { min-width: 0; padding: 24px; border: 0; line-height: 1.55; color: var(--color-foreground); overflow-wrap: anywhere; }
   .table-row > * + * { box-shadow: inset 1px 0 0 var(--hairline); }
   .table-row strong { color: var(--color-deep-blue); }
   .table-head { background: transparent; backdrop-filter: none; box-shadow: none; color: var(--color-muted-foreground); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
