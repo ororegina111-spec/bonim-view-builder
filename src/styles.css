@@ -341,15 +341,45 @@
 }
 
 .divider-band {
+  position: relative;
   width: 100%;
   height: clamp(210px, 26vw, 300px);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Тёмный градиент-подложка поверх фото, чтобы текст читался на любом участке */
+.divider-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 30, 58, 0.05) 0%, rgba(11, 30, 58, 0.45) 55%, rgba(11, 30, 58, 0.72) 100%);
+  pointer-events: none;
+}
+
+/* Текст — отдельный слой поверх картинки, легко поменять или перевести */
+.divider-text {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0;
+  padding: 0 clamp(16px, 4vw, 48px);
+  text-align: center;
+  font-size: clamp(20px, 2.6vw, 34px);
+  line-height: 1.28;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 18px rgba(11, 30, 58, 0.55);
 }
 
 @media (max-width: 640px) {
-  .divider-band { height: 200px; }
+  .divider-band { height: 240px; }
+  .divider-text { font-size: 19px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
