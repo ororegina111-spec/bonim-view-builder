@@ -207,6 +207,8 @@ function Index() {
         </p>
       </section>
 
+      <Divider image={dividerWindow} />
+
       <section className="blue-band">
         <div className="section-shell narrow">
           <SectionHeading number="03">Мы диспетчеры</SectionHeading>
@@ -247,6 +249,8 @@ function Index() {
           отличие в толщине профиля своими глазами.
         </p>
       </section>
+
+      <Divider image={dividerSunbeam} />
 
       <section className="soft-band">
         <div className="section-shell">
@@ -374,6 +378,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <Divider image={dividerCozy} />
 
       <section id="calculation" className="section-shell form-section">
         <div className="form-copy">
