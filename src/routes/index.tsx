@@ -214,16 +214,16 @@ function Index() {
         <SectionHeading number="04">Что привезём</SectionHeading>
         <p className="section-intro">Несколько типов конструкций от разных производителей. Сравните сами.</p>
         <div className="comparison-table" role="table" aria-label="Сравнение типов конструкций">
-          <div className="table-row table-head" role="row">
+          <div className="compare-row compare-head" role="row">
             <span>Тип конструкции</span><span>Как работает</span><span>Цена</span><span>Что важно знать</span>
           </div>
-          <div className="table-row" role="row">
+          <div className="compare-row" role="row">
             <strong>Безрамная складная</strong>
             <span>панели складываются «книжкой», открывают до 100% проёма, панорамный вид</span>
             <strong>от 1500 ₪/м²</strong>
             <span>толщина профиля и материал механизма различаются у разных производителей – от этого зависят надёжность и срок службы</span>
           </div>
-          <div className="table-row" role="row">
+          <div className="compare-row" role="row">
             <strong>Раздвижная</strong>
             <span>створки сдвигаются в стороны, экономят место</span>
             <strong>от 1200 ₪/м²</strong>
