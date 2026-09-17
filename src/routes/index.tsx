@@ -16,6 +16,9 @@ import {
 } from "lucide-react";
 
 import logoAsset from "@/assets/bonim-logo.png.asset.json";
+import dividerCozy from "@/assets/divider-cozy-interior.png.asset.json";
+import dividerSunbeam from "@/assets/divider-glass-sunbeam.png.asset.json";
+import dividerWindow from "@/assets/divider-window.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -88,6 +91,10 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
+function Divider({ image }: { image: { url: string } }) {
+  return <div aria-hidden="true" className="divider-band" style={{ backgroundImage: `url(${image.url})` }} />;
+}
 
 function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
