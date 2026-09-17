@@ -130,6 +130,26 @@
   .hero { min-height: calc(100svh - 92px); display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr); align-items: center; gap: 56px; padding-top: 48px; }
   .eyebrow { display: inline-flex; align-items: center; padding: 8px 16px; border-radius: 999px; background: var(--surface-glass-strong); backdrop-filter: blur(14px); box-shadow: var(--shadow-soft); color: var(--color-primary); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
   .hero h1 { max-width: 780px; margin: 28px 0; color: var(--color-deep-blue); font-size: clamp(42px, 6.2vw, 76px); line-height: 1.02; font-weight: 800; letter-spacing: -0.035em; }
+  .hero-title-main {
+    display: inline-block;
+    background: linear-gradient(176deg, color-mix(in oklch, white 45%, var(--color-deep-blue)) 2%, var(--color-deep-blue) 34%, var(--color-glass) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--color-deep-blue);
+    filter: drop-shadow(0 3px 5px color-mix(in oklch, var(--color-deep-blue) 18%, transparent));
+  }
+  .hero-title-sub { display: block; margin-top: 14px; font-size: clamp(21px, 2.6vw, 32px); line-height: 1.3; font-weight: 400; letter-spacing: -0.01em; color: var(--color-foreground); }
+  @supports (-webkit-text-fill-color: transparent) {
+    .hero-title-main {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 45%),
+        linear-gradient(176deg, color-mix(in oklch, white 45%, var(--color-deep-blue)) 2%, var(--color-deep-blue) 34%, var(--color-glass) 90%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      filter: drop-shadow(0 3px 5px color-mix(in oklch, var(--color-deep-blue) 18%, transparent));
+    }
+  }
   .hero-lead { max-width: 720px; font-size: 20px; line-height: 1.6; color: var(--color-muted-foreground); }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
   .hero-actions a, .site-header a[role="button"] { min-height: 50px; }
