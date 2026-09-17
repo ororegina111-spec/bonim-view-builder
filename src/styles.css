@@ -201,7 +201,7 @@
 @media (max-width: 640px) {
   .section-shell { width: min(100% - 24px, 1120px); padding-block: 48px; }
   .site-header { width: calc(100% - 24px); min-height: 72px; }
-  .site-header .brand-mark--compact p, .site-header > a[role="button"] { display: none; }
+  .site-header .brand-mark--compact p, .site-header > a:not(:first-child) { display: none; }
   .brand-mark--compact img { width: 82px; height: 54px; }
   .section-heading { gap: 10px; margin-bottom: 24px; }
   .section-heading h2 { font-size: 28px; }
