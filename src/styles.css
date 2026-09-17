@@ -147,13 +147,13 @@
   .statement { margin: 36px 0 0; padding: 32px; border-radius: 20px; background: linear-gradient(135deg, var(--color-deep-blue), color-mix(in oklch, var(--color-glass) 85%, white)); color: var(--color-primary-foreground); font-size: 20px; line-height: 1.55; font-weight: 600; box-shadow: var(--shadow-lift); }
 
   .comparison-table { display: grid; gap: 12px; border: 0; }
-  .table-row { display: grid; grid-template-columns: 1fr 1.4fr .7fr 2fr; border-radius: var(--radius-card); background: var(--surface-glass-strong); backdrop-filter: blur(18px); box-shadow: var(--shadow-soft); }
-  .table-row > * { min-width: 0; padding: 24px; border: 0; line-height: 1.55; color: var(--color-foreground); overflow-wrap: anywhere; }
-  .table-row > * + * { box-shadow: inset 1px 0 0 var(--hairline); }
-  .table-row strong { color: var(--color-deep-blue); }
-  .table-head { background: transparent; backdrop-filter: none; box-shadow: none; color: var(--color-muted-foreground); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-  .table-head > * { padding-block: 4px; }
-  .table-head > * + * { box-shadow: none; }
+  .compare-row { display: grid; grid-template-columns: 1fr 1.4fr .7fr 2fr; border-radius: var(--radius-card); background: var(--surface-glass-strong); backdrop-filter: blur(18px); box-shadow: var(--shadow-soft); }
+  .compare-row > * { min-width: 0; padding: 24px; border: 0; line-height: 1.55; color: var(--color-foreground); overflow-wrap: anywhere; }
+  .compare-row > * + * { box-shadow: inset 1px 0 0 var(--hairline); }
+  .compare-row strong { color: var(--color-deep-blue); }
+  .compare-head { background: transparent; backdrop-filter: none; box-shadow: none; color: var(--color-muted-foreground); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .compare-head > * { padding-block: 4px; }
+  .compare-head > * + * { box-shadow: none; }
   .info-strip { margin: 28px 0 0; padding: 26px 28px; border-radius: var(--radius-card); background: var(--surface-glass); backdrop-filter: blur(18px); box-shadow: var(--shadow-soft); color: var(--color-muted-foreground); line-height: 1.7; }
 
   /* steps as a glass timeline */
@@ -252,8 +252,8 @@
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
   .steps-grid li:nth-child(4n)::after { display: block; }
   .steps-grid li:nth-child(2n)::after { display: none; }
-  .table-row { grid-template-columns: 1fr 1.4fr .7fr 1.7fr; font-size: 14px; }
-  .table-row > * { padding: 18px; }
+  .compare-row { grid-template-columns: 1fr 1.4fr .7fr 1.7fr; font-size: 14px; }
+  .compare-row > * { padding: 18px; }
   .form-section { gap: 36px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid > p { display: none; }
@@ -282,15 +282,15 @@
   .statement { padding: 24px; font-size: 17px; }
   .large-copy { font-size: 20px; }
   .comparison-table { border: 0; }
-  .table-head { display: none; }
-  .table-row { display: grid; grid-template-columns: 1fr; margin-bottom: 4px; border: 0; }
-  .table-row > * { padding: 16px 20px; }
-  .table-row > * + * { box-shadow: inset 0 1px 0 var(--hairline); }
-  .table-row strong:first-child { color: var(--color-deep-blue); font-size: 18px; }
-  .table-row > *:nth-child(2)::before { content: "Как работает"; }
-  .table-row > *:nth-child(3)::before { content: "Цена"; }
-  .table-row > *:nth-child(4)::before { content: "Что важно знать"; }
-  .table-row > *::before { display: block; margin-bottom: 7px; color: var(--color-muted-foreground); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .compare-head { display: none; }
+  .compare-row { display: grid; grid-template-columns: 1fr; margin-bottom: 4px; border: 0; }
+  .compare-row > * { padding: 16px 20px; }
+  .compare-row > * + * { box-shadow: inset 0 1px 0 var(--hairline); }
+  .compare-row strong:first-child { color: var(--color-deep-blue); font-size: 18px; }
+  .compare-row > *:nth-child(2)::before { content: "Как работает"; }
+  .compare-row > *:nth-child(3)::before { content: "Цена"; }
+  .compare-row > *:nth-child(4)::before { content: "Что важно знать"; }
+  .compare-row > *::before { display: block; margin-bottom: 7px; color: var(--color-muted-foreground); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
   .steps-grid { grid-template-columns: 1fr; gap: 20px; }
   .steps-grid li { min-height: 0; }
   .steps-grid li::after { display: none; }
