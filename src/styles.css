@@ -340,6 +340,18 @@
   .mobile-whatsapp svg { width: 20px; }
 }
 
+.divider-band {
+  width: 100%;
+  height: clamp(210px, 26vw, 300px);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 640px) {
+  .divider-band { height: 200px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
