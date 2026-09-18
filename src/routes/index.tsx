@@ -255,9 +255,13 @@ function Index() {
             Выезд специалиста – бесплатно. Вы платите только за расчёт и подготовку проекта: от 300 ₪.
           </p>
         </div>
-        <div className="hero-photo-placeholder" role="img" aria-label="Место для фотографии балкона с панорамным остеклением balkon_1.jpg">
-          <span>balkon_1.jpg</span>
-          <p>Фото будет добавлено после загрузки файла</p>
+        <div className="hero-photo">
+          <img
+            src={balkonHero.url}
+            alt="Балкон с панорамным безрамным остеклением и видом на город"
+            fetchPriority="high"
+            decoding="async"
+          />
         </div>
       </section>
 
