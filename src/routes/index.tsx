@@ -8,8 +8,10 @@ import {
   Eye,
   Facebook,
   FileCheck2,
+  Leaf,
   MessageCircle,
   MoveHorizontal,
+  Phone,
   Ruler,
   Send,
   ShieldCheck,
@@ -30,7 +32,7 @@ const faqItems = [
   {
     question: "Замер платный? У других бесплатно.",
     answer:
-      "Сам замер как услуга специалиста – бесплатный. От 300 ₪ покрывают расчёт и подготовку проекта с точными цифрами и доставку специалиста к вам, особенно если вы живёте далеко. Если не закажете – профессиональный расчёт и проект остаются у вас.",
+      "Сам замер как услуга специалиста – бесплатный. От 300 ₪ покрывают расчёт и подготовку проекта с точными цифрами и доставку специалиста к вам, особенно если вы живёте далеко. Если не закажете – профессиональный расчёт и проект остаются у вас.",
   },
   {
     question: "Почему одни системы отличаются от других?",
@@ -104,7 +106,10 @@ function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
     <div className={compact ? "brand-mark brand-mark--compact" : "brand-mark"}>
       <img src={logoAsset.url} alt="בונים BONIM" width="1024" height="768" />
-      <p dir="rtl">סוגרים את המרפסת. פותחים את הנוף.</p>
+      <p className="brand-slogan" dir="rtl">
+        <span>סוגרים את המרפסת.</span>
+        <span>פותחים את הנוף.</span>
+      </p>
     </div>
   );
 }
@@ -134,6 +139,7 @@ function Index() {
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [measureTab, setMeasureTab] = useState<"balcony" | "pergola">("balcony");
+  const [language, setLanguage] = useState<"ru" | "he">("ru");
 
   function submitForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -151,7 +157,36 @@ function Index() {
         <a href="#top" aria-label="BONIM — в начало страницы">
           <BrandMark compact />
         </a>
-        <WhatsAppButton secondary />
+        <div className="header-tools">
+          <div className="language-switch" role="group" aria-label="Выбор языка">
+            <Button
+              type="button"
+              size="icon"
+              variant="ghost"
+              className={language === "he" ? "language-button active" : "language-button"}
+              aria-pressed={language === "he"}
+              aria-label="Иврит — в разработке"
+              onClick={() => setLanguage("he")}
+            >
+              עב
+            </Button>
+            <Button
+              type="button"
+              size="icon"
+              variant="ghost"
+              className={language === "ru" ? "language-button active" : "language-button"}
+              aria-pressed={language === "ru"}
+              aria-label="Русский язык"
+              onClick={() => setLanguage("ru")}
+            >
+              РУ
+            </Button>
+          </div>
+          <span className="header-phone" aria-label="Телефон будет добавлен позже" title="Телефон будет добавлен позже">
+            <Phone />
+          </span>
+          <WhatsAppButton secondary />
+        </div>
       </header>
 
       <section id="top" className="hero section-shell">
@@ -176,19 +211,16 @@ function Index() {
             </Button>
           </div>
           <p className="price-note">
-            Выезд специалиста – бесплатно. Вы платите только за расчёт и подготовку проекта: от 300 ₪.
+            Выезд специалиста – бесплатно. Вы платите только за расчёт и подготовку проекта: от 300 ₪.
           </p>
         </div>
-        <div className="hero-brand">
-          <BrandMark />
-          <div className="glass-lines" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </div>
-          <p dir="rtl">בונים בלקונים / BONIM BALCONIM</p>
+        <div className="hero-photo-placeholder" role="img" aria-label="Место для фотографии балкона с панорамным остеклением balkon_1.jpg">
+          <span>balkon_1.jpg</span>
+          <p>Фото будет добавлено после загрузки файла</p>
         </div>
       </section>
+
+      <Divider image={dividerWindow} text="Ещё один сезон без остекления – ещё один сезон впустую" />
 
       <section className="section-shell problem-section">
         <SectionHeading number="02">Проблема</SectionHeading>
@@ -211,8 +243,6 @@ function Index() {
           не переплатить за то, что развалится через год.
         </p>
       </section>
-
-      <Divider image={dividerWindow} text="Ещё один сезон без остекления – ещё один сезон впустую" />
 
       <section className="blue-band">
         <div className="section-shell narrow">
@@ -237,7 +267,7 @@ function Index() {
           </div>
           <div className="compare-row" role="row">
             <strong>Безрамная складная</strong>
-            <span>панели складываются «книжкой», открывают до 100% проёма, панорамный вид</span>
+            <span>складываются гармошкой, открывают до 100% проёма, панорамный вид</span>
             <strong>от 1500 ₪/м²</strong>
             <span>толщина профиля и материал механизма различаются у разных производителей – от этого зависят надёжность и срок службы</span>
           </div>
@@ -247,6 +277,21 @@ function Index() {
             <strong>от 1200 ₪/м²</strong>
             <span>более бюджетное решение, подходит, если панорамное открывание не обязательно</span>
           </div>
+        </div>
+        <div className="system-galleries" aria-label="Фотографии систем остекления">
+          {["Безрамная складная", "Раздвижная"].map((system) => (
+            <section className="system-gallery" key={system} aria-label={`Фотографии: ${system}`}>
+              <h3>{system}</h3>
+              <div className="system-photo-track">
+                {[1, 2, 3, 4].map((photo) => (
+                  <div className="system-photo-placeholder" key={photo}>
+                    <span>{photo}/4</span>
+                    <p>Фото появится</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ))}
         </div>
         <p className="info-strip">
           У систем есть отличия, которые не видны на фото: толщина профиля, материал колёс и замков,
@@ -266,7 +311,7 @@ function Index() {
               "Звоните, пишете в WhatsApp, оставляете заявку на сайте или в Facebook.",
               "Присылаете размеры балкона – чем точнее, тем точнее будет расчёт.",
               "В тот же день получаете предварительный расчёт.",
-              "Оплачиваете расчёт и подготовку проекта: от 300 ₪.",
+              "Оплачиваете расчёт и подготовку проекта: от 300 ₪.",
               "Специалист бесплатно приезжает с образцами, снимает точные размеры.",
               "Получаете итоговое коммерческое предложение с точной суммой.",
               "Выбираете систему или отказываетесь – расчёт и проект остаются у вас в любом случае.",
@@ -294,7 +339,8 @@ function Index() {
               className={`header-btn${measureTab === "balcony" ? " active" : ""}`}
               onClick={() => setMeasureTab("balcony")}
             >
-              Балкон
+              <Ruler aria-hidden="true" />
+              Инструкция для балкона/лоджии
             </button>
             <button
               type="button"
@@ -303,7 +349,8 @@ function Index() {
               className={`header-btn${measureTab === "pergola" ? " active" : ""}`}
               onClick={() => setMeasureTab("pergola")}
             >
-              Пергола
+              <Leaf aria-hidden="true" />
+              Инструкция для перголы/террасы
             </button>
           </div>
 
@@ -378,10 +425,10 @@ function Index() {
       </section>
 
       <section className="section-shell split-section">
-        <div className="number-card">от 300 <span>₪</span></div>
+        <div className="number-card">от <span className="price-nowrap">300 ₪</span></div>
         <div>
-          <SectionHeading number="08"><span className="section-title-main">Специалист приезжает бесплатно.</span>{" "}<span className="section-title-sub">За что от 300 ₪?</span></SectionHeading>
-          <p>Сам замер – услуга специалиста – бесплатный. От 300 ₪ покрывают две вещи: подготовку расчёта и проекта вашего будущего балкона с точными цифрами, и доставку специалиста к вам. Если вы живёте за 300–400 километров – дорога тоже стоит денег, и это тоже входит в сумму.</p>
+          <SectionHeading number="08"><span className="section-title-main">Специалист приезжает бесплатно.</span>{" "}<span className="section-title-sub">За что от 300 ₪?</span></SectionHeading>
+          <p>Сам замер – услуга специалиста – бесплатный. От 300 ₪ покрывают две вещи: подготовку расчёта и проекта вашего будущего балкона с точными цифрами, и доставку специалиста к вам. Если вы живёте за 300–400 километров – дорога тоже стоит денег, и это тоже входит в сумму.</p>
           <p>Если решите не заказывать дальше проект, профессиональный расчёт, смета и точный проект останутся у вас. Вы сможете обратиться с ними к любым производителям.</p>
         </div>
       </section>
