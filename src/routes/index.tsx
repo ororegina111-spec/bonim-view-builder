@@ -298,14 +298,18 @@ function Index() {
           </div>
         </div>
         <div className="system-galleries" aria-label="Фотографии систем остекления">
-          {["Безрамная складная", "Раздвижная"].map((system) => (
-            <section className="system-gallery" key={system} aria-label={`Фотографии: ${system}`}>
-              <h3>{system}</h3>
+          {systemGalleries.map((gallery) => (
+            <section className="system-gallery" key={gallery.system} aria-label={`Фотографии: ${gallery.system}`}>
+              <h3>{gallery.system}</h3>
               <div className="system-photo-track">
-                {[1, 2, 3, 4].map((photo) => (
-                  <div className="system-photo-placeholder" key={photo}>
-                    <span>{photo}/4</span>
-                    <p>Фото появится</p>
+                {gallery.photos.map((photo, index) => (
+                  <div className="system-photo" key={photo.url}>
+                    <img
+                      src={photo.url}
+                      alt={`${gallery.system}: фото ${index + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                 ))}
               </div>
