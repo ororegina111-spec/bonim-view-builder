@@ -437,11 +437,15 @@ function Index() {
           <p className="tip measure-common-note">
             Даже если вы не закажете через нас – профессиональный расчёт и подготовленный проект
             остаются у вас. Если вы живёте до 60 километров – дорога входит в сумму 300 шекл.
-            Если расстояние больше, мы попросим доплату за проезд специалиста. Или{" "}
-            <button type="button" className="whatsapp-link" onClick={() => window.open(whatsappUrl, "_blank", "noopener,noreferrer")}>
-              заказать бесплатный выезд замерщика
-            </button>
+            Если расстояние больше, мы попросим доплату за проезд специалиста.
           </p>
+          <button
+            type="button"
+            className="whatsapp-link whatsapp-link--standalone"
+            onClick={() => window.open(whatsappUrl, "_blank", "noopener,noreferrer")}
+          >
+            Заказать бесплатный выезд замерщика
+          </button>
         </div>
       </section>
 
