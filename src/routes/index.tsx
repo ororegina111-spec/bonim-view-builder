@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import {
   ArrowDown,
@@ -565,8 +565,8 @@ function Index() {
         <div className="section-shell footer-grid">
           <BrandMark compact />
           <div className="footer-links">
-            <a href="https://modernbuilding.co.il/confidenc/ii/" target="_blank" rel="noreferrer">Политика конфиденциальности</a>
-            <span>Условия оказания услуг</span>
+            <Link to="/privacy">Политика конфиденциальности</Link>
+            <Link to="/terms">Условия оказания услуг</Link>
             <div className="footer-contacts">
               <div className="footer-socials">
                 <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
