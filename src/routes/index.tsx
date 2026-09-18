@@ -71,7 +71,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Диспетчерская служба подбора систем закрытия балконов. Предварительный расчёт по вашим размерам в течение дня.",
+          "Диспетчерская служба подбора систем закрытия балконов и пергол. Предварительный расчёт по вашим размерам в течение дня.",
       },
       { property: "og:title", content: "BONIM — подбор систем остекления балконов" },
       {
@@ -133,6 +133,7 @@ function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [measureTab, setMeasureTab] = useState<"balcony" | "pergola">("balcony");
 
   function submitForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -161,9 +162,9 @@ function Index() {
             <span className="hero-title-sub">Мы поможем подобрать систему, которая подходит именно вам</span>
           </h1>
           <p className="hero-lead">
-            Мы диспетчерская служба: помогаем выбрать систему закрытия балкона среди нескольких
-            проверенных вариантов. Специалист привозит образцы, вы сравниваете вживую и выбираете
-            сами.
+            Мы диспетчерская служба: помогаем выбрать систему закрытия балкона и перголы среди
+            нескольких проверенных вариантов. Специалист привозит образцы, вы сравниваете вживую и
+            выбираете сами.
           </p>
           <div className="hero-actions">
             <WhatsAppButton />
@@ -218,8 +219,9 @@ function Index() {
           <SectionHeading number="03">Мы диспетчеры</SectionHeading>
           <p className="large-copy">
             «Bonim» – не производитель и не фирма-установщик. Мы диспетчерская служба: специалисты,
-            которые помогают подобрать нужную систему закрытия балкона среди нескольких проверенных
-            производителей. Наш специалист приезжает с образцами, показывает разницу вживую, вы
+            которые помогают подобрать нужную систему закрытия балкона или перголы среди нескольких
+            проверенных производителей. Наш специалист приезжает с образцами, показывает разницу
+            вживую, вы
             выбираете. Мы не навязываем вам конкретную систему – наша задача, чтобы вы выбрали то,
             что подходит именно вашему балкону и бюджету.
           </p>
@@ -283,23 +285,80 @@ function Index() {
           WhatsApp, через форму на сайте или в заявке Facebook – и мы пришлём предварительный расчёт
           в течение дня. Чем точнее вы пришлёте размеры, тем точнее будет предварительная стоимость.
         </p>
-        <div className="measure-layout">
-          <div>
+        <div className="tab-container">
+          <div className="tab-header" role="tablist" aria-label="Инструкция по замеру">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={measureTab === "balcony"}
+              className={`header-btn${measureTab === "balcony" ? " active" : ""}`}
+              onClick={() => setMeasureTab("balcony")}
+            >
+              Балкон
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={measureTab === "pergola"}
+              className={`header-btn${measureTab === "pergola" ? " active" : ""}`}
+              onClick={() => setMeasureTab("pergola")}
+            >
+              Пергола
+            </button>
+          </div>
+
+          <div
+            className={`content-block${measureTab === "balcony" ? " active" : ""}`}
+            role="tabpanel"
+            hidden={measureTab !== "balcony"}
+          >
             <h3>Как измерить самостоятельно</h3>
-            <div className="measure-list">
-              <p><Ruler />Мерить нужно только сам проём, который закрываете – не весь балкон.</p>
-              <p><MoveHorizontal />Ширина: от стены до стены. Если закрываете 2–3 стороны – укажите общую сумму.</p>
-              <p><ArrowDown />Высота: от пола (или направляющей) до потолка или верхнего ограждения.</p>
-              <p><Check />Правило трёх точек: сделайте по три измерения ширины и высоты. Ширину измерьте вверху, внизу и в середине. Высоту – с левого края, с правого края и посередине. Для расчёта возьмите наименьшее значение – так система точно встанет.</p>
-              <p><Eye />Отметьте, есть ли парапет и доходит ли остекление от пола до потолка.</p>
+            <div className="measure-layout">
+              <div>
+                <div className="measure-list">
+                  <p><Ruler />Мерить нужно только сам проём, который закрываете – не весь балкон.</p>
+                  <p><MoveHorizontal />Ширина: от стены до стены. Если закрываете 2–3 стороны – укажите общую сумму.</p>
+                  <p><ArrowDown />Высота: от пола (или направляющей) до потолка или верхнего ограждения.</p>
+                  <p><Check />Правило трёх точек: сделайте по три измерения ширины и высоты. Ширину измерьте вверху, внизу и в середине. Высоту – с левого края, с правого края и посередине. Для расчёта возьмите наименьшее значение – так система точно встанет.</p>
+                  <p><Eye />Отметьте, есть ли парапет и доходит ли остекление от пола до потолка.</p>
+                </div>
+                <p className="tip">
+                  Точный замер всегда делает специалист. Для предварительного расчёта достаточно
+                  рулетки, блокнота и телефона. Или{" "}
+                  <button type="button" className="whatsapp-link" onClick={() => window.open(whatsappUrl, "_blank", "noopener,noreferrer")}>
+                    заказать бесплатный выезд замерщика
+                  </button>
+                </p>
+              </div>
+              <div className="measurement-placeholder" aria-label="Место для схемы замера">
+                <Ruler />
+                <span>[Место для схемы замера]</span>
+              </div>
             </div>
           </div>
-          <div className="measurement-placeholder" aria-label="Место для схемы замера">
-            <Ruler />
-            <span>[Место для схемы замера]</span>
+
+          <div
+            className={`content-block${measureTab === "pergola" ? " active" : ""}`}
+            role="tabpanel"
+            hidden={measureTab !== "pergola"}
+          >
+            <h3>Как измерить перголу</h3>
+            <div className="measure-list">
+              <p><Ruler />Мерить нужно только проём перголы – не всю террасу.</p>
+              <p><MoveHorizontal />Ширина: от стены до наружного края террасы или между опорами.</p>
+              <p><ArrowDown />Вылет: от стены до наружного края крыши перголы.</p>
+              <p><ArrowDown />Высота: от пола террасы до точки крепления – стены или потолка.</p>
+              <p><Eye />Отметьте, есть ли рядом стена для крепления и куда выходят опоры.</p>
+            </div>
+            <p className="tip">
+              Точный замер всегда делает специалист. Для предварительного расчёта достаточно
+              рулетки, блокнота и телефона. Или{" "}
+              <button type="button" className="whatsapp-link" onClick={() => window.open(whatsappUrl, "_blank", "noopener,noreferrer")}>
+                заказать бесплатный выезд замерщика
+              </button>
+            </p>
           </div>
         </div>
-        <p className="info-strip">Точный замер всегда делает специалист. Для предварительного расчёта достаточно рулетки, блокнота и телефона.</p>
       </section>
 
       <section className="blue-band">
