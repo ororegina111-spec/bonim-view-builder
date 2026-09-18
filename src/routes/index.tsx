@@ -47,7 +47,7 @@ const whatsappUrl = "https://wa.me/972559404379";
 
 const systemGalleries = [
   {
-    system: "Безрамная складная",
+    system: "Безрамная складывающаяся",
     photos: [
       frameless1,
       frameless2,
@@ -309,7 +309,7 @@ function Index() {
             <span>Тип конструкции</span><span>Как работает</span><span>Цена</span><span>Что важно знать</span>
           </div>
           <div className="compare-row" role="row">
-            <strong>Безрамная складная</strong>
+            <strong>Безрамная складывающаяся</strong>
             <span>складываются гармошкой, открывают до 100% проёма, панорамный вид</span>
             <strong>от 1250 ₪/м²</strong>
             <span>толщина профиля и материал механизма различаются у разных производителей – от этого зависят надёжность и срок службы</span>
