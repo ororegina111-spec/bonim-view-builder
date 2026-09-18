@@ -8,6 +8,7 @@ import {
   Eye,
   Facebook,
   FileCheck2,
+  Leaf,
   MessageCircle,
   MoveHorizontal,
   Phone,
@@ -338,7 +339,8 @@ function Index() {
               className={`header-btn${measureTab === "balcony" ? " active" : ""}`}
               onClick={() => setMeasureTab("balcony")}
             >
-              📏 Инструкция для балкона/лоджии
+              <Ruler aria-hidden="true" />
+              Инструкция для балкона/лоджии
             </button>
             <button
               type="button"
@@ -347,7 +349,8 @@ function Index() {
               className={`header-btn${measureTab === "pergola" ? " active" : ""}`}
               onClick={() => setMeasureTab("pergola")}
             >
-              🌿 Инструкция для перголы/террасы
+              <Leaf aria-hidden="true" />
+              Инструкция для перголы/террасы
             </button>
           </div>
 

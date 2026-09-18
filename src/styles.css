@@ -235,6 +235,8 @@
     text-align: left;
     user-select: none;
   }
+  .tab-header .header-btn { display: flex; align-items: center; gap: 10px; }
+  .tab-header .header-btn svg { width: 18px; height: 18px; flex: 0 0 auto; stroke-width: 1.7; }
   .tab-header .header-btn:hover { background: #ffffff; border-color: var(--color-glass); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(127, 168, 212, 0.3); }
   .tab-header .header-btn.active { background: linear-gradient(135deg, var(--color-deep-blue) 0%, #2a5a9c 100%); color: #ffffff; border: 1px solid var(--color-deep-blue); box-shadow: 0 0 20px rgba(23, 65, 122, 0.3); }
   .tab-container .content-block {
