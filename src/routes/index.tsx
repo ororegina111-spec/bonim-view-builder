@@ -17,7 +17,26 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
+import balkonHero from "@/assets/balkon-1.jpg.asset.json";
 import logoAsset from "@/assets/bonim-logo.png.asset.json";
+import frameless1 from "@/assets/frameless-1.jpg.asset.json";
+import frameless2 from "@/assets/frameless-2.jpg.asset.json";
+import frameless3 from "@/assets/frameless-3.jpg.asset.json";
+import frameless4 from "@/assets/frameless-4.jpg.asset.json";
+import frameless5 from "@/assets/frameless-5.jpg.asset.json";
+import frameless6 from "@/assets/frameless-6.jpg.asset.json";
+import frameless7 from "@/assets/frameless-7.jpg.asset.json";
+import frameless8 from "@/assets/frameless-8.jpg.asset.json";
+import frameless9 from "@/assets/frameless-9.jpg.asset.json";
+import frameless10 from "@/assets/frameless-10.jpg.asset.json";
+import sliding1 from "@/assets/sliding-1.jpg.asset.json";
+import sliding2 from "@/assets/sliding-2.jpg.asset.json";
+import sliding3 from "@/assets/sliding-3.jpg.asset.json";
+import sliding4 from "@/assets/sliding-4.jpg.asset.json";
+import sliding5 from "@/assets/sliding-5.jpg.asset.json";
+import sliding6 from "@/assets/sliding-6.jpg.asset.json";
+import sliding7 from "@/assets/sliding-7.jpg.asset.json";
+import sliding8 from "@/assets/sliding-8.jpg.asset.json";
 import dividerCozy from "@/assets/divider-cozy-interior.png.asset.json";
 import dividerSunbeam from "@/assets/divider-glass-sunbeam.png.asset.json";
 import dividerWindow from "@/assets/divider-window.png.asset.json";
@@ -27,6 +46,28 @@ import { Input } from "@/components/ui/input";
 
 const whatsappUrl =
   "https://wa.me/ЗАПОЛНИТЬ_НОМЕР?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BE%D1%81%D1%82%D0%B5%D0%BA%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B1%D0%B0%D0%BB%D0%BA%D0%BE%D0%BD%D0%B0";
+
+const systemGalleries = [
+  {
+    system: "Безрамная складная",
+    photos: [
+      frameless1,
+      frameless2,
+      frameless3,
+      frameless4,
+      frameless5,
+      frameless6,
+      frameless7,
+      frameless8,
+      frameless9,
+      frameless10,
+    ],
+  },
+  {
+    system: "Раздвижная",
+    photos: [sliding1, sliding2, sliding3, sliding4, sliding5, sliding6, sliding7, sliding8],
+  },
+];
 
 const faqItems = [
   {
@@ -214,9 +255,13 @@ function Index() {
             Выезд специалиста – бесплатно. Вы платите только за расчёт и подготовку проекта: от 300 ₪.
           </p>
         </div>
-        <div className="hero-photo-placeholder" role="img" aria-label="Место для фотографии балкона с панорамным остеклением balkon_1.jpg">
-          <span>balkon_1.jpg</span>
-          <p>Фото будет добавлено после загрузки файла</p>
+        <div className="hero-photo">
+          <img
+            src={balkonHero.url}
+            alt="Балкон с панорамным безрамным остеклением и видом на город"
+            fetchPriority="high"
+            decoding="async"
+          />
         </div>
       </section>
 
@@ -279,14 +324,18 @@ function Index() {
           </div>
         </div>
         <div className="system-galleries" aria-label="Фотографии систем остекления">
-          {["Безрамная складная", "Раздвижная"].map((system) => (
-            <section className="system-gallery" key={system} aria-label={`Фотографии: ${system}`}>
-              <h3>{system}</h3>
+          {systemGalleries.map((gallery) => (
+            <section className="system-gallery" key={gallery.system} aria-label={`Фотографии: ${gallery.system}`}>
+              <h3>{gallery.system}</h3>
               <div className="system-photo-track">
-                {[1, 2, 3, 4].map((photo) => (
-                  <div className="system-photo-placeholder" key={photo}>
-                    <span>{photo}/4</span>
-                    <p>Фото появится</p>
+                {gallery.photos.map((photo, index) => (
+                  <div className="system-photo" key={photo.url}>
+                    <img
+                      src={photo.url}
+                      alt={`${gallery.system}: фото ${index + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                 ))}
               </div>
