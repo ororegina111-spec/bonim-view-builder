@@ -15,8 +15,8 @@ import {
 } from "lucide-react";
 
 import balkonHero from "@/assets/balkon-1.jpg.asset.json";
-import balconyMeasureDiagram from "@/assets/bonim-measure-balcony.png.asset.json";
-import pergolaMeasureDiagram from "@/assets/bonim-measure-pergola.png.asset.json";
+import balconyMeasureDiagram from "@/assets/bonim-measure-balcony.webp.asset.json";
+import pergolaMeasureDiagram from "@/assets/bonim-measure-pergola.webp.asset.json";
 import logoAsset from "@/assets/bonim-logo.png.asset.json";
 import frameless1 from "@/assets/frameless-1.jpg.asset.json";
 import frameless2 from "@/assets/frameless-2.jpg.asset.json";
