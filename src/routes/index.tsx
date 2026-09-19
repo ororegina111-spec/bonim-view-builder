@@ -557,7 +557,7 @@ function Index() {
       <section className="section-shell split-section">
         <div className="number-card">от <span className="price-nowrap">300 ₪</span></div>
         <div>
-          <SectionHeading number="08"><span className="section-title-main">Специалист приезжает бесплатно.</span>{" "}<span className="section-title-sub">За что от 300 ₪?</span></SectionHeading>
+          <SectionHeading number="08"><span className="section-title-main">Специалист&nbsp;приезжает бесплатно.</span>{" "}<span className="section-title-sub">За что от 300 ₪?</span></SectionHeading>
           <p>Сам замер – услуга специалиста – бесплатный. От 300 ₪ покрывают две вещи: подготовку расчёта и проекта вашего будущего балкона с точными цифрами, и доставку специалиста к вам. Если вы живёте до 60 километров – дорога входит в сумму. Если расстояние больше, мы попросим доплату за проезд специалиста.</p>
           <p>Если решите не заказывать дальше проект, профессиональный расчёт, смета и точный проект останутся у вас. Вы сможете обратиться с ними к любым производителям.</p>
         </div>
