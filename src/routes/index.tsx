@@ -1,10 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import {
   ArrowDown,
   ArrowRight,
   Check,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   Facebook,
   Leaf,
   MessageCircle,
@@ -49,6 +51,7 @@ import slidingWebp11 from "@/assets/sliding-webp/sliding-webp-11.webp.asset.json
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import { portfolioProjects } from "@/data/portfolio";
 
 const whatsappUrl = "https://wa.me/972559404379";
 
@@ -194,6 +197,42 @@ function WhatsAppButton({ secondary = false }: { secondary?: boolean }) {
         Написать в WhatsApp
       </a>
     </Button>
+  );
+}
+
+function PortfolioCarousel() {
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+
+  function scrollBy(direction: -1 | 1) {
+    const node = scrollerRef.current;
+    if (!node) return;
+    node.scrollBy({ left: direction * Math.max(280, node.clientWidth * 0.8), behavior: "smooth" });
+  }
+
+  return (
+    <div className="portfolio-carousel">
+      <div className="portfolio-carousel-track" ref={scrollerRef}>
+        {portfolioProjects.slice(0, 5).map((project) => (
+          <article className="portfolio-card" key={project.id}>
+            <span className="portfolio-cover">
+              {project.cover ? (
+                <img src={project.cover} alt={project.title} loading="lazy" decoding="async" />
+              ) : (
+                "[Фото проекта]"
+              )}
+            </span>
+            <span className="portfolio-city">{project.city}</span>
+            <span className="portfolio-title">{project.title}</span>
+            <span className="portfolio-description">{project.description}</span>
+          </article>
+        ))}
+      </div>
+      <div className="portfolio-carousel-nav">
+        <button type="button" onClick={() => scrollBy(-1)} aria-label="Предыдущие проекты"><ChevronLeft /></button>
+        <button type="button" onClick={() => scrollBy(1)} aria-label="Следующие проекты"><ChevronRight /></button>
+      </div>
+      <Link to="/portfolio" className="portfolio-more">Смотреть ещё</Link>
+    </div>
   );
 }
 
@@ -393,7 +432,7 @@ function Index() {
               "Оплачиваете подготовку итогового проекта: от 300 ₪.",
               "Специалист бесплатно приезжает с образцами, снимает точные размеры.",
               "Получаете итоговое коммерческое предложение с точной суммой.",
-              "Выбираете удобную вам систему. Если не решитесь, то смета и профессиональный проект останутся у вас.",
+              "Выбираете удобную вам систему. Если не решились, то расчёт и готовый профессиональный проект остаются у вас в любом случае.",
               "Подписываете договор напрямую с исполнителем.",
             ].map((step, index) => (
               <li key={step}><span>{index + 1}</span><p>{step}</p></li>
@@ -465,10 +504,14 @@ function Index() {
           >
             <h3>Как измерить перголу</h3>
             <div className="measure-layout">
-              <div className="measure-list">
-                <p><span className="measure-number">1</span><span>Ширина</span></p>
-                <p><span className="measure-number">2</span><span>Высота</span></p>
-                <p><span className="measure-number">3</span><span>Отметьте, есть ли примыкание к дому и длина этого примыкания (стороны).</span></p>
+              <div>
+                <p className="measure-lead">Если вы закрываете перголу, измерьте каждую сторону, которую хотите закрыть, как отдельный прямоугольник.</p>
+                <div className="measure-list">
+                  <p><span className="measure-number">1</span><span>Ширина (W): расстояние между опорными столбами.</span></p>
+                  <p><span className="measure-number">2</span><span>Высота (H): расстояние от пола до нижней части крыши или балки.</span></p>
+                  <p><span className="measure-number">3</span><span>Отметьте, есть ли примыкание к дому и длина этого примыкания (стороны).</span></p>
+                </div>
+                <p className="measure-hint">Окончательный замер всегда делает специалист.</p>
               </div>
               <img
                 className="measurement-diagram"
@@ -481,7 +524,8 @@ function Index() {
           </div>
           <p className="tip measure-common-note">
             Даже если вы не закажете через нас – профессиональный расчёт и подготовленный проект
-            остаются у вас. Если вы живёте до 60 километров – дорога входит в сумму 300 шекл.
+            остаются у вас. Если вы живёте до 60 километров – дорога входит в стоимость подготовки
+            проекта (от 300 ₪).
             Если расстояние больше, мы попросим доплату за проезд специалиста.
           </p>
           <button
@@ -503,7 +547,7 @@ function Index() {
               "Снимает точные размеры вашего балкона.",
               "Показывает разницу между системами вживую.",
               "Честно называет особенности и ограничения каждого варианта.",
-              "В течении 24 часов получаете точный расчет и сам проект.",
+              "В течение 24 часов получаете точный расчёт и сам проект.",
               "Даже если вы не закажете через нас – профессиональный расчёт и подготовленный проект остаются у вас.",
             ].map((item) => <p key={item}><Check />{item}</p>)}
           </div>
@@ -513,7 +557,7 @@ function Index() {
       <section className="section-shell split-section">
         <div className="number-card">от <span className="price-nowrap">300 ₪</span></div>
         <div>
-          <SectionHeading number="08"><span className="section-title-main">Специалист приезжает бесплатно.</span>{" "}<span className="section-title-sub">За что от 300 ₪?</span></SectionHeading>
+          <SectionHeading number="08"><span className="section-title-main">Специалист&nbsp;приезжает бесплатно.</span>{" "}<span className="section-title-sub">За что от 300 ₪?</span></SectionHeading>
           <p>Сам замер – услуга специалиста – бесплатный. От 300 ₪ покрывают две вещи: подготовку расчёта и проекта вашего будущего балкона с точными цифрами, и доставку специалиста к вам. Если вы живёте до 60 километров – дорога входит в сумму. Если расстояние больше, мы попросим доплату за проезд специалиста.</p>
           <p>Если решите не заказывать дальше проект, профессиональный расчёт, смета и точный проект останутся у вас. Вы сможете обратиться с ними к любым производителям.</p>
         </div>
@@ -540,10 +584,8 @@ function Index() {
 
       <section className="soft-band">
         <div className="section-shell">
-          <SectionHeading number="11">Отзывы о работах наших исполнителей</SectionHeading>
-          <div className="reviews-grid">
-            {[1, 2, 3].map((item) => <blockquote key={item}>«Отзыв появится после первых заказов»</blockquote>)}
-          </div>
+          <SectionHeading number="11">Реальные объекты наших партнёров</SectionHeading>
+          <PortfolioCarousel />
         </div>
       </section>
 
