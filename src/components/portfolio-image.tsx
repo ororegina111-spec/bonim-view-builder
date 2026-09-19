@@ -9,19 +9,22 @@ type PortfolioImageProps = {
 
 export function PortfolioImage({ src, alt, className, loading = "lazy" }: PortfolioImageProps) {
   const [failed, setFailed] = useState(false);
-
-  if (failed) {
-    return <span className={`portfolio-image-placeholder ${className ?? ""}`.trim()}>[Фото проекта]</span>;
-  }
+  const [loaded, setLoaded] = useState(false);
 
   return (
-    <img
-      src={src}
-      alt={alt}
-      className={className}
-      loading={loading}
-      decoding="async"
-      onError={() => setFailed(true)}
-    />
+    <span className={`portfolio-image-frame ${className ?? ""}`.trim()}>
+      {!loaded || failed ? <span className="portfolio-image-placeholder">[Фото проекта]</span> : null}
+      {!failed ? (
+        <img
+          src={src}
+          alt={alt}
+          loading={loading}
+          decoding="async"
+          className={loaded ? "is-loaded" : ""}
+          onLoad={() => setLoaded(true)}
+          onError={() => setFailed(true)}
+        />
+      ) : null}
+    </span>
   );
 }
