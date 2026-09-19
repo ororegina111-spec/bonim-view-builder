@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { X } from "lucide-react";
+import { Play, X } from "lucide-react";
 
 import { PortfolioImage } from "@/components/portfolio-image";
 import { MobileWhatsApp, SiteFooter, SiteHeader, WhatsAppButton } from "@/components/site-chrome";
@@ -38,8 +38,7 @@ function PortfolioPage() {
         <Link to="/" className="legal-back">← На главную</Link>
         <h1>Реальные объекты наших партнёров</h1>
         <p className="section-intro">
-          Работы выполнены партнёрами-исполнителями сети. Нажмите на карточку, чтобы посмотреть все
-          фотографии проекта.
+          Нажмите на карточку, чтобы посмотреть фотографии и видео проекта.
         </p>
 
         <div className="portfolio-grid">
@@ -47,6 +46,7 @@ function PortfolioPage() {
             <button type="button" className="portfolio-card" key={project.id} onClick={() => setActive(project)}>
               <span className="portfolio-cover">
                 <PortfolioImage src={project.cover} alt={project.title} />
+                {project.videos.length > 0 ? <span className="portfolio-video-badge" aria-label="Есть видео"><Play /></span> : null}
               </span>
               <span className="portfolio-city">{project.city}</span>
               <span className="portfolio-title">{project.title}</span>
@@ -76,7 +76,7 @@ function PortfolioPage() {
                 <PortfolioImage key={photo} src={photo} alt={`${active.title}, фото ${index + 1}`} />
               ))}
               {active.videos.map((video) => (
-                <video key={video} controls preload="metadata">
+                <video key={video} controls playsInline preload="none" poster={active.cover}>
                   <source src={video} type="video/mp4" />
                 </video>
               ))}

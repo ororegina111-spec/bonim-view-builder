@@ -11,6 +11,7 @@ import {
   Leaf,
   MessageCircle,
   Phone,
+  Play,
   Ruler,
   Send,
   ShieldCheck,
@@ -217,6 +218,7 @@ function PortfolioCarousel() {
           <article className="portfolio-card" key={project.id}>
             <span className="portfolio-cover">
               <PortfolioImage src={project.cover} alt={project.title} />
+              {project.videos.length > 0 ? <span className="portfolio-video-badge" aria-label="Есть видео"><Play /></span> : null}
             </span>
             <span className="portfolio-city">{project.city}</span>
             <span className="portfolio-title">{project.title}</span>
