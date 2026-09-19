@@ -18,24 +18,24 @@ import balkonHero from "@/assets/balkon-1.jpg.asset.json";
 import balconyMeasureDiagram from "@/assets/bonim-measure-balcony.webp.asset.json";
 import pergolaMeasureDiagram from "@/assets/bonim-measure-pergola.webp.asset.json";
 import logoAsset from "@/assets/bonim-logo.png.asset.json";
-import frameless1 from "@/assets/frameless-1.jpg.asset.json";
-import frameless2 from "@/assets/frameless-2.jpg.asset.json";
-import frameless3 from "@/assets/frameless-3.jpg.asset.json";
-import frameless4 from "@/assets/frameless-4.jpg.asset.json";
-import frameless5 from "@/assets/frameless-5.jpg.asset.json";
-import frameless6 from "@/assets/frameless-6.jpg.asset.json";
-import frameless7 from "@/assets/frameless-7.jpg.asset.json";
-import frameless8 from "@/assets/frameless-8.jpg.asset.json";
-import frameless9 from "@/assets/frameless-9.jpg.asset.json";
-import frameless10 from "@/assets/frameless-10.jpg.asset.json";
-import sliding1 from "@/assets/sliding-1.jpg.asset.json";
-import sliding2 from "@/assets/sliding-2.jpg.asset.json";
-import sliding3 from "@/assets/sliding-3.jpg.asset.json";
-import sliding4 from "@/assets/sliding-4.jpg.asset.json";
-import sliding5 from "@/assets/sliding-5.jpg.asset.json";
-import sliding6 from "@/assets/sliding-6.jpg.asset.json";
-import sliding7 from "@/assets/sliding-7.jpg.asset.json";
-import sliding8 from "@/assets/sliding-8.jpg.asset.json";
+import frameless1 from "@/assets/frameless/frameless-1.jpg.asset.json";
+import frameless2 from "@/assets/frameless/frameless-2.jpg.asset.json";
+import frameless3 from "@/assets/frameless/frameless-3.jpg.asset.json";
+import frameless4 from "@/assets/frameless/frameless-4.jpg.asset.json";
+import frameless5 from "@/assets/frameless/frameless-5.jpg.asset.json";
+import frameless6 from "@/assets/frameless/frameless-6.jpg.asset.json";
+import frameless7 from "@/assets/frameless/frameless-7.jpg.asset.json";
+import frameless8 from "@/assets/frameless/frameless-8.jpg.asset.json";
+import frameless9 from "@/assets/frameless/frameless-9.jpg.asset.json";
+import frameless10 from "@/assets/frameless/frameless-10.jpg.asset.json";
+import sliding1 from "@/assets/sliding/sliding-1.jpeg.asset.json";
+import sliding2 from "@/assets/sliding/sliding-2.jpg.asset.json";
+import sliding3 from "@/assets/sliding/sliding-3.png.asset.json";
+import sliding4 from "@/assets/sliding/sliding-4.jpeg.asset.json";
+import sliding5 from "@/assets/sliding/sliding-5.jpg.asset.json";
+import sliding6 from "@/assets/sliding/sliding-6.png.asset.json";
+import sliding7 from "@/assets/sliding/sliding-7.jpg.asset.json";
+import sliding8 from "@/assets/sliding/sliding-8.jpg.asset.json";
 import dividerCozy from "@/assets/divider-cozy-interior.png.asset.json";
 import dividerSunbeam from "@/assets/divider-glass-sunbeam.png.asset.json";
 import dividerWindow from "@/assets/divider-window.png.asset.json";
@@ -589,8 +589,7 @@ function Index() {
               <p><a href="tel:+972559404379">+972 55-940-4379</a></p>
               <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer">@bonimbalconimbot</a></p>
               <p><a href="mailto:bonimbalconim@gmail.com">Написать</a></p>
-              <p>ЗАПОЛНИТЬ_АДРЕС</p>
-              <p>ЗАПОЛНИТЬ_НОМЕР_КОМПАНИИ</p>
+              <p>г. Рамле, ул. Моше Даян, 8</p>
             </div>
           </div>
           <p dir="rtl">בונים בלקונים / BONIM BALCONIM</p>
