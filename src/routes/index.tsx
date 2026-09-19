@@ -298,17 +298,24 @@ function Index() {
             <section className="system-gallery" key={gallery.system} aria-label={`Фотографии: ${gallery.system}`}>
               <h3>{gallery.system}</h3>
               <div className="system-photo-track">
-                {gallery.photos.map((photo, index) => (
-                  <div className="system-photo" key={photo.url}>
-                    <img
-                      src={photo.url}
-                      alt={`${gallery.system}: фото ${index + 1}`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                ))}
+                {gallery.photos.length === 0
+                  ? [1, 2, 3, 4].map((n) => (
+                      <div className="system-photo system-photo--placeholder" key={n}>
+                        <span>Фото появится</span>
+                      </div>
+                    ))
+                  : gallery.photos.map((photo, index) => (
+                      <div className="system-photo" key={photo}>
+                        <img
+                          src={photo}
+                          alt={`${gallery.system}: фото ${index + 1}`}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    ))}
               </div>
+
             </section>
           ))}
         </div>
