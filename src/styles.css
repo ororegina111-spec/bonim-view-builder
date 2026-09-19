@@ -608,17 +608,59 @@
 }
 .portfolio-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); }
 .portfolio-cover {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 5;
   border-radius: 12px;
   background: color-mix(in oklch, var(--color-glass) 22%, white);
   color: var(--color-deep-blue);
   font-size: 15px;
   overflow: hidden;
 }
-.portfolio-cover img { width: 100%; height: 100%; object-fit: cover; }
+.portfolio-image-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.portfolio-image-frame img {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.portfolio-image-frame img.is-loaded { opacity: 1; }
+.portfolio-cover .portfolio-image-frame img { object-fit: cover; }
+.portfolio-video-badge {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in oklch, white 65%, transparent);
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--color-deep-blue) 76%, transparent);
+  color: white;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(8px);
+}
+.portfolio-video-badge svg { width: 17px; height: 17px; fill: currentColor; }
+.portfolio-image-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in oklch, var(--color-muted-foreground) 18%, white);
+  color: var(--color-muted-foreground);
+}
 .portfolio-city { color: var(--color-muted-foreground); font-size: 14px; }
 .portfolio-title { color: var(--color-deep-blue); font-size: 18px; font-weight: 700; }
 .portfolio-description { color: var(--color-muted-foreground); font-size: 15px; line-height: 1.5; }
@@ -672,4 +714,14 @@
   cursor: pointer;
 }
 .portfolio-viewer-photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
-.portfolio-viewer-photos img { width: 100%; border-radius: 12px; }
+.portfolio-viewer-photos img,
+.portfolio-viewer-photos video,
+.portfolio-viewer-photos .portfolio-image-frame {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
+  background: var(--color-background);
+  object-fit: contain;
+}
+.portfolio-viewer-photos .portfolio-image-frame img { object-fit: contain; }
+.portfolio-viewer-photos video { max-height: 80vh; }
