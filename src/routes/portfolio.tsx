@@ -48,8 +48,8 @@ function PortfolioPage() {
                 <PortfolioImage src={project.cover} alt={project.title} />
                 {project.videos.length > 0 ? <span className="portfolio-video-badge" aria-label="Есть видео"><Play /></span> : null}
               </span>
-              <span className="portfolio-city">{project.city}</span>
               <span className="portfolio-title">{project.title}</span>
+              {project.date ? <span className="portfolio-date">{project.date}</span> : null}
               <span className="portfolio-description">{project.description}</span>
             </button>
           ))}
@@ -67,7 +67,7 @@ function PortfolioPage() {
               <X />
             </button>
             <h2>{active.title}</h2>
-            <p>{active.city}</p>
+            {active.date ? <p>{active.date}</p> : null}
             <div className="portfolio-viewer-photos">
               {active.photos.length === 0 && active.videos.length === 0 ? (
                 <div className="portfolio-cover">[Фото проекта]</div>

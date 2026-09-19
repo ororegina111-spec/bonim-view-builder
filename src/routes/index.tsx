@@ -220,8 +220,8 @@ function PortfolioCarousel() {
               <PortfolioImage src={project.cover} alt={project.title} />
               {project.videos.length > 0 ? <span className="portfolio-video-badge" aria-label="Есть видео"><Play /></span> : null}
             </span>
-            <span className="portfolio-city">{project.city}</span>
             <span className="portfolio-title">{project.title}</span>
+            {project.date ? <span className="portfolio-date">{project.date}</span> : null}
             <span className="portfolio-description">{project.description}</span>
           </article>
         ))}
