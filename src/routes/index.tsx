@@ -18,24 +18,6 @@ import balkonHero from "@/assets/balkon-1.jpg.asset.json";
 import balconyMeasureDiagram from "@/assets/bonim-measure-balcony.webp.asset.json";
 import pergolaMeasureDiagram from "@/assets/bonim-measure-pergola.webp.asset.json";
 import logoAsset from "@/assets/bonim-logo.png.asset.json";
-import frameless1 from "@/assets/frameless/frameless-1.jpg.asset.json";
-import frameless2 from "@/assets/frameless/frameless-2.jpg.asset.json";
-import frameless3 from "@/assets/frameless/frameless-3.jpg.asset.json";
-import frameless4 from "@/assets/frameless/frameless-4.jpg.asset.json";
-import frameless5 from "@/assets/frameless/frameless-5.jpg.asset.json";
-import frameless6 from "@/assets/frameless/frameless-6.jpg.asset.json";
-import frameless7 from "@/assets/frameless/frameless-7.jpg.asset.json";
-import frameless8 from "@/assets/frameless/frameless-8.jpg.asset.json";
-import frameless9 from "@/assets/frameless/frameless-9.jpg.asset.json";
-import frameless10 from "@/assets/frameless/frameless-10.jpg.asset.json";
-import sliding1 from "@/assets/sliding/sliding-1.jpeg.asset.json";
-import sliding2 from "@/assets/sliding/sliding-2.jpg.asset.json";
-import sliding3 from "@/assets/sliding/sliding-3.png.asset.json";
-import sliding4 from "@/assets/sliding/sliding-4.jpeg.asset.json";
-import sliding5 from "@/assets/sliding/sliding-5.jpg.asset.json";
-import sliding6 from "@/assets/sliding/sliding-6.png.asset.json";
-import sliding7 from "@/assets/sliding/sliding-7.jpg.asset.json";
-import sliding8 from "@/assets/sliding/sliding-8.jpg.asset.json";
 import dividerCozy from "@/assets/divider-cozy-interior.png.asset.json";
 import dividerSunbeam from "@/assets/divider-glass-sunbeam.png.asset.json";
 import dividerWindow from "@/assets/divider-window.png.asset.json";
@@ -48,24 +30,14 @@ const whatsappUrl = "https://wa.me/972559404379";
 const systemGalleries = [
   {
     system: "Безрамная складывающаяся",
-    photos: [
-      frameless1,
-      frameless2,
-      frameless3,
-      frameless4,
-      frameless5,
-      frameless6,
-      frameless7,
-      frameless8,
-      frameless9,
-      frameless10,
-    ],
+    photos: [] as string[],
   },
   {
     system: "Раздвижная",
-    photos: [sliding1, sliding2, sliding3, sliding4, sliding5, sliding6, sliding7, sliding8],
+    photos: [] as string[],
   },
 ];
+
 
 const faqItems = [
   {
