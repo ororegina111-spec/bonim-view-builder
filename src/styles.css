@@ -190,6 +190,9 @@
   .system-photo-track { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(76%, 1fr); gap: 12px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: inline mandatory; padding: 2px 2px 14px; scrollbar-color: var(--color-glass) transparent; }
   .system-photo { scroll-snap-align: start; overflow: hidden; border-radius: var(--radius-card); background: var(--surface-glass-strong); box-shadow: var(--shadow-soft); }
   .system-photo img { display: block; width: 100%; height: 240px; object-fit: cover; }
+  .system-photo--placeholder { display: flex; align-items: center; justify-content: center; height: 240px; background: var(--surface-glass); border: 1px dashed var(--color-glass); }
+  .system-photo--placeholder span { color: var(--color-deep-blue); opacity: 0.6; font-size: 15px; }
+
 
   /* steps as a glass timeline */
   .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 20px; margin: 0; padding: 0; background: none; border: 0; list-style: none; }
