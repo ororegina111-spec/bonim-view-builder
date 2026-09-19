@@ -1,10 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import {
   ArrowDown,
   ArrowRight,
   Check,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   Facebook,
   Leaf,
   MessageCircle,
@@ -49,6 +51,7 @@ import slidingWebp11 from "@/assets/sliding-webp/sliding-webp-11.webp.asset.json
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import { portfolioProjects } from "@/data/portfolio";
 
 const whatsappUrl = "https://wa.me/972559404379";
 
@@ -194,6 +197,42 @@ function WhatsAppButton({ secondary = false }: { secondary?: boolean }) {
         Написать в WhatsApp
       </a>
     </Button>
+  );
+}
+
+function PortfolioCarousel() {
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+
+  function scrollBy(direction: -1 | 1) {
+    const node = scrollerRef.current;
+    if (!node) return;
+    node.scrollBy({ left: direction * Math.max(280, node.clientWidth * 0.8), behavior: "smooth" });
+  }
+
+  return (
+    <div className="portfolio-carousel">
+      <div className="portfolio-carousel-track" ref={scrollerRef}>
+        {portfolioProjects.slice(0, 5).map((project) => (
+          <article className="portfolio-card" key={project.id}>
+            <span className="portfolio-cover">
+              {project.cover ? (
+                <img src={project.cover} alt={project.title} loading="lazy" decoding="async" />
+              ) : (
+                "[Фото проекта]"
+              )}
+            </span>
+            <span className="portfolio-city">{project.city}</span>
+            <span className="portfolio-title">{project.title}</span>
+            <span className="portfolio-description">{project.description}</span>
+          </article>
+        ))}
+      </div>
+      <div className="portfolio-carousel-nav">
+        <button type="button" onClick={() => scrollBy(-1)} aria-label="Предыдущие проекты"><ChevronLeft /></button>
+        <button type="button" onClick={() => scrollBy(1)} aria-label="Следующие проекты"><ChevronRight /></button>
+      </div>
+      <Link to="/portfolio" className="portfolio-more">Смотреть ещё</Link>
+    </div>
   );
 }
 
