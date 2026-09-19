@@ -55,11 +55,38 @@ const whatsappUrl = "https://wa.me/972559404379";
 const systemGalleries = [
   {
     system: "Безрамная складывающаяся",
-    photos: [] as string[],
+    photos: [
+      framelessWebp1.url,
+      framelessWebp2.url,
+      framelessWebp3.url,
+      framelessWebp4.url,
+      framelessWebp5.url,
+      framelessJpg1.url,
+      framelessJpg2.url,
+      framelessJpg3.url,
+      framelessJpg4.url,
+      framelessJpg5.url,
+      framelessJpg6.url,
+      framelessJpg7.url,
+      framelessJpg9.url,
+      framelessJpg10.url,
+    ],
   },
   {
     system: "Раздвижная",
-    photos: [] as string[],
+    photos: [
+      slidingWebp1.url,
+      slidingWebp2.url,
+      slidingWebp3.url,
+      slidingWebp4.url,
+      slidingWebp5.url,
+      slidingWebp6.url,
+      slidingWebp7.url,
+      slidingWebp8.url,
+      slidingWebp9.url,
+      slidingWebp10.url,
+      slidingWebp11.url,
+    ],
   },
 ];
 
