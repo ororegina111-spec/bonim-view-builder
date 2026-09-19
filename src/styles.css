@@ -200,11 +200,13 @@
   .steps-grid p { margin-top: 22px; line-height: 1.6; font-weight: 500; color: var(--color-foreground); }
 
   .measure-intro { max-width: 940px; }
-  .measure-layout { display: grid; grid-template-columns: 1.25fr .75fr; gap: 48px; align-items: stretch; }
+  .measure-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(240px, .75fr); gap: 48px; align-items: start; }
   .measure-layout h3 { margin: 0 0 24px; color: var(--color-deep-blue); font-size: 24px; letter-spacing: -0.02em; }
   .measure-list { display: grid; gap: 12px; background: none; border: 0; }
-  .measure-list p { display: grid; grid-template-columns: 24px 1fr; gap: 16px; margin: 0; padding: 20px 22px; border-radius: var(--radius-card); background: var(--surface-glass); backdrop-filter: blur(16px); box-shadow: var(--shadow-soft); line-height: 1.6; }
+  .measure-list p { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 16px; align-items: start; margin: 0; padding: 20px 22px; border-radius: var(--radius-card); background: var(--surface-glass); backdrop-filter: blur(16px); box-shadow: var(--shadow-soft); line-height: 1.6; }
   .measure-list svg { width: 20px; color: var(--color-glass); stroke-width: 1.5; }
+  .measure-number { display: grid; width: 24px; height: 24px; place-items: center; border-radius: 999px; background: var(--color-deep-blue); color: var(--color-primary-foreground); font-size: 13px; font-weight: 700; line-height: 1; }
+  .measurement-diagram { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
 
   /* ===== Вкладки инструкции по замеру (балкон / пергола) ===== */
   .tab-container {
@@ -552,5 +554,7 @@
 }
 
 @media (max-width: 760px) {
+  .measure-layout { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .measurement-diagram { width: 100%; }
   .legal-shell { padding-block: 40px 64px; }
 }

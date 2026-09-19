@@ -5,11 +5,9 @@ import {
   ArrowRight,
   Check,
   ChevronDown,
-  Eye,
   Facebook,
   Leaf,
   MessageCircle,
-  MoveHorizontal,
   Phone,
   Ruler,
   Send,
@@ -17,6 +15,8 @@ import {
 } from "lucide-react";
 
 import balkonHero from "@/assets/balkon-1.jpg.asset.json";
+import balconyMeasureDiagram from "@/assets/bonim-measure-balcony.png.asset.json";
+import pergolaMeasureDiagram from "@/assets/bonim-measure-pergola.png.asset.json";
 import logoAsset from "@/assets/bonim-logo.png.asset.json";
 import frameless1 from "@/assets/frameless-1.jpg.asset.json";
 import frameless2 from "@/assets/frameless-2.jpg.asset.json";
@@ -244,7 +244,7 @@ function Index() {
             <WhatsAppButton />
             <Button asChild size="lg" variant="outline">
               <a href="#calculation">
-                Узнать предварительный расчёт
+                Получить предварительный расчёт
                 <ArrowDown />
               </a>
             </Button>
@@ -412,15 +412,18 @@ function Index() {
             <div className="measure-layout">
               <div>
                 <div className="measure-list">
-                  <p><MoveHorizontal />Ширина: от стены до стены, если балкон прямой. Если закрываете 2–3 стороны, от перил до перил или от перил до стены и укажите общую сумму длин.</p>
-                  <p><ArrowDown />Высота: от перил до потолка или от пола до потолка, если нет стеклянного ограждения (мааке цхухит). Если нет потолка или частично нет потолка, возьмите для расчёта высоту 150 см. Стоимость перголы, необходимой в этом случае, рассчитывают отдельно.</p>
-                  <p><Check />Отметьте, есть ли парапет и доходит ли остекление от пола до потолка.</p>
+                  <p><span className="measure-number">1</span><span>Ширина: от стены до стены, если балкон прямой. Если закрываете 2–3 стороны, от перил до перил или от перил до стены и укажите общую сумму длин.</span></p>
+                  <p><span className="measure-number">2</span><span>Высота: от перил до потолка или от пола до потолка, если нет стеклянного ограждения (мааке цхухит). Если нет потолка или частично нет потолка, возьмите для расчёта высоту 150 см. Стоимость перголы, необходимой в этом случае, рассчитывают отдельно.</span></p>
+                  <p className="measure-unnumbered"><Check /><span>Отметьте, есть ли парапет и доходит ли остекление от пола до потолка.</span></p>
                 </div>
               </div>
-              <div className="measurement-placeholder" aria-label="Место для схемы замера">
-                <Ruler />
-                <span>[Место для схемы замера]</span>
-              </div>
+              <img
+                className="measurement-diagram"
+                src={balconyMeasureDiagram.url}
+                alt="Схема замера балкона: 1 – ширина, 2 – высота"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
 
@@ -430,8 +433,19 @@ function Index() {
             hidden={measureTab !== "pergola"}
           >
             <h3>Как измерить перголу</h3>
-            <div className="measure-list">
-              <p><Eye />Отметьте, есть ли примыкание к дому и длина этого примыкания (стороны).</p>
+            <div className="measure-layout">
+              <div className="measure-list">
+                <p><span className="measure-number">1</span><span>Ширина</span></p>
+                <p><span className="measure-number">2</span><span>Высота</span></p>
+                <p><span className="measure-number">3</span><span>Отметьте, есть ли примыкание к дому и длина этого примыкания (стороны).</span></p>
+              </div>
+              <img
+                className="measurement-diagram"
+                src={pergolaMeasureDiagram.url}
+                alt="Схема замера перголы: 1 – ширина, 2 – высота, 3 – примыкание к дому"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
           <p className="tip measure-common-note">
@@ -534,7 +548,7 @@ function Index() {
 
       <section id="calculation" className="section-shell form-section">
         <div className="form-copy">
-          <SectionHeading number="14">Узнать предварительный расчёт</SectionHeading>
+          <SectionHeading number="14">Получить предварительный расчёт</SectionHeading>
           <p className="decorative-sign" dir="rtl">בונים בלקונים / BONIM BALCONIM</p>
         </div>
         <div className="form-panel">
@@ -553,7 +567,7 @@ function Index() {
                 <Checkbox checked={consent} onCheckedChange={(value) => setConsent(value === true)} required />
                 <span>Согласен(на) на обработку персональных данных для связи по заявке</span>
               </label>
-              <Button type="submit" size="lg" className="submit-button">Узнать предварительный расчёт <ArrowRight /></Button>
+              <Button type="submit" size="lg" className="submit-button">Получить предварительный расчёт <ArrowRight /></Button>
             </form>
           )}
           <div className="form-divider"><span>или</span></div>
