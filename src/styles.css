@@ -661,7 +661,7 @@
   background: color-mix(in oklch, var(--color-muted-foreground) 18%, white);
   color: var(--color-muted-foreground);
 }
-.portfolio-city { color: var(--color-muted-foreground); font-size: 14px; }
+.portfolio-date { color: var(--color-muted-foreground); font-size: 14px; }
 .portfolio-title { color: var(--color-deep-blue); font-size: 18px; font-weight: 700; }
 .portfolio-description { color: var(--color-muted-foreground); font-size: 15px; line-height: 1.5; }
 .portfolio-carousel-nav { display: flex; gap: 12px; margin-top: 16px; }
