@@ -51,6 +51,7 @@ import slidingWebp11 from "@/assets/sliding-webp/sliding-webp-11.webp.asset.json
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import { PortfolioImage } from "@/components/portfolio-image";
 import { portfolioProjects } from "@/data/portfolio";
 
 const whatsappUrl = "https://wa.me/972559404379";
@@ -215,11 +216,7 @@ function PortfolioCarousel() {
         {portfolioProjects.slice(0, 5).map((project) => (
           <article className="portfolio-card" key={project.id}>
             <span className="portfolio-cover">
-              {project.cover ? (
-                <img src={project.cover} alt={project.title} loading="lazy" decoding="async" />
-              ) : (
-                "[Фото проекта]"
-              )}
+              <PortfolioImage src={project.cover} alt={project.title} />
             </span>
             <span className="portfolio-city">{project.city}</span>
             <span className="portfolio-title">{project.title}</span>

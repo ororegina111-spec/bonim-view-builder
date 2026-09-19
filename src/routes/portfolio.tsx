@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { X } from "lucide-react";
 
+import { PortfolioImage } from "@/components/portfolio-image";
 import { MobileWhatsApp, SiteFooter, SiteHeader, WhatsAppButton } from "@/components/site-chrome";
 import { portfolioProjects, type PortfolioProject } from "@/data/portfolio";
 
@@ -45,11 +46,7 @@ function PortfolioPage() {
           {portfolioProjects.map((project) => (
             <button type="button" className="portfolio-card" key={project.id} onClick={() => setActive(project)}>
               <span className="portfolio-cover">
-                {project.cover ? (
-                  <img src={project.cover} alt={project.title} loading="lazy" decoding="async" />
-                ) : (
-                  "[Фото проекта]"
-                )}
+                <PortfolioImage src={project.cover} alt={project.title} />
               </span>
               <span className="portfolio-city">{project.city}</span>
               <span className="portfolio-title">{project.title}</span>
@@ -72,13 +69,17 @@ function PortfolioPage() {
             <h2>{active.title}</h2>
             <p>{active.city}</p>
             <div className="portfolio-viewer-photos">
-              {active.photos.length > 0 ? (
-                active.photos.map((photo) => (
-                  <img key={photo} src={photo} alt={active.title} loading="lazy" decoding="async" />
-                ))
-              ) : (
+              {active.photos.length === 0 && active.videos.length === 0 ? (
                 <div className="portfolio-cover">[Фото проекта]</div>
-              )}
+              ) : null}
+              {active.photos.map((photo, index) => (
+                <PortfolioImage key={photo} src={photo} alt={`${active.title}, фото ${index + 1}`} />
+              ))}
+              {active.videos.map((video) => (
+                <video key={video} controls preload="metadata">
+                  <source src={video} type="video/mp4" />
+                </video>
+              ))}
             </div>
           </div>
         </div>

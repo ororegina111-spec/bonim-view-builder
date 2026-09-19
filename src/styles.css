@@ -611,7 +611,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 5;
   border-radius: 12px;
   background: color-mix(in oklch, var(--color-glass) 22%, white);
   color: var(--color-deep-blue);
@@ -619,6 +619,15 @@
   overflow: hidden;
 }
 .portfolio-cover img { width: 100%; height: 100%; object-fit: cover; }
+.portfolio-image-placeholder {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in oklch, var(--color-muted-foreground) 18%, white);
+  color: var(--color-muted-foreground);
+}
 .portfolio-city { color: var(--color-muted-foreground); font-size: 14px; }
 .portfolio-title { color: var(--color-deep-blue); font-size: 18px; font-weight: 700; }
 .portfolio-description { color: var(--color-muted-foreground); font-size: 15px; line-height: 1.5; }
@@ -672,4 +681,12 @@
   cursor: pointer;
 }
 .portfolio-viewer-photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
-.portfolio-viewer-photos img { width: 100%; border-radius: 12px; }
+.portfolio-viewer-photos img,
+.portfolio-viewer-photos video,
+.portfolio-viewer-photos .portfolio-image-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
+  background: var(--color-background);
+  object-fit: contain;
+}
