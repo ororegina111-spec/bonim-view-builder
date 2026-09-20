@@ -138,13 +138,13 @@ const faqSchema = {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "BONIM — подбор систем остекления балконов в Израиле" },
+      { title: "BONIM – подбор систем остекления балконов в Израиле" },
       {
         name: "description",
         content:
           "Диспетчерская служба подбора систем закрытия балконов и пергол. Предварительный расчёт по вашим размерам в течение дня.",
       },
-      { property: "og:title", content: "BONIM — подбор систем остекления балконов" },
+      { property: "og:title", content: "BONIM – подбор систем остекления балконов в Израиле" },
       {
         property: "og:description",
         content:
@@ -152,6 +152,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "BONIM – подбор систем остекления балконов в Израиле" },
     ],
     scripts: [
       {
