@@ -44,17 +44,17 @@ export function WhatsAppButton({ secondary = false, lang = "ru" }: { secondary?:
 export function SiteHeader({ homeHref = "#top", lang = "ru" }: { homeHref?: string; lang?: SiteLanguage }) {
   return (
     <header className="site-header">
-      <a href={homeHref} aria-label="BONIM – в начало страницы">
+       <a href={homeHref} aria-label={lang === "he" ? "BONIM – לדף הבית" : "BONIM – в начало страницы"}>
         <BrandMark compact />
       </a>
       <div className="header-tools">
-        <div className="language-switch" role="group" aria-label="Выбор языка">
+         <div className="language-switch" role="group" aria-label={lang === "he" ? "בחירת שפה" : "Выбор языка"}>
           <Button
             asChild
             size="icon"
             variant="ghost"
             className={lang === "he" ? "language-button active" : "language-button"}
-            aria-label="Иврит"
+             aria-label={lang === "he" ? "עברית" : "Иврит"}
           >
             <Link to="/he" lang="he" aria-current={lang === "he" ? "page" : undefined}>עב</Link>
           </Button>
@@ -63,12 +63,12 @@ export function SiteHeader({ homeHref = "#top", lang = "ru" }: { homeHref?: stri
             size="icon"
             variant="ghost"
             className={lang === "ru" ? "language-button active" : "language-button"}
-            aria-label="Русский язык"
+             aria-label={lang === "he" ? "רוסית" : "Русский язык"}
           >
             <Link to="/" aria-current={lang === "ru" ? "page" : undefined}>РУ</Link>
           </Button>
         </div>
-        <a className="header-phone" href="tel:+972559404379" aria-label="Позвонить по телефону +972 55-940-4379" title="Позвонить">
+         <a className="header-phone" href="tel:+972559404379" aria-label={lang === "he" ? "התקשרו למספר +972 55-940-4379" : "Позвонить по телефону +972 55-940-4379"} title={lang === "he" ? "התקשרו" : "Позвонить"}>
           <Phone />
         </a>
           <WhatsAppButton secondary lang={lang} />
@@ -82,19 +82,19 @@ export function SiteFooter({ lang = "ru" }: { lang?: SiteLanguage }) {
     <footer className="site-footer">
       <div className="section-shell footer-grid">
         <BrandMark compact slogan={lang} />
-        <div className="footer-links">
-          <Link to="/privacy">Политика конфиденциальности</Link>
-          <Link to="/terms">Условия оказания услуг</Link>
-          <Link to="/portfolio">Реальные объекты наших партнёров</Link>
+         <div className="footer-links">
+           {lang === "he" ? <a href="/he/privacy">מדיניות פרטיות</a> : <Link to="/privacy">Политика конфиденциальности</Link>}
+           {lang === "he" ? <a href="/he/terms">תנאי שירות</a> : <Link to="/terms">Условия оказания услуг</Link>}
+           {lang === "he" ? <Link to="/he/portfolio">פרויקטים אמיתיים של השותפים שלנו</Link> : <Link to="/portfolio">Реальные объекты наших партнёров</Link>}
           <div className="footer-contacts">
             <div className="footer-socials">
               <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
               <a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" aria-label="Telegram-бот @bonimbalconimbot"><Send /></a>
             </div>
-            <p><a href="tel:+972559404379">+972 55-940-4379</a></p>
-            <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer">@bonimbalconimbot</a></p>
-            <p><a href="mailto:info@bonimbalconim.com">info@bonimbalconim.com</a></p>
-            <p>г. Рамле, ул. Моше Даян, 8</p>
+             <p><a href="tel:+972559404379" dir="ltr" className="ltr-isolate">+972 55-940-4379</a></p>
+             <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" dir="ltr" className="ltr-isolate">@bonimbalconimbot</a></p>
+             <p>{lang === "he" ? <>כתבו לנו: <a href="mailto:info@bonimbalconim.com" dir="ltr" className="ltr-isolate">info@bonimbalconim.com</a></> : <a href="mailto:info@bonimbalconim.com">info@bonimbalconim.com</a>}</p>
+             <p>{lang === "he" ? "רחוב משה דיין 8, רמלה" : "г. Рамле, ул. Моше Даян, 8"}</p>
           </div>
         </div>
         <p dir="rtl">בונים בלקונים / BONIM BALCONIM</p>

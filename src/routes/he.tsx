@@ -164,17 +164,12 @@ function BrandMark({ compact = false, slogan = "he" }: { compact?: boolean; slog
   return (
     <div className={compact ? "brand-mark brand-mark--compact" : "brand-mark"}>
       <img src={logoAsset.url} alt="בונים BONIM" width="1024" height="768" />
-      {slogan === "ru" ? (
-        <p className="brand-slogan">
-          <span>Закрываем балкон.</span>
-          <span>Открываем вид.</span>
-        </p>
-      ) : (
+      {slogan === "he" ? (
         <p className="brand-slogan" dir="rtl">
           <span>סוגרים את המרפסת.</span>
           <span>פותחים את הנוף.</span>
         </p>
-      )}
+      ) : null}
     </div>
   );
 }
@@ -215,7 +210,7 @@ function PortfolioCarousel() {
           <article className="portfolio-card" key={project.id}>
             <span className="portfolio-cover">
               <PortfolioImage src={project.cover} alt={project.titleHe} />
-              {project.videos.length > 0 ? <span className="portfolio-video-badge" aria-label="Есть видео"><Play /></span> : null}
+              {project.videos.length > 0 ? <span className="portfolio-video-badge" aria-label="יש סרטון"><Play /></span> : null}
             </span>
             <span className="portfolio-title">{project.titleHe}</span>
             {project.dateHe ? <span className="portfolio-date">{project.dateHe}</span> : null}
@@ -224,8 +219,8 @@ function PortfolioCarousel() {
         ))}
       </div>
       <div className="portfolio-carousel-nav">
-        <button type="button" onClick={() => scrollBy(-1)} aria-label="Предыдущие проекты"><ChevronLeft /></button>
-        <button type="button" onClick={() => scrollBy(1)} aria-label="Следующие проекты"><ChevronRight /></button>
+        <button type="button" onClick={() => scrollBy(-1)} aria-label="פרויקטים קודמים"><ChevronLeft /></button>
+        <button type="button" onClick={() => scrollBy(1)} aria-label="פרויקטים הבאים"><ChevronRight /></button>
       </div>
       <Link to="/he/portfolio" className="portfolio-more">עוד פרויקטים</Link>
     </div>
@@ -258,7 +253,7 @@ function HebrewHomePage() {
       height: String(data.get("height") ?? ""),
       consent: true,
       page: FORM_PAGE,
-       lang: "ru",
+      lang: "he",
       hp_check: String(data.get("hp_check") ?? ""),
       tracking: getTracking(),
       landing: window.location.href,
@@ -377,39 +372,39 @@ function HebrewHomePage() {
       <section className="section-shell">
         <SectionHeading number="04">מה נביא איתנו</SectionHeading>
         <p className="section-intro">כמה סוגי מערכות מיצרנים שונים. השוו בעצמכם.</p>
-        <div className="comparison-table" role="table" aria-label="Сравнение типов конструкций">
+        <div className="comparison-table" role="table" aria-label="השוואת סוגי מערכות">
           <div className="compare-row compare-head" role="row">
             <span>סוג המערכת</span><span>איך זה עובד</span><span>מחיר</span><span>מה חשוב לדעת</span>
           </div>
           <div className="compare-row" role="row">
             <strong>זכוכית נאספת ללא מסגרת</strong>
             <span>נאספת כמו אקורדיון, פותחת עד 100% מהפתח, נוף פנורמי</span>
-            <strong>החל מ-1,250 ₪ למ״ר</strong>
+            <strong><span dir="ltr" className="ltr-isolate">החל מ-1,250 ₪ למ״ר</span></strong>
             <span>עובי הפרופיל וחומר המנגנון שונים בין יצרנים, ומהם תלויים אמינות ואורך חיים</span>
           </div>
           <div className="compare-row" role="row">
             <strong>מערכת הזזה</strong>
             <span>הכנפיים נעות הצידה וחוסכות מקום</span>
-            <strong>החל מ-1,100 ₪ למ״ר</strong>
+            <strong><span dir="ltr" className="ltr-isolate">החל מ-1,100 ₪ למ״ר</span></strong>
             <span>פתרון חסכוני יותר, מתאים כשלא חייבים פתיחה פנורמית</span>
           </div>
         </div>
-        <div className="system-galleries" aria-label="Фотографии систем остекления">
+        <div className="system-galleries" aria-label="תמונות של מערכות סגירה">
           {systemGalleries.map((gallery) => (
-            <section className="system-gallery" key={gallery.system} aria-label={`Фотографии: ${gallery.system}`}>
+            <section className="system-gallery" key={gallery.system} aria-label={`תמונות: ${gallery.system}`}>
               <h3>{gallery.system}</h3>
               <div className="system-photo-track">
                 {gallery.photos.length === 0
                   ? [1, 2, 3, 4].map((n) => (
                       <div className="system-photo system-photo--placeholder" key={n}>
-                        <span>Фото появится</span>
+                        <span>התמונה תופיע כאן</span>
                       </div>
                     ))
                   : gallery.photos.map((photo, index) => (
                       <div className="system-photo" key={photo}>
                         <img
                           src={photo}
-                          alt={`${gallery.system}: фото ${index + 1}`}
+                          alt={`${gallery.system}: תמונה ${index + 1}`}
                           loading="lazy"
                           decoding="async"
                         />
@@ -453,7 +448,7 @@ function HebrewHomePage() {
           לא חייבים להזמין איש מקצוע כדי להבין את סדר הגודל של המחירים. שלחו לנו את מידות המרפסת או הפרגולה (ההוראות למטה) – בוואטסאפ, בטופס באתר או בפנייה בפייסבוק – ונשלח הערכת מחיר ראשונית עוד באותו יום. ככל שהמידות מדויקות יותר, כך ההערכה מדויקת יותר.
         </p>
         <div className="tab-container">
-          <div className="tab-header" role="tablist" aria-label="Инструкция по замеру">
+          <div className="tab-header" role="tablist" aria-label="הוראות מדידה">
             <button
               type="button"
               role="tab"
@@ -526,10 +521,7 @@ function HebrewHomePage() {
             </div>
           </div>
           <p className="tip measure-common-note">
-            Даже если вы не закажете через нас – профессиональный расчёт и подготовленный проект
-            остаются у вас. Если вы живёте до 60 километров – дорога входит в стоимость подготовки
-            проекта (от 300 ₪).
-            Если расстояние больше, мы попросим доплату за проезд специалиста.
+            גם אם לא תזמינו דרכנו – החישוב המקצועי והתוכנית שהוכנה נשארים אצלכם. אם אתם גרים עד 60 ק״מ – הנסיעה כלולה במחיר הכנת התוכנית (<span dir="ltr" className="ltr-isolate">החל מ-300 ₪</span>). אם המרחק גדול יותר, נבקש תוספת עבור נסיעת איש המקצוע.
           </p>
           <button
             type="button"
@@ -560,7 +552,7 @@ function HebrewHomePage() {
       <section className="section-shell split-section">
         <div className="number-card">החל מ-<span className="price-nowrap ltr-isolate" dir="ltr">300 ₪</span></div>
         <div>
-          <SectionHeading number="08"><span className="section-title-main">איש המקצוע מגיע בחינם.</span>{" "}<span className="section-title-sub">על מה משלמים החל מ-300 ₪?</span></SectionHeading>
+          <SectionHeading number="08"><span className="section-title-main">איש המקצוע מגיע בחינם.</span>{" "}<span className="section-title-sub">על מה משלמים <span dir="ltr" className="ltr-isolate">החל מ-300 ₪</span>?</span></SectionHeading>
           <p>המדידה עצמה, שירות איש המקצוע, היא בחינם. הסכום החל מ-300 ₪ מכסה שני דברים: הכנת החישוב והתוכנית של המרפסת העתידית שלכם עם מספרים מדויקים, והגעת איש המקצוע אליכם. אם אתם גרים עד 60 ק״מ – הנסיעה כלולה בסכום. אם המרחק גדול יותר, נבקש תוספת עבור נסיעת איש המקצוע.</p>
           <p>אם תחליטו לא להמשיך להזמנה, החישוב המקצועי, הצעת המחיר המפורטת והתוכנית המדויקת נשארים אצלכם. תוכלו לפנות איתם לכל יצרן.</p>
         </div>
@@ -655,7 +647,7 @@ function HebrewHomePage() {
             <form onSubmit={submitForm}>
               <div className="hp-field" aria-hidden="true">
                 <label>
-                  Оставьте это поле пустым
+                  השאירו שדה זה ריק
                   <Input name="hp_check" type="text" tabIndex={-1} autoComplete="off" />
                 </label>
               </div>
@@ -672,11 +664,11 @@ function HebrewHomePage() {
               </label>
               {submitError ? (
                 <p className="form-error" role="alert">
-                  לא הצלחנו לשלוח את הפנייה. כתבו לנו בוואטסאפ או התקשרו: +972 55-940-4379
+                  לא הצלחנו לשלוח את הפנייה. כתבו לנו בוואטסאפ או התקשרו: <span dir="ltr" className="ltr-isolate">+972 55-940-4379</span>
                 </p>
               ) : null}
               <Button type="submit" size="lg" className="submit-button" disabled={sending}>
-                קבלו הערכת מחיר ראשונית <ArrowRight />
+                 קבלו הערכת מחיר ראשונית <ArrowRight className="directional-icon" />
               </Button>
             </form>
           )}
@@ -694,10 +686,10 @@ function HebrewHomePage() {
             <div className="footer-contacts">
               <div className="footer-socials">
                 <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
-                <a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" aria-label="Telegram-бот @bonimbalconimbot"><Send /></a>
+                <a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" aria-label="Telegram @bonimbalconimbot"><Send /></a>
               </div>
-              <p><a href="tel:+972559404379">+972 55-940-4379</a></p>
-              <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer">@bonimbalconimbot</a></p>
+              <p><a href="tel:+972559404379" dir="ltr" className="ltr-isolate">+972 55-940-4379</a></p>
+              <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" dir="ltr" className="ltr-isolate">@bonimbalconimbot</a></p>
               <p>כתבו לנו: <a href="mailto:info@bonimbalconim.com" dir="ltr" className="ltr-isolate">info@bonimbalconim.com</a></p>
               <p>רחוב משה דיין 8, רמלה</p>
             </div>
@@ -707,7 +699,7 @@ function HebrewHomePage() {
       </footer>
 
       <a className="mobile-whatsapp" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="כתבו לנו בוואטסאפ">
-        <MessageCircle />כתבו לנו בוואטסאפ
+        <MessageCircle />כתבו לנו ב<span dir="ltr" className="ltr-isolate">WhatsApp</span>
       </a>
     </main>
   );
