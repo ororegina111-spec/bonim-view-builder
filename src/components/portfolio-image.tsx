@@ -5,15 +5,22 @@ type PortfolioImageProps = {
   alt: string;
   className?: string;
   loading?: "eager" | "lazy";
+  placeholder?: string;
 };
 
-export function PortfolioImage({ src, alt, className, loading = "lazy" }: PortfolioImageProps) {
+export function PortfolioImage({
+  src,
+  alt,
+  className,
+  loading = "lazy",
+  placeholder = "[Фото проекта]",
+}: PortfolioImageProps) {
   const [failed, setFailed] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   return (
     <span className={`portfolio-image-frame ${className ?? ""}`.trim()}>
-      {!loaded || failed ? <span className="portfolio-image-placeholder">[Фото проекта]</span> : null}
+      {!loaded || failed ? <span className="portfolio-image-placeholder">{placeholder}</span> : null}
       {!failed ? (
         <img
           src={src}
