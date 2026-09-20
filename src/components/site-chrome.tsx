@@ -1,11 +1,37 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Facebook, MessageCircle, Phone, Send } from "lucide-react";
 
 import logoAsset from "@/assets/bonim-logo.png.asset.json";
 import { Button } from "@/components/ui/button";
 
 export const whatsappUrl = "https://wa.me/972559404379";
+
+type SiteLanguage = "ru" | "he";
+
+let siteLanguage: SiteLanguage = "ru";
+const languageListeners = new Set<() => void>();
+
+function subscribeLanguage(listener: () => void) {
+  languageListeners.add(listener);
+  return () => {
+    languageListeners.delete(listener);
+  };
+}
+
+export function setSiteLanguage(lang: SiteLanguage) {
+  if (siteLanguage === lang) return;
+  siteLanguage = lang;
+  languageListeners.forEach((listener) => listener());
+}
+
+export function useSiteLanguage(): SiteLanguage {
+  return useSyncExternalStore(
+    subscribeLanguage,
+    () => siteLanguage,
+    () => siteLanguage,
+  );
+}
 
 export function BrandMark({ compact = false, slogan = "he" }: { compact?: boolean; slogan?: "he" | "ru" }) {
   return (
