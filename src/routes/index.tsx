@@ -710,7 +710,7 @@ function Index() {
 
       <footer className="site-footer">
         <div className="section-shell footer-grid">
-          <BrandMark compact slogan="ru" />
+          <BrandMark compact slogan={language} />
           <div className="footer-links">
             <Link to="/privacy">Политика конфиденциальности</Link>
             <Link to="/terms">Условия оказания услуг</Link>

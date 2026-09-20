@@ -1,11 +1,37 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Facebook, MessageCircle, Phone, Send } from "lucide-react";
 
 import logoAsset from "@/assets/bonim-logo.png.asset.json";
 import { Button } from "@/components/ui/button";
 
 export const whatsappUrl = "https://wa.me/972559404379";
+
+type SiteLanguage = "ru" | "he";
+
+let siteLanguage: SiteLanguage = "ru";
+const languageListeners = new Set<() => void>();
+
+function subscribeLanguage(listener: () => void) {
+  languageListeners.add(listener);
+  return () => {
+    languageListeners.delete(listener);
+  };
+}
+
+export function setSiteLanguage(lang: SiteLanguage) {
+  if (siteLanguage === lang) return;
+  siteLanguage = lang;
+  languageListeners.forEach((listener) => listener());
+}
+
+export function useSiteLanguage(): SiteLanguage {
+  return useSyncExternalStore(
+    subscribeLanguage,
+    () => siteLanguage,
+    () => siteLanguage,
+  );
+}
 
 export function BrandMark({ compact = false, slogan = "he" }: { compact?: boolean; slogan?: "he" | "ru" }) {
   return (
@@ -38,7 +64,7 @@ export function WhatsAppButton({ secondary = false }: { secondary?: boolean }) {
 }
 
 export function SiteHeader({ homeHref = "#top" }: { homeHref?: string }) {
-  const [language, setLanguage] = useState<"ru" | "he">("ru");
+  const language = useSiteLanguage();
 
   return (
     <header className="site-header">
@@ -54,7 +80,7 @@ export function SiteHeader({ homeHref = "#top" }: { homeHref?: string }) {
             className={language === "he" ? "language-button active" : "language-button"}
             aria-pressed={language === "he"}
             aria-label="Иврит – в разработке"
-            onClick={() => setLanguage("he")}
+            onClick={() => setSiteLanguage("he")}
           >
             עב
           </Button>
@@ -65,7 +91,7 @@ export function SiteHeader({ homeHref = "#top" }: { homeHref?: string }) {
             className={language === "ru" ? "language-button active" : "language-button"}
             aria-pressed={language === "ru"}
             aria-label="Русский язык"
-            onClick={() => setLanguage("ru")}
+            onClick={() => setSiteLanguage("ru")}
           >
             РУ
           </Button>
@@ -80,10 +106,12 @@ export function SiteHeader({ homeHref = "#top" }: { homeHref?: string }) {
 }
 
 export function SiteFooter() {
+  const language = useSiteLanguage();
+
   return (
     <footer className="site-footer">
       <div className="section-shell footer-grid">
-        <BrandMark compact slogan="ru" />
+        <BrandMark compact slogan={language} />
         <div className="footer-links">
           <Link to="/privacy">Политика конфиденциальности</Link>
           <Link to="/terms">Условия оказания услуг</Link>
