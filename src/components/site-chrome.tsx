@@ -7,14 +7,21 @@ import { Button } from "@/components/ui/button";
 
 export const whatsappUrl = "https://wa.me/972559404379";
 
-export function BrandMark({ compact = false }: { compact?: boolean }) {
+export function BrandMark({ compact = false, slogan = "he" }: { compact?: boolean; slogan?: "he" | "ru" }) {
   return (
     <div className={compact ? "brand-mark brand-mark--compact" : "brand-mark"}>
       <img src={logoAsset.url} alt="בונים BONIM" width="1024" height="768" />
-      <p className="brand-slogan" dir="rtl">
-        <span>סוגרים את המרפסת.</span>
-        <span>פותחים את הנוף.</span>
-      </p>
+      {slogan === "ru" ? (
+        <p className="brand-slogan">
+          <span>Закрываем балкон.</span>
+          <span>Открываем вид.</span>
+        </p>
+      ) : (
+        <p className="brand-slogan" dir="rtl">
+          <span>סוגרים את המרפסת.</span>
+          <span>פותחים את הנוף.</span>
+        </p>
+      )}
     </div>
   );
 }
@@ -35,7 +42,7 @@ export function SiteHeader({ homeHref = "#top" }: { homeHref?: string }) {
 
   return (
     <header className="site-header">
-      <a href={homeHref} aria-label="BONIM — в начало страницы">
+      <a href={homeHref} aria-label="BONIM – в начало страницы">
         <BrandMark compact />
       </a>
       <div className="header-tools">
@@ -46,7 +53,7 @@ export function SiteHeader({ homeHref = "#top" }: { homeHref?: string }) {
             variant="ghost"
             className={language === "he" ? "language-button active" : "language-button"}
             aria-pressed={language === "he"}
-            aria-label="Иврит — в разработке"
+            aria-label="Иврит – в разработке"
             onClick={() => setLanguage("he")}
           >
             עב
@@ -76,7 +83,7 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="section-shell footer-grid">
-        <BrandMark compact />
+        <BrandMark compact slogan="ru" />
         <div className="footer-links">
           <Link to="/privacy">Политика конфиденциальности</Link>
           <Link to="/terms">Условия оказания услуг</Link>

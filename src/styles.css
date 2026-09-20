@@ -728,3 +728,10 @@
 }
 .portfolio-viewer-photos .portfolio-image-frame img { object-fit: contain; }
 .portfolio-viewer-photos video { max-height: 80vh; }
+
+/* Номер «01» у заголовка первого экрана — тот же вид, что у номеров секций */
+.section-heading.hero-heading { margin: 28px 0; }
+.section-heading.hero-heading h1 { margin: 0; }
+@media (max-width: 640px) {
+  .section-heading.hero-heading { margin: 20px 0; }
+}
