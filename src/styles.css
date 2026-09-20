@@ -355,7 +355,10 @@
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .form-panel .consent-row { display: grid; grid-template-columns: 20px 1fr; align-items: start; color: var(--color-muted-foreground); line-height: 1.5; font-weight: 400; }
   .form-panel .consent-row button { margin-top: 2px; }
+  .form-panel .form-error { margin: 12px 0; color: #8f2d2d; font-size: 13px; line-height: 1.5; font-weight: 400; text-align: left; }
+  .form-panel .hp-field { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
   .submit-button { width: 100%; min-height: 54px; }
+  .submit-button:disabled { opacity: 0.7; cursor: default; }
   .success-message { display: grid; min-height: 330px; place-items: center; align-content: center; gap: 20px; text-align: center; }
   .success-message svg { width: 52px; height: 52px; padding: 12px; border-radius: 999px; background: color-mix(in oklch, var(--color-glass) 22%, white); color: var(--color-deep-blue); stroke-width: 1.5; }
   .success-message p { max-width: 380px; color: var(--color-deep-blue); font-size: 23px; line-height: 1.4; font-weight: 700; }

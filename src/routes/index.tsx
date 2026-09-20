@@ -54,6 +54,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { PortfolioImage } from "@/components/portfolio-image";
 import { portfolioProjects } from "@/data/portfolio";
+import { getTracking } from "@/lib/tracking";
 
 const whatsappUrl = "https://wa.me/972559404379";
 
@@ -235,21 +236,57 @@ function PortfolioCarousel() {
   );
 }
 
+const FORM_PAGE = "main";
+
 function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [measureTab, setMeasureTab] = useState<"balcony" | "pergola">("balcony");
   const [language, setLanguage] = useState<"ru" | "he">("ru");
 
-  function submitForm(event: FormEvent<HTMLFormElement>) {
+  async function submitForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     if (!form.checkValidity() || !consent) {
       form.reportValidity();
       return;
     }
-    setSubmitted(true);
+    if (sending) return;
+    const data = new FormData(form);
+    const payload = {
+      name: String(data.get("name") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      width: String(data.get("width") ?? ""),
+      height: String(data.get("height") ?? ""),
+      consent: true,
+      page: FORM_PAGE,
+      lang: language,
+      company_url: String(data.get("company_url") ?? ""),
+      tracking: getTracking(),
+      landing: window.location.href,
+    };
+    setSending(true);
+    setSubmitError(false);
+    try {
+      const response = await fetch("/lead.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json().catch(() => null);
+      if (response.ok && result && result.ok === true) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(true);
+      }
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -628,9 +665,15 @@ function Index() {
             <div className="success-message" role="status"><Check /><p>Спасибо, предварительный расчёт пришлём в течение дня</p></div>
           ) : (
             <form onSubmit={submitForm}>
+              <div className="hp-field" aria-hidden="true">
+                <label>
+                  Сайт компании
+                  <Input name="company_url" type="text" tabIndex={-1} autoComplete="off" />
+                </label>
+              </div>
               <label>Телефон<Input name="phone" type="tel" required maxLength={30} autoComplete="tel" /></label>
               <label>Имя<Input name="name" required minLength={2} maxLength={100} autoComplete="name" /></label>
-              
+
               <div className="field-row">
                 <label>Ширина (см)<Input name="width" type="number" required min="1" max="10000" inputMode="decimal" /></label>
                 <label>Высота (см)<Input name="height" type="number" required min="1" max="10000" inputMode="decimal" /></label>
@@ -639,7 +682,14 @@ function Index() {
                 <Checkbox checked={consent} onCheckedChange={(value) => setConsent(value === true)} required />
                 <span>Согласен(на) на обработку персональных данных для связи по заявке</span>
               </label>
-              <Button type="submit" size="lg" className="submit-button">Получить предварительный расчёт <ArrowRight /></Button>
+              {submitError ? (
+                <p className="form-error" role="alert">
+                  Не удалось отправить заявку. Напишите нам в WhatsApp или позвоните: +972 55-940-4379
+                </p>
+              ) : null}
+              <Button type="submit" size="lg" className="submit-button" disabled={sending}>
+                Получить предварительный расчёт <ArrowRight />
+              </Button>
             </form>
           )}
           <div className="form-divider"><span>или</span></div>
