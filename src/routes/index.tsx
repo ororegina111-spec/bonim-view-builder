@@ -171,14 +171,21 @@ function Divider({ image, text }: { image: { url: string }; text?: string }) {
   );
 }
 
-function BrandMark({ compact = false }: { compact?: boolean }) {
+function BrandMark({ compact = false, slogan = "he" }: { compact?: boolean; slogan?: "he" | "ru" }) {
   return (
     <div className={compact ? "brand-mark brand-mark--compact" : "brand-mark"}>
       <img src={logoAsset.url} alt="בונים BONIM" width="1024" height="768" />
-      <p className="brand-slogan" dir="rtl">
-        <span>סוגרים את המרפסת.</span>
-        <span>פותחים את הנוף.</span>
-      </p>
+      {slogan === "ru" ? (
+        <p className="brand-slogan">
+          <span>Закрываем балкон.</span>
+          <span>Открываем вид.</span>
+        </p>
+      ) : (
+        <p className="brand-slogan" dir="rtl">
+          <span>סוגרים את המרפסת.</span>
+          <span>פותחים את הנוף.</span>
+        </p>
+      )}
     </div>
   );
 }
@@ -292,7 +299,7 @@ function Index() {
   return (
     <main>
       <header className="site-header">
-        <a href="#top" aria-label="BONIM — в начало страницы">
+        <a href="#top" aria-label="BONIM – в начало страницы">
           <BrandMark compact />
         </a>
         <div className="header-tools">
@@ -303,7 +310,7 @@ function Index() {
               variant="ghost"
               className={language === "he" ? "language-button active" : "language-button"}
               aria-pressed={language === "he"}
-              aria-label="Иврит — в разработке"
+              aria-label="Иврит – в разработке"
               onClick={() => setLanguage("he")}
             >
               עב
@@ -330,10 +337,13 @@ function Index() {
       <section id="top" className="hero section-shell">
         <div className="hero-copy">
           <div className="eyebrow">Диспетчерская служба подбора систем остекления</div>
-          <h1>
-            <span className="hero-title-main">Балкон не в порядке?</span>{" "}
-            <span className="hero-title-sub">Мы поможем подобрать систему, которая подходит именно вам</span>
-          </h1>
+          <div className="section-heading hero-heading">
+            <span>01</span>
+            <h1>
+              <span className="hero-title-main">Балкон не в порядке?</span>{" "}
+              <span className="hero-title-sub">Мы поможем подобрать систему, которая подходит именно вам</span>
+            </h1>
+          </div>
           <p className="hero-lead">
             Мы диспетчерская служба: помогаем выбрать систему закрытия балкона и перголы среди
             нескольких проверенных вариантов. Специалист привозит образцы, вы сравниваете вживую и
@@ -609,10 +619,10 @@ function Index() {
       <section className="section-shell">
         <SectionHeading number="10">Было и стало</SectionHeading>
         <div className="photo-pairs">
-          {[1, 2, 3].map((item) => (
-            <article className="photo-pair" key={item}>
+          {["Эйлат", "Петах-Тиква", "Рамле"].map((city) => (
+            <article className="photo-pair" key={city}>
               <div className="photo-grid"><div><span>ДО</span>[Место для фотографии]</div><div><span>ПОСЛЕ</span>[Место для фотографии]</div></div>
-              <p>[Город]. Работу выполнил партнёр-исполнитель сети.</p>
+              <p>{city}. Работу выполнил партнёр-исполнитель сети.</p>
             </article>
           ))}
         </div>
@@ -699,7 +709,7 @@ function Index() {
 
       <footer className="site-footer">
         <div className="section-shell footer-grid">
-          <BrandMark compact />
+          <BrandMark compact slogan="ru" />
           <div className="footer-links">
             <Link to="/privacy">Политика конфиденциальности</Link>
             <Link to="/terms">Условия оказания услуг</Link>
