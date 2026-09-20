@@ -272,7 +272,7 @@ function Index() {
       consent: true,
       page: FORM_PAGE,
       lang: language,
-      company_url: String(data.get("company_url") ?? ""),
+      hp_check: String(data.get("hp_check") ?? ""),
       tracking: getTracking(),
       landing: window.location.href,
     };
@@ -699,8 +699,8 @@ function Index() {
             <form onSubmit={submitForm}>
               <div className="hp-field" aria-hidden="true">
                 <label>
-                  Сайт компании
-                  <Input name="company_url" type="text" tabIndex={-1} autoComplete="off" />
+                  Оставьте это поле пустым
+                  <Input name="hp_check" type="text" tabIndex={-1} autoComplete="off" />
                 </label>
               </div>
               <label>Телефон<Input name="phone" type="tel" required maxLength={30} autoComplete="tel" /></label>
@@ -742,7 +742,7 @@ function Index() {
               </div>
               <p><a href="tel:+972559404379">+972 55-940-4379</a></p>
               <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer">@bonimbalconimbot</a></p>
-              <p><a href="mailto:bonimbalconim@gmail.com">Написать</a></p>
+              <p><a href="mailto:info@bonimbalconim.com">info@bonimbalconim.com</a></p>
               <p>г. Рамле, ул. Моше Даян, 8</p>
             </div>
           </div>
