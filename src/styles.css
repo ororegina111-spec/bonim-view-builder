@@ -74,7 +74,7 @@
     margin: 0;
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
     background-color: oklch(0.985 0.003 250);
     background-image:
       radial-gradient(70rem 40rem at 82% -8%, color-mix(in oklch, var(--color-glass) 26%, transparent), transparent 70%),
@@ -196,8 +196,8 @@
 
   /* steps as a glass timeline */
   .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 20px; margin: 0; padding: 0; background: none; border: 0; list-style: none; }
-  .steps-grid li { position: relative; min-height: 150px; padding: 0 12px 0 0; background: none; }
-  .steps-grid li::after { content: ""; position: absolute; top: 21px; left: 46px; right: -12px; height: 1px; background: linear-gradient(90deg, color-mix(in oklch, var(--color-glass) 60%, transparent), transparent); }
+  .steps-grid li { position: relative; min-height: 150px; padding-inline-end: 12px; background: none; }
+  .steps-grid li::after { content: ""; position: absolute; top: 21px; inset-inline-start: 46px; inset-inline-end: -12px; height: 1px; background: linear-gradient(to right, color-mix(in oklch, var(--color-glass) 60%, transparent), transparent); }
   .steps-grid li:nth-child(4n)::after, .steps-grid li:last-child::after { display: none; }
   .steps-grid li > span { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 999px; border: 1px solid color-mix(in oklch, var(--color-deep-blue) 28%, transparent); background: var(--surface-glass-strong); backdrop-filter: blur(14px); box-shadow: var(--shadow-soft); color: var(--color-deep-blue); font-weight: 700; }
   .steps-grid p { margin-top: 22px; line-height: 1.6; font-weight: 500; color: var(--color-foreground); }
@@ -235,7 +235,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-align: left;
+    text-align: start;
     user-select: none;
   }
   .tab-header .header-btn { display: flex; align-items: center; gap: 10px; }
@@ -247,17 +247,17 @@
     padding: 20px;
     background: linear-gradient(145deg, #ffffff 0%, var(--color-secondary) 100%);
     border-radius: 12px;
-    border-left: 4px solid transparent;
+    border-inline-start: 4px solid transparent;
     animation: tab-fade-in 0.5s ease;
   }
-  .tab-container .content-block.active { display: block; border-left-color: var(--color-glass); box-shadow: -4px 0 12px rgba(127, 168, 212, 0.2); }
+  .tab-container .content-block.active { display: block; border-inline-start-color: var(--color-glass); box-shadow: -4px 0 12px rgba(127, 168, 212, 0.2); }
   .tab-container .content-block[hidden] { display: none !important; }
   @keyframes tab-fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   .tab-container h3 { margin: 0 0 15px; color: var(--color-deep-blue); font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
   .tip {
     margin: 20px 0 0;
     padding: 14px 18px;
-    border-left: 3px solid var(--color-glass);
+    border-inline-start: 3px solid var(--color-glass);
     border-radius: 0 8px 8px 0;
     background: linear-gradient(135deg, rgba(127, 168, 212, 0.12) 0%, rgba(127, 168, 212, 0.18) 100%);
     font-size: 14px;
@@ -336,7 +336,7 @@
   .photo-label {
     position: absolute;
     top: 12px;
-    left: 12px;
+     inset-inline-start: 12px;
     z-index: 2;
     padding: 5px 11px;
     border-radius: 999px;
@@ -360,7 +360,7 @@
   .faq-item:has(.faq-answer) { background: var(--surface-glass-strong); backdrop-filter: blur(18px); box-shadow: var(--shadow-soft); }
   .faq-item + .faq-item { box-shadow: inset 0 1px 0 var(--hairline); }
   .faq-item:has(.faq-answer) + .faq-item, .faq-item:has(+ .faq-item .faq-answer) { box-shadow: var(--shadow-soft); }
-  .faq-item button { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 24px; padding: 24px; border: 0; background: transparent; color: var(--color-deep-blue); text-align: left; font: inherit; font-size: 19px; font-weight: 700; letter-spacing: -0.015em; cursor: pointer; }
+   .faq-item button { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 24px; padding: 24px; border: 0; background: transparent; color: var(--color-deep-blue); text-align: start; font: inherit; font-size: 19px; font-weight: 700; letter-spacing: 0; cursor: pointer; }
   .faq-item button svg { flex: 0 0 auto; color: var(--color-glass); transition: transform .2s ease; }
   .faq-item button svg.rotate { transform: rotate(180deg); }
   .faq-answer { padding: 0 48px 26px 24px; color: var(--color-muted-foreground); line-height: 1.7; }
@@ -375,8 +375,8 @@
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .form-panel .consent-row { display: grid; grid-template-columns: 20px 1fr; align-items: start; color: var(--color-muted-foreground); line-height: 1.5; font-weight: 400; }
   .form-panel .consent-row button { margin-top: 2px; }
-  .form-panel .form-error { margin: 12px 0; color: #8f2d2d; font-size: 13px; line-height: 1.5; font-weight: 400; text-align: left; }
-  .form-panel .hp-field { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+   .form-panel .form-error { margin: 12px 0; color: #8f2d2d; font-size: 13px; line-height: 1.5; font-weight: 400; text-align: start; }
+   .form-panel .hp-field { position: absolute; inset-inline-start: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
   .submit-button { width: 100%; min-height: 54px; }
   .submit-button:disabled { opacity: 0.7; cursor: default; }
   .success-message { display: grid; min-height: 330px; place-items: center; align-content: center; gap: 20px; text-align: center; }
@@ -478,7 +478,7 @@
   .footer-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .footer-grid .brand-mark--compact { display: grid; justify-items: center; }
   .footer-grid .brand-mark--compact p { max-width: none; }
-  .mobile-whatsapp { position: fixed; right: 12px; bottom: 12px; left: 12px; z-index: 50; display: flex; min-height: 54px; align-items: center; justify-content: center; gap: 10px; border-radius: 16px; background: var(--color-primary); color: var(--color-primary-foreground); box-shadow: var(--shadow-lift); font-size: 15px; font-weight: 700; text-decoration: none; }
+   .mobile-whatsapp { position: fixed; inset-inline: 12px; bottom: 12px; z-index: 50; display: flex; min-height: 54px; align-items: center; justify-content: center; gap: 10px; border-radius: 16px; background: var(--color-primary); color: var(--color-primary-foreground); box-shadow: var(--shadow-lift); font-size: 15px; font-weight: 700; text-decoration: none; }
   .mobile-whatsapp svg { width: 20px; }
 }
 
@@ -619,7 +619,7 @@
   flex-direction: column;
   gap: 8px;
   padding: 16px;
-  text-align: left;
+  text-align: start;
   border: 0;
   border-radius: var(--radius-card);
   background: var(--surface-glass-strong);
@@ -657,7 +657,7 @@
 .portfolio-cover .portfolio-image-frame img { object-fit: cover; }
 .portfolio-video-badge {
   position: absolute;
-  right: 10px;
+  inset-inline-end: 10px;
   bottom: 10px;
   display: inline-flex;
   width: 38px;
@@ -727,7 +727,7 @@
   box-shadow: var(--shadow-lift);
 }
 .portfolio-viewer-close {
-  position: absolute; top: 16px; right: 16px;
+  position: absolute; top: 16px; inset-inline-end: 16px;
   width: 40px; height: 40px;
   display: inline-flex; align-items: center; justify-content: center;
   border: 0; border-radius: 999px;
@@ -751,6 +751,25 @@
 /* Номер «01» у заголовка первого экрана — тот же вид, что у номеров секций */
 .section-heading.hero-heading { margin: 28px 0; }
 .section-heading.hero-heading h1 { margin: 0; }
+.he-page {
+  font-family: "Heebo", "Assistant", Arial, sans-serif;
+  line-height: 1.7;
+  text-align: start;
+}
+.he-page .ltr-isolate,
+.he-page [dir="ltr"] { unicode-bidi: isolate; direction: ltr; }
+.he-page .directional-icon,
+.he-page .portfolio-carousel-nav svg { transform: scaleX(-1); }
+.he-page .steps-grid li::after { background: linear-gradient(to left, color-mix(in oklch, var(--color-glass) 60%, transparent), transparent); }
+.he-page .tab-container .content-block.active { box-shadow: 4px 0 12px rgba(127, 168, 212, 0.2); }
+.he-page .compare-row > * + * { box-shadow: inset -1px 0 0 var(--hairline); }
+.he-page .form-panel input[type="tel"] { text-align: start; }
+@media (max-width: 640px) {
+  .he-page .compare-row > * + * { box-shadow: inset 0 1px 0 var(--hairline); }
+  .he-page .compare-row > *:nth-child(2)::before { content: "איך זה עובד"; }
+  .he-page .compare-row > *:nth-child(3)::before { content: "מחיר"; }
+  .he-page .compare-row > *:nth-child(4)::before { content: "מה חשוב לדעת"; }
+}
 @media (max-width: 640px) {
   .section-heading.hero-heading { margin: 20px 0; }
 }

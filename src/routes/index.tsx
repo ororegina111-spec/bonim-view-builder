@@ -154,6 +154,11 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "BONIM – подбор систем остекления балконов в Израиле" },
     ],
+    links: [
+      { rel: "alternate", hrefLang: "ru", href: "https://bonim-view-builder.lovable.app/" },
+      { rel: "alternate", hrefLang: "he", href: "https://bonim-view-builder.lovable.app/he" },
+      { rel: "canonical", href: "https://bonim-view-builder.lovable.app/" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -253,7 +258,6 @@ function Index() {
   const [sending, setSending] = useState(false);
   const [submitError, setSubmitError] = useState(false);
   const [measureTab, setMeasureTab] = useState<"balcony" | "pergola">("balcony");
-  const [language, setLanguage] = useState<"ru" | "he">("ru");
 
   async function submitForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -271,7 +275,7 @@ function Index() {
       height: String(data.get("height") ?? ""),
       consent: true,
       page: FORM_PAGE,
-      lang: language,
+       lang: "ru",
       hp_check: String(data.get("hp_check") ?? ""),
       tracking: getTracking(),
       landing: window.location.href,
@@ -305,27 +309,11 @@ function Index() {
         </a>
         <div className="header-tools">
           <div className="language-switch" role="group" aria-label="Выбор языка">
-            <Button
-              type="button"
-              size="icon"
-              variant="ghost"
-              className={language === "he" ? "language-button active" : "language-button"}
-              aria-pressed={language === "he"}
-              aria-label="Иврит – в разработке"
-              onClick={() => setLanguage("he")}
-            >
-              עב
+            <Button asChild size="icon" variant="ghost" className="language-button" aria-label="Иврит">
+              <Link to="/he" lang="he">עב</Link>
             </Button>
-            <Button
-              type="button"
-              size="icon"
-              variant="ghost"
-              className={language === "ru" ? "language-button active" : "language-button"}
-              aria-pressed={language === "ru"}
-              aria-label="Русский язык"
-              onClick={() => setLanguage("ru")}
-            >
-              РУ
+            <Button asChild size="icon" variant="ghost" className="language-button active" aria-label="Русский язык">
+              <Link to="/" aria-current="page">РУ</Link>
             </Button>
           </div>
           <a className="header-phone" href="tel:+972559404379" aria-label="Позвонить по телефону +972 55-940-4379" title="Позвонить">
@@ -731,7 +719,7 @@ function Index() {
 
       <footer className="site-footer">
         <div className="section-shell footer-grid">
-          <BrandMark compact slogan={language} />
+          <BrandMark compact slogan="ru" />
           <div className="footer-links">
             <Link to="/privacy">Политика конфиденциальности</Link>
             <Link to="/terms">Условия оказания услуг</Link>

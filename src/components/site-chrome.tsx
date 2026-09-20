@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { useSyncExternalStore } from "react";
 import { Facebook, MessageCircle, Phone, Send } from "lucide-react";
 
 import logoAsset from "@/assets/bonim-logo.png.asset.json";
@@ -8,30 +7,6 @@ import { Button } from "@/components/ui/button";
 export const whatsappUrl = "https://wa.me/972559404379";
 
 type SiteLanguage = "ru" | "he";
-
-let siteLanguage: SiteLanguage = "ru";
-const languageListeners = new Set<() => void>();
-
-function subscribeLanguage(listener: () => void) {
-  languageListeners.add(listener);
-  return () => {
-    languageListeners.delete(listener);
-  };
-}
-
-export function setSiteLanguage(lang: SiteLanguage) {
-  if (siteLanguage === lang) return;
-  siteLanguage = lang;
-  languageListeners.forEach((listener) => listener());
-}
-
-export function useSiteLanguage(): SiteLanguage {
-  return useSyncExternalStore(
-    subscribeLanguage,
-    () => siteLanguage,
-    () => siteLanguage,
-  );
-}
 
 export function BrandMark({ compact = false, slogan = "he" }: { compact?: boolean; slogan?: "he" | "ru" }) {
   return (
@@ -52,79 +27,74 @@ export function BrandMark({ compact = false, slogan = "he" }: { compact?: boolea
   );
 }
 
-export function WhatsAppButton({ secondary = false }: { secondary?: boolean }) {
+export function WhatsAppButton({ secondary = false, lang = "ru" }: { secondary?: boolean; lang?: SiteLanguage }) {
+  const href = lang === "he"
+    ? `${whatsappUrl}?text=${encodeURIComponent("שלום, אני מעוניין/ת לברר על סגירת מרפסת")}`
+    : whatsappUrl;
   return (
     <Button asChild size="lg" variant={secondary ? "outline" : "default"}>
-      <a href={whatsappUrl} target="_blank" rel="noreferrer">
+      <a href={href} target="_blank" rel="noreferrer">
         <MessageCircle />
-        Написать в WhatsApp
+        {lang === "he" ? <>כתבו לנו ב<span dir="ltr" className="ltr-isolate">WhatsApp</span></> : "Написать в WhatsApp"}
       </a>
     </Button>
   );
 }
 
-export function SiteHeader({ homeHref = "#top" }: { homeHref?: string }) {
-  const language = useSiteLanguage();
-
+export function SiteHeader({ homeHref = "#top", lang = "ru" }: { homeHref?: string; lang?: SiteLanguage }) {
   return (
     <header className="site-header">
-      <a href={homeHref} aria-label="BONIM – в начало страницы">
+       <a href={homeHref} aria-label={lang === "he" ? "BONIM – לדף הבית" : "BONIM – в начало страницы"}>
         <BrandMark compact />
       </a>
       <div className="header-tools">
-        <div className="language-switch" role="group" aria-label="Выбор языка">
+         <div className="language-switch" role="group" aria-label={lang === "he" ? "בחירת שפה" : "Выбор языка"}>
           <Button
-            type="button"
+            asChild
             size="icon"
             variant="ghost"
-            className={language === "he" ? "language-button active" : "language-button"}
-            aria-pressed={language === "he"}
-            aria-label="Иврит – в разработке"
-            onClick={() => setSiteLanguage("he")}
+            className={lang === "he" ? "language-button active" : "language-button"}
+             aria-label={lang === "he" ? "עברית" : "Иврит"}
           >
-            עב
+            <Link to="/he" lang="he" aria-current={lang === "he" ? "page" : undefined}>עב</Link>
           </Button>
           <Button
-            type="button"
+            asChild
             size="icon"
             variant="ghost"
-            className={language === "ru" ? "language-button active" : "language-button"}
-            aria-pressed={language === "ru"}
-            aria-label="Русский язык"
-            onClick={() => setSiteLanguage("ru")}
+            className={lang === "ru" ? "language-button active" : "language-button"}
+             aria-label={lang === "he" ? "רוסית" : "Русский язык"}
           >
-            РУ
+            <Link to="/" aria-current={lang === "ru" ? "page" : undefined}>РУ</Link>
           </Button>
         </div>
-        <a className="header-phone" href="tel:+972559404379" aria-label="Позвонить по телефону +972 55-940-4379" title="Позвонить">
+         <a className="header-phone" href="tel:+972559404379" aria-label={lang === "he" ? "התקשרו למספר +972 55-940-4379" : "Позвонить по телефону +972 55-940-4379"} title={lang === "he" ? "התקשרו" : "Позвонить"}>
           <Phone />
         </a>
-        <WhatsAppButton secondary />
+          <WhatsAppButton secondary lang={lang} />
       </div>
     </header>
   );
 }
 
-export function SiteFooter() {
-  const language = useSiteLanguage();
-
+export function SiteFooter({ lang = "ru" }: { lang?: SiteLanguage }) {
   return (
     <footer className="site-footer">
       <div className="section-shell footer-grid">
-        <BrandMark compact slogan={language} />
-        <div className="footer-links">
-          <Link to="/privacy">Политика конфиденциальности</Link>
-          <Link to="/terms">Условия оказания услуг</Link>
-          <Link to="/portfolio">Реальные объекты наших партнёров</Link>
+        <BrandMark compact slogan={lang} />
+         <div className="footer-links">
+           {lang === "he" ? <a href="/he/privacy">מדיניות פרטיות</a> : <Link to="/privacy">Политика конфиденциальности</Link>}
+           {lang === "he" ? <a href="/he/terms">תנאי שירות</a> : <Link to="/terms">Условия оказания услуг</Link>}
+           {lang === "he" ? <Link to="/he/portfolio">פרויקטים אמיתיים של השותפים שלנו</Link> : <Link to="/portfolio">Реальные объекты наших партнёров</Link>}
           <div className="footer-contacts">
             <div className="footer-socials">
               <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
               <a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" aria-label="Telegram-бот @bonimbalconimbot"><Send /></a>
             </div>
-            <p><a href="tel:+972559404379">+972 55-940-4379</a></p>
-            <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer">@bonimbalconimbot</a></p>
-            <p><a href="mailto:info@bonimbalconim.com">info@bonimbalconim.com</a></p>
-            <p>г. Рамле, ул. Моше Даян, 8</p>
+             <p><a href="tel:+972559404379" dir="ltr" className="ltr-isolate">+972 55-940-4379</a></p>
+             <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" dir="ltr" className="ltr-isolate">@bonimbalconimbot</a></p>
+             <p>{lang === "he" ? <>כתבו לנו: <a href="mailto:info@bonimbalconim.com" dir="ltr" className="ltr-isolate">info@bonimbalconim.com</a></> : <a href="mailto:info@bonimbalconim.com">info@bonimbalconim.com</a>}</p>
+             <p>{lang === "he" ? "רחוב משה דיין 8, רמלה" : "г. Рамле, ул. Моше Даян, 8"}</p>
           </div>
         </div>
         <p dir="rtl">בונים בלקונים / BONIM BALCONIM</p>
@@ -133,10 +103,13 @@ export function SiteFooter() {
   );
 }
 
-export function MobileWhatsApp() {
+export function MobileWhatsApp({ lang = "ru" }: { lang?: SiteLanguage }) {
+  const href = lang === "he"
+    ? `${whatsappUrl}?text=${encodeURIComponent("שלום, אני מעוניין/ת לברר על סגירת מרפסת")}`
+    : whatsappUrl;
   return (
-    <a className="mobile-whatsapp" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="Написать в WhatsApp">
-      <MessageCircle />Написать в WhatsApp
+    <a className="mobile-whatsapp" href={href} target="_blank" rel="noreferrer" aria-label={lang === "he" ? "כתבו לנו בוואטסאפ" : "Написать в WhatsApp"}>
+      <MessageCircle />{lang === "he" ? <>כתבו לנו ב<span dir="ltr" className="ltr-isolate">WhatsApp</span></> : "Написать в WhatsApp"}
     </a>
   );
 }
