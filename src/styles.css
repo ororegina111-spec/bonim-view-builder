@@ -757,7 +757,7 @@
   text-align: start;
 }
 .he-page .ltr-isolate,
-.he-page [dir="ltr"] { unicode-bidi: isolate; }
+.he-page [dir="ltr"] { unicode-bidi: isolate; direction: ltr; }
 .he-page .directional-icon,
 .he-page .portfolio-carousel-nav svg { transform: scaleX(-1); }
 .he-page .steps-grid li::after { background: linear-gradient(to left, color-mix(in oklch, var(--color-glass) 60%, transparent), transparent); }

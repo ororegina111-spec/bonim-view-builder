@@ -131,8 +131,10 @@ export const Route = createFileRoute("/he")({
           "השוו כמה אפשרויות וקבלו הערכת מחיר ראשונית לפי מידות המרפסת שלכם.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://bonim-view-builder.lovable.app/he" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "BONIM – בחירת מערכות סגירה למרפסות" },
+      { name: "twitter:description", content: "השוו כמה אפשרויות וקבלו הערכת מחיר ראשונית לפי מידות המרפסת שלכם." },
     ],
     links: [
       { rel: "alternate", hrefLang: "he", href: "https://bonim-view-builder.lovable.app/he" },
@@ -200,7 +202,7 @@ function PortfolioCarousel() {
   function scrollBy(direction: -1 | 1) {
     const node = scrollerRef.current;
     if (!node) return;
-    node.scrollBy({ left: direction * Math.max(280, node.clientWidth * 0.8), behavior: "smooth" });
+    node.scrollBy({ left: -direction * Math.max(280, node.clientWidth * 0.8), behavior: "smooth" });
   }
 
   return (
@@ -324,7 +326,7 @@ function HebrewHomePage() {
             </Button>
           </div>
           <p className="price-note">
-            הגעת איש המקצוע אליכם – בחינם. משלמים רק על חישוב והכנת התוכנית: החל מ-300 ₪.
+            הגעת איש המקצוע אליכם – בחינם. משלמים רק על חישוב והכנת התוכנית: <span dir="ltr" className="ltr-isolate">החל מ-300 ₪</span>.
           </p>
         </div>
         <div className="hero-photo">
@@ -364,7 +366,7 @@ function HebrewHomePage() {
         <div className="section-shell narrow">
           <SectionHeading number="03">מי אנחנו</SectionHeading>
           <p className="large-copy">
-            BONIM היא לא יצרן ולא חברת התקנה. אנחנו שירות ליווי והתאמה: אנשי מקצוע שעוזרים לבחור את המערכת המתאימה לסגירת מרפסת או פרגולה מתוך כמה יצרנים מבוססים. איש המקצוע שלנו מגיע עם דוגמאות ומראה את ההבדלים במקום, ואתם בוחרים. אנחנו לא מכתיבים מערכת מסוימת – המטרה שלנו שתבחרו את מה שמתאים בדיוק למרפסת ולתקציב שלכם.
+            <span dir="ltr" className="ltr-isolate">BONIM</span> היא לא יצרן ולא חברת התקנה. אנחנו שירות ליווי והתאמה: אנשי מקצוע שעוזרים לבחור את המערכת המתאימה לסגירת מרפסת או פרגולה מתוך כמה יצרנים מבוססים. איש המקצוע שלנו מגיע עם דוגמאות ומראה את ההבדלים במקום, ואתם בוחרים. אנחנו לא מכתיבים מערכת מסוימת – המטרה שלנו שתבחרו את מה שמתאים בדיוק למרפסת ולתקציב שלכם.
           </p>
         </div>
       </section>
@@ -378,7 +380,7 @@ function HebrewHomePage() {
           </div>
           <div className="compare-row" role="row">
             <strong>זכוכית נאספת ללא מסגרת</strong>
-            <span>נאספת כמו אקורדיון, פותחת עד 100% מהפתח, נוף פנורמי</span>
+            <span>נאספת כמו אקורדיון, פותחת עד <bdi dir="ltr">100%</bdi> מהפתח, נוף פנורמי</span>
             <strong><span dir="ltr" className="ltr-isolate">החל מ-1,250 ₪ למ״ר</span></strong>
             <span>עובי הפרופיל וחומר המנגנון שונים בין יצרנים, ומהם תלויים אמינות ואורך חיים</span>
           </div>
@@ -427,16 +429,16 @@ function HebrewHomePage() {
           <SectionHeading number="05">איך זה עובד</SectionHeading>
           <ol className="steps-grid">
             {[
-              "מתקשרים, כותבים בוואטסאפ, משאירים פנייה באתר או בפייסבוק.",
+              <>מתקשרים, כותבים ב<span dir="ltr" className="ltr-isolate">WhatsApp</span>, משאירים פנייה באתר או ב<span dir="ltr" className="ltr-isolate">Facebook</span>.</>,
               "שולחים את מידות המרפסת – ככל שהמידות מדויקות יותר, כך ההערכה הראשונית מדויקת יותר.",
               "עוד באותו יום מקבלים הערכת מחיר ראשונית עם כמה מסלולים.",
-              "משלמים על הכנת התוכנית הסופית: החל מ-300 ₪.",
+              <>משלמים על הכנת התוכנית הסופית: <span dir="ltr" className="ltr-isolate">החל מ-300 ₪</span>.</>,
               "איש המקצוע מגיע בחינם עם דוגמאות ומודד מידות מדויקות.",
               "מקבלים הצעת מחיר סופית עם סכום מדויק.",
               "בוחרים את המערכת שנוחה לכם. גם אם לא החלטתם, החישוב והתוכנית המקצועית נשארים אצלכם בכל מקרה.",
               "חותמים על הסכם ישירות מול המבצע.",
             ].map((step, index) => (
-              <li key={step}><span>{index + 1}</span><p>{step}</p></li>
+              <li key={index}><span>{index + 1}</span><p>{step}</p></li>
             ))}
           </ol>
         </div>
@@ -553,7 +555,7 @@ function HebrewHomePage() {
         <div className="number-card">החל מ-<span className="price-nowrap ltr-isolate" dir="ltr">300 ₪</span></div>
         <div>
           <SectionHeading number="08"><span className="section-title-main">איש המקצוע מגיע בחינם.</span>{" "}<span className="section-title-sub">על מה משלמים <span dir="ltr" className="ltr-isolate">החל מ-300 ₪</span>?</span></SectionHeading>
-          <p>המדידה עצמה, שירות איש המקצוע, היא בחינם. הסכום החל מ-300 ₪ מכסה שני דברים: הכנת החישוב והתוכנית של המרפסת העתידית שלכם עם מספרים מדויקים, והגעת איש המקצוע אליכם. אם אתם גרים עד 60 ק״מ – הנסיעה כלולה בסכום. אם המרחק גדול יותר, נבקש תוספת עבור נסיעת איש המקצוע.</p>
+          <p>המדידה עצמה, שירות איש המקצוע, היא בחינם. הסכום <span dir="ltr" className="ltr-isolate">החל מ-300 ₪</span> מכסה שני דברים: הכנת החישוב והתוכנית של המרפסת העתידית שלכם עם מספרים מדויקים, והגעת איש המקצוע אליכם. אם אתם גרים עד <bdi dir="ltr">60 ק״מ</bdi> – הנסיעה כלולה בסכום. אם המרחק גדול יותר, נבקש תוספת עבור נסיעת איש המקצוע.</p>
           <p>אם תחליטו לא להמשיך להזמנה, החישוב המקצועי, הצעת המחיר המפורטת והתוכנית המדויקת נשארים אצלכם. תוכלו לפנות איתם לכל יצרן.</p>
         </div>
       </section>
@@ -610,7 +612,7 @@ function HebrewHomePage() {
         <p className="section-intro">את הסכם העבודה חותמים ישירות מול המבצע. האחריות היא שלו, ואת התנאים תראו בהסכם לפני תשלום המקדמה.</p>
         <div className="guarantee-banner">
           <ShieldCheck />
-          <strong>אחריות של שנה עד 5 שנים, בהתאם למערכת.</strong>
+          <strong>אחריות של שנה עד <bdi dir="ltr">5</bdi> שנים, בהתאם למערכת.</strong>
         </div>
       </section>
 

@@ -21,8 +21,10 @@ export const Route = createFileRoute("/he/portfolio")({
          content: "העבודות בוצעו על ידי השותפים המבצעים של הרשת. לחצו על הכרטיס כדי לראות תמונות וסרטונים של הפרויקט.",
       },
       { property: "og:type", content: "website" },
+       { property: "og:url", content: "https://bonim-view-builder.lovable.app/he/portfolio" },
       { name: "twitter:card", content: "summary_large_image" },
        { name: "twitter:title", content: "פרויקטים אמיתיים של השותפים שלנו – BONIM" },
+       { name: "twitter:description", content: "העבודות בוצעו על ידי השותפים המבצעים של הרשת. לחצו על הכרטיס כדי לראות תמונות וסרטונים של הפרויקט." },
     ],
      links: [
        { rel: "canonical", href: "https://bonim-view-builder.lovable.app/he/portfolio" },
