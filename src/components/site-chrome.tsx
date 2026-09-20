@@ -80,7 +80,7 @@ export function SiteHeader({ homeHref = "#top" }: { homeHref?: string }) {
             className={language === "he" ? "language-button active" : "language-button"}
             aria-pressed={language === "he"}
             aria-label="Иврит – в разработке"
-            onClick={() => setLanguage("he")}
+            onClick={() => setSiteLanguage("he")}
           >
             עב
           </Button>
@@ -91,7 +91,7 @@ export function SiteHeader({ homeHref = "#top" }: { homeHref?: string }) {
             className={language === "ru" ? "language-button active" : "language-button"}
             aria-pressed={language === "ru"}
             aria-label="Русский язык"
-            onClick={() => setLanguage("ru")}
+            onClick={() => setSiteLanguage("ru")}
           >
             РУ
           </Button>
@@ -106,10 +106,12 @@ export function SiteHeader({ homeHref = "#top" }: { homeHref?: string }) {
 }
 
 export function SiteFooter() {
+  const language = useSiteLanguage();
+
   return (
     <footer className="site-footer">
       <div className="section-shell footer-grid">
-        <BrandMark compact slogan="ru" />
+        <BrandMark compact slogan={language} />
         <div className="footer-links">
           <Link to="/privacy">Политика конфиденциальности</Link>
           <Link to="/terms">Условия оказания услуг</Link>
