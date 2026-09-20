@@ -620,9 +620,30 @@ function Index() {
       <section className="section-shell">
         <SectionHeading number="10">Было и стало</SectionHeading>
         <div className="photo-pairs">
-          {["Эйлат", "Петах-Тиква", "Рамле"].map((city) => (
-            <article className="photo-pair" key={city}>
-              <div className="photo-grid"><div><span>ДО</span>[Место для фотографии]</div><div><span>ПОСЛЕ</span>[Место для фотографии]</div></div>
+          {[
+            { city: "Эйлат", folder: "pair-1" },
+            { city: "Петах-Тиква", folder: "pair-2" },
+            { city: "Рамле", folder: "pair-3" },
+          ].map(({ city, folder }) => (
+            <article className="photo-pair" key={folder}>
+              <div className="photo-grid">
+                <figure>
+                  <span className="photo-label">ДО</span>
+                  <PortfolioImage
+                    src={`/media/before-after/${folder}/before.webp`}
+                    alt={`До: балкон, ${city}`}
+                    placeholder="[Место для фотографии]"
+                  />
+                </figure>
+                <figure>
+                  <span className="photo-label">ПОСЛЕ</span>
+                  <PortfolioImage
+                    src={`/media/before-after/${folder}/after.webp`}
+                    alt={`После: остекление балкона, ${city}`}
+                    placeholder="[Место для фотографии]"
+                  />
+                </figure>
+              </div>
               <p>{city}. Работу выполнил партнёр-исполнитель сети.</p>
             </article>
           ))}
