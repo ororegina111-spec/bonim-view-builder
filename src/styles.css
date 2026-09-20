@@ -467,7 +467,6 @@
   .split-section { gap: 32px; }
   .number-card { padding: 52px 20px; }
   .photo-grid { grid-template-columns: 1fr; }
-  .photo-grid div { min-height: 200px; }
   .reviews-grid { grid-template-columns: 1fr; }
   .guarantee-banner { align-items: flex-start; padding: 26px; }
   .faq-item button { padding: 20px; font-size: 17px; }
