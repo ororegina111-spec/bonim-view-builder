@@ -64,7 +64,7 @@ export function WhatsAppButton({ secondary = false }: { secondary?: boolean }) {
 }
 
 export function SiteHeader({ homeHref = "#top" }: { homeHref?: string }) {
-  const [language, setLanguage] = useState<"ru" | "he">("ru");
+  const language = useSiteLanguage();
 
   return (
     <header className="site-header">
