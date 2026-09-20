@@ -35,7 +35,7 @@ export function captureTracking(): void {
   // Метки из ссылки заменяют прежние. Если в ссылке меток нет, остаются прежние (человек уже заходил по рекламной ссылке).
   let merged: Tracking = Object.keys(fresh).length > 0 ? fresh : saved;
   // Откуда пришёл человек, если это другой сайт. Запоминаем один раз.
-  if (!merged.utm_referrer && document.referrer) {
+  if (!merged["utm_referrer"] && document.referrer) {
     try {
       const from = new URL(document.referrer);
       if (from.hostname !== window.location.hostname) {
