@@ -32,7 +32,7 @@ function PortfolioPage() {
 
   return (
     <main>
-      <SiteHeader homeHref="/" />
+       <SiteHeader homeHref="/" lang="ru" />
 
       <section className="section-shell portfolio-page">
         <Link to="/" className="legal-back">← На главную</Link>
@@ -85,8 +85,8 @@ function PortfolioPage() {
         </div>
       ) : null}
 
-      <SiteFooter />
-      <MobileWhatsApp />
+       <SiteFooter lang="ru" />
+       <MobileWhatsApp lang="ru" />
     </main>
   );
 }
