@@ -9,13 +9,13 @@ import { portfolioProjects, type PortfolioProject } from "@/data/portfolio";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Реальные объекты наших партнёров — BONIM" },
+      { title: "Реальные объекты наших партнёров – BONIM" },
       {
         name: "description",
         content:
           "Галерея балконов и пергол, закрытых партнёрами-исполнителями BONIM: город, описание проекта и фотографии выполненных работ.",
       },
-      { property: "og:title", content: "Реальные объекты наших партнёров — BONIM" },
+      { property: "og:title", content: "Реальные объекты наших партнёров – BONIM" },
       {
         property: "og:description",
         content: "Фотографии реальных балконов и пергол, остеклённых партнёрами BONIM в Израиле.",

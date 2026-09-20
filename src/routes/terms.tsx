@@ -3,14 +3,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Условия оказания услуг — BONIM" },
+      { title: "Условия оказания услуг – BONIM" },
       {
         name: "description",
         content:
-          "Пользовательское соглашение и условия оказания услуг сайта BONIM — подбор систем остекления балконов и пергол в Израиле.",
+          "Пользовательское соглашение и условия оказания услуг сайта BONIM – подбор систем остекления балконов и пергол в Израиле.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Условия оказания услуг — BONIM" },
+      { property: "og:title", content: "Условия оказания услуг – BONIM" },
       {
         property: "og:description",
         content: "Пользовательское соглашение и условия оказания услуг сайта BONIM.",
@@ -32,7 +32,7 @@ function TermsPage() {
 
         <p>
           Настоящее Соглашение определяет условия использования Пользователями
-          материалов и сервисов сайта BONIM (далее — «Сайт»).
+          материалов и сервисов сайта BONIM (далее – «Сайт»).
         </p>
 
         <h2>1. Общие условия</h2>
