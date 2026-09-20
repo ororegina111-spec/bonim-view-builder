@@ -6,7 +6,7 @@ import { PortfolioImage } from "@/components/portfolio-image";
 import { MobileWhatsApp, SiteFooter, SiteHeader, WhatsAppButton } from "@/components/site-chrome";
 import { portfolioProjects, type PortfolioProject } from "@/data/portfolio";
 
-export const Route = createFileRoute("/portfolio")({
+export const Route = createFileRoute("/he/portfolio")({
   head: () => ({
     meta: [
       { title: "Реальные объекты наших партнёров – BONIM" },
