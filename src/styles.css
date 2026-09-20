@@ -321,11 +321,31 @@
   .price-nowrap { white-space: nowrap; }
 
   .photo-pairs { display: grid; gap: 32px; }
-  .photo-pair { margin: 0; }
+  .photo-pair { margin: 0; max-width: 920px; margin-inline: auto; }
   .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .photo-grid div { display: grid; min-height: 260px; place-items: center; align-content: center; gap: 16px; border-radius: var(--radius-card); background: var(--surface-glass); backdrop-filter: blur(16px); box-shadow: var(--shadow-soft); color: var(--color-muted-foreground); }
-  .photo-grid div:last-child { background: color-mix(in oklch, var(--color-glass) 16%, white); }
-  .photo-grid span { color: var(--color-glass); font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+  .photo-grid figure {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    background: var(--surface-glass);
+    box-shadow: var(--shadow-soft);
+  }
+  .photo-grid figure .portfolio-image-frame img { object-fit: cover; }
+  .photo-label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: color-mix(in oklch, white 88%, transparent);
+    color: var(--color-glass);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+  }
   .photo-pair p { margin: 12px 0 0; color: var(--color-muted-foreground); font-size: 14px; }
 
   .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
