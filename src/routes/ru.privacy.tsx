@@ -17,6 +17,13 @@ export const Route = createFileRoute("/ru/privacy")({
           "Политика конфиденциальности персональных данных сайта BONIM.",
       },
       { name: "twitter:card", content: "summary" },
+      { property: "og:url", content: `${SITE_ORIGIN}/ru/privacy` },
+    ],
+    links: [
+      { rel: "canonical", href: `${SITE_ORIGIN}/ru/privacy` },
+      { rel: "alternate", hrefLang: "he", href: `${SITE_ORIGIN}/privacy` },
+      { rel: "alternate", hrefLang: "ru", href: `${SITE_ORIGIN}/ru/privacy` },
+      { rel: "alternate", hrefLang: "x-default", href: `${SITE_ORIGIN}/privacy` },
     ],
   }),
   component: PrivacyPage,

@@ -153,11 +153,13 @@ export const Route = createFileRoute("/ru/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "BONIM – подбор систем остекления балконов в Израиле" },
+      { property: "og:url", content: `${SITE_ORIGIN}/ru` },
     ],
     links: [
-      { rel: "alternate", hrefLang: "ru", href: "https://bonimbalconim.com/" },
-      { rel: "alternate", hrefLang: "he", href: "https://bonimbalconim.com/he" },
-      { rel: "canonical", href: "https://bonimbalconim.com/" },
+      { rel: "alternate", hrefLang: "he", href: `${SITE_ORIGIN}/` },
+      { rel: "alternate", hrefLang: "ru", href: `${SITE_ORIGIN}/ru` },
+      { rel: "alternate", hrefLang: "x-default", href: `${SITE_ORIGIN}/` },
+      { rel: "canonical", href: `${SITE_ORIGIN}/ru` },
     ],
     scripts: [
       {

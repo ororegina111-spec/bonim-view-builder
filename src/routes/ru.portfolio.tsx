@@ -22,6 +22,13 @@ export const Route = createFileRoute("/ru/portfolio")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: `${SITE_ORIGIN}/ru/portfolio` },
+    ],
+    links: [
+      { rel: "canonical", href: `${SITE_ORIGIN}/ru/portfolio` },
+      { rel: "alternate", hrefLang: "he", href: `${SITE_ORIGIN}/portfolio` },
+      { rel: "alternate", hrefLang: "ru", href: `${SITE_ORIGIN}/ru/portfolio` },
+      { rel: "alternate", hrefLang: "x-default", href: `${SITE_ORIGIN}/portfolio` },
     ],
   }),
   component: PortfolioPage,

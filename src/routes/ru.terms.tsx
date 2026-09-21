@@ -16,6 +16,13 @@ export const Route = createFileRoute("/ru/terms")({
         content: "Пользовательское соглашение и условия оказания услуг сайта BONIM.",
       },
       { name: "twitter:card", content: "summary" },
+      { property: "og:url", content: `${SITE_ORIGIN}/ru/terms` },
+    ],
+    links: [
+      { rel: "canonical", href: `${SITE_ORIGIN}/ru/terms` },
+      { rel: "alternate", hrefLang: "he", href: `${SITE_ORIGIN}/terms` },
+      { rel: "alternate", hrefLang: "ru", href: `${SITE_ORIGIN}/ru/terms` },
+      { rel: "alternate", hrefLang: "x-default", href: `${SITE_ORIGIN}/terms` },
     ],
   }),
   component: TermsPage,
