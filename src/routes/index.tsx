@@ -56,11 +56,11 @@ import { PortfolioImage } from "@/components/portfolio-image";
 import { portfolioProjects } from "@/data/portfolio";
 import { getTracking } from "@/lib/tracking";
 
-const whatsappUrl = "https://wa.me/972559404379";
+const whatsappUrl = `https://wa.me/972559404379?text=${encodeURIComponent("שלום, אני מעוניין/ת לברר על סגירת מרפסת")}`;
 
 const systemGalleries = [
   {
-    system: "Безрамная складывающаяся",
+    system: "זכוכית נאספת ללא מסגרת",
     photos: [
       framelessWebp1.url,
       framelessWebp2.url,
@@ -79,7 +79,7 @@ const systemGalleries = [
     ],
   },
   {
-    system: "Раздвижная",
+    system: "מערכת הזזה",
     photos: [
       slidingWebp1.url,
       slidingWebp2.url,
@@ -98,31 +98,11 @@ const systemGalleries = [
 
 
 const faqItems = [
-  {
-    question: "Замер платный? У других бесплатно.",
-    answer:
-      "Сам замер как услуга специалиста – бесплатный. От 300 ₪ покрывают расчёт и подготовку проекта с точными цифрами и доставку специалиста к вам, особенно если вы живёте далеко. Если не закажете – профессиональный расчёт и проект остаются у вас.",
-  },
-  {
-    question: "Почему одни системы отличаются от других?",
-    answer:
-      "Мы получаем одинаковое вознаграждение независимо от вашего выбора. Но у систем с более толстым профилем и надёжным механизмом объективно ниже риск деформации – покажем это в цифрах на замере. Ряд систем не используют современные решения крепежа стекол.",
-  },
-  {
-    question: "Можно узнать цену без замера?",
-    answer:
-      "Пришлите размеры и получите предварительный расчёт в тот же день. Точная цена – после замера.",
-  },
-  {
-    question: "А если ничего не устроит?",
-    answer:
-      "Профессиональный расчёт, смета и точный проект останутся у вас. Вы сможете обратиться с ними к любым производителям.",
-  },
-  {
-    question: "Какие сроки поставки?",
-    answer:
-      "У систем местных производителей – от 24 рабочих дней. У остальных срок называем после проверки наличия у поставщика.",
-  },
+  { question: "המדידה בתשלום? אצל אחרים היא בחינם.", answer: "המדידה עצמה, כשירות של איש המקצוע, היא בחינם. הסכום החל מ-300 ₪ מכסה את החישוב והכנת התוכנית עם מספרים מדויקים ואת הגעת איש המקצוע אליכם, במיוחד אם אתם גרים רחוק. אם לא תזמינו – החישוב המקצועי והתוכנית נשארים אצלכם." },
+  { question: "למה מערכות שונות זו מזו?", answer: "אנחנו מקבלים תגמול זהה בלי קשר לבחירה שלכם. אבל למערכות עם פרופיל עבה יותר ומנגנון אמין סיכון נמוך יותר לעיוות באופן אובייקטיבי – נראה זאת במספרים במהלך המדידה. חלק מהמערכות לא משתמשות בפתרונות עיגון מודרניים לזכוכית." },
+  { question: "אפשר לדעת את המחיר בלי מדידה?", answer: "שלחו את המידות וקבלו הערכת מחיר ראשונית עוד באותו יום. המחיר המדויק – אחרי המדידה." },
+  { question: "ומה אם שום דבר לא יתאים?", answer: "החישוב המקצועי, הצעת המחיר המפורטת והתוכנית המדויקת נשארים אצלכם. תוכלו לפנות איתם לכל יצרן." },
+  { question: "מה זמני האספקה?", answer: "אצל יצרנים מקומיים – מ-24 ימי עבודה. אצל האחרים נמסור את הזמן לאחר בדיקת זמינות מול הספק." },
 ];
 
 const faqSchema = {
@@ -135,29 +115,34 @@ const faqSchema = {
   })),
 };
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/he/")({
   head: () => ({
     meta: [
-      { title: "BONIM – подбор систем остекления балконов в Израиле" },
+      { title: "BONIM – בחירה והתאמה של מערכות סגירה למרפסות בישראל" },
       {
         name: "description",
         content:
-          "Диспетчерская служба подбора систем закрытия балконов и пергол. Предварительный расчёт по вашим размерам в течение дня.",
+          "שירות ליווי בבחירת מערכות סגירה למרפסות ופרגולות. הערכת מחיר ראשונית לפי המידות שלכם – עוד באותו יום.",
       },
-      { property: "og:title", content: "BONIM – подбор систем остекления балконов в Израиле" },
+      { property: "og:title", content: "BONIM – בחירת מערכות סגירה למרפסות" },
       {
         property: "og:description",
         content:
-          "Сравните несколько вариантов и получите предварительный расчёт по размерам вашего балкона.",
+          "השוו כמה אפשרויות וקבלו הערכת מחיר ראשונית לפי מידות המרפסת שלכם.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://bonimbalconim.com/he" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "BONIM – подбор систем остекления балконов в Израиле" },
+      { name: "twitter:title", content: "BONIM – בחירת מערכות סגירה למרפסות" },
+      { name: "twitter:description", content: "השוו כמה אפשרויות וקבלו הערכת מחיר ראשונית לפי מידות המרפסת שלכם." },
     ],
     links: [
-      { rel: "alternate", hrefLang: "ru", href: "https://bonimbalconim.com/" },
       { rel: "alternate", hrefLang: "he", href: "https://bonimbalconim.com/he" },
-      { rel: "canonical", href: "https://bonimbalconim.com/" },
+      { rel: "alternate", hrefLang: "ru", href: "https://bonimbalconim.com/" },
+      { rel: "canonical", href: "https://bonimbalconim.com/he" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" },
     ],
     scripts: [
       {
@@ -166,7 +151,7 @@ export const Route = createFileRoute("/")({
       },
     ],
   }),
-  component: Index,
+  component: HebrewHomePage,
 });
 
 function Divider({ image, text }: { image: { url: string }; text?: string }) {
@@ -181,17 +166,12 @@ function BrandMark({ compact = false, slogan = "he" }: { compact?: boolean; slog
   return (
     <div className={compact ? "brand-mark brand-mark--compact" : "brand-mark"}>
       <img src={logoAsset.url} alt="בונים BONIM" width="1024" height="768" />
-      {slogan === "ru" ? (
-        <p className="brand-slogan">
-          <span>Закрываем балкон.</span>
-          <span>Открываем вид.</span>
-        </p>
-      ) : (
+      {slogan === "he" ? (
         <p className="brand-slogan" dir="rtl">
           <span>סוגרים את המרפסת.</span>
           <span>פותחים את הנוף.</span>
         </p>
-      )}
+      ) : null}
     </div>
   );
 }
@@ -210,7 +190,7 @@ function WhatsAppButton({ secondary = false }: { secondary?: boolean }) {
     <Button asChild size="lg" variant={secondary ? "outline" : "default"}>
       <a href={whatsappUrl} target="_blank" rel="noreferrer">
         <MessageCircle />
-        Написать в WhatsApp
+        כתבו לנו ב<span className="ltr-isolate" dir="ltr">WhatsApp</span>
       </a>
     </Button>
   );
@@ -222,7 +202,7 @@ function PortfolioCarousel() {
   function scrollBy(direction: -1 | 1) {
     const node = scrollerRef.current;
     if (!node) return;
-    node.scrollBy({ left: direction * Math.max(280, node.clientWidth * 0.8), behavior: "smooth" });
+    node.scrollBy({ left: -direction * Math.max(280, node.clientWidth * 0.8), behavior: "smooth" });
   }
 
   return (
@@ -231,27 +211,27 @@ function PortfolioCarousel() {
         {portfolioProjects.slice(0, 5).map((project) => (
           <article className="portfolio-card" key={project.id}>
             <span className="portfolio-cover">
-              <PortfolioImage src={project.cover} alt={project.title} />
-              {project.videos.length > 0 ? <span className="portfolio-video-badge" aria-label="Есть видео"><Play /></span> : null}
+              <PortfolioImage src={project.cover} alt={project.titleHe} placeholder="[תמונת הפרויקט]" />
+              {project.videos.length > 0 ? <span className="portfolio-video-badge" aria-label="יש סרטון"><Play /></span> : null}
             </span>
-            <span className="portfolio-title">{project.title}</span>
-            {project.date ? <span className="portfolio-date">{project.date}</span> : null}
-            <span className="portfolio-description">{project.description}</span>
+            <span className="portfolio-title">{project.titleHe}</span>
+            {project.dateHe ? <span className="portfolio-date">{project.dateHe}</span> : null}
+            <span className="portfolio-description">{project.descriptionHe}</span>
           </article>
         ))}
       </div>
       <div className="portfolio-carousel-nav">
-        <button type="button" onClick={() => scrollBy(-1)} aria-label="Предыдущие проекты"><ChevronLeft /></button>
-        <button type="button" onClick={() => scrollBy(1)} aria-label="Следующие проекты"><ChevronRight /></button>
+        <button type="button" onClick={() => scrollBy(-1)} aria-label="פרויקטים קודמים"><ChevronLeft /></button>
+        <button type="button" onClick={() => scrollBy(1)} aria-label="פרויקטים הבאים"><ChevronRight /></button>
       </div>
-      <Link to="/portfolio" className="portfolio-more">Смотреть ещё</Link>
+      <Link to="/he/portfolio" className="portfolio-more">עוד פרויקטים</Link>
     </div>
   );
 }
 
 const FORM_PAGE = "main";
 
-function Index() {
+function HebrewHomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -275,7 +255,7 @@ function Index() {
       height: String(data.get("height") ?? ""),
       consent: true,
       page: FORM_PAGE,
-       lang: "ru",
+      lang: "he",
       hp_check: String(data.get("hp_check") ?? ""),
       tracking: getTracking(),
       landing: window.location.href,
@@ -302,21 +282,21 @@ function Index() {
   }
 
   return (
-    <main>
+    <main className="he-page" lang="he" dir="rtl">
       <header className="site-header">
-        <a href="#top" aria-label="BONIM – в начало страницы">
+        <a href="#top" aria-label="BONIM – לדף הבית">
           <BrandMark compact />
         </a>
         <div className="header-tools">
-          <div className="language-switch" role="group" aria-label="Выбор языка">
-            <Button asChild size="icon" variant="ghost" className="language-button" aria-label="Иврит">
-              <Link to="/he" lang="he">עב</Link>
+          <div className="language-switch" role="group" aria-label="בחירת שפה">
+            <Button asChild size="icon" variant="ghost" className="language-button active" aria-label="עברית">
+              <Link to="/he" lang="he" aria-current="page">עב</Link>
             </Button>
-            <Button asChild size="icon" variant="ghost" className="language-button active" aria-label="Русский язык">
-              <Link to="/" aria-current="page">РУ</Link>
+            <Button asChild size="icon" variant="ghost" className="language-button" aria-label="רוסית">
+              <Link to="/">РУ</Link>
             </Button>
           </div>
-          <a className="header-phone" href="tel:+972559404379" aria-label="Позвонить по телефону +972 55-940-4379" title="Позвонить">
+          <a className="header-phone" href="tel:+972559404379" aria-label="התקשרו למספר +972 55-940-4379" title="התקשרו">
             <Phone />
           </a>
           <WhatsAppButton secondary />
@@ -325,53 +305,51 @@ function Index() {
 
       <section id="top" className="hero section-shell">
         <div className="hero-copy">
-          <div className="eyebrow">Диспетчерская служба подбора систем остекления</div>
+          <div className="eyebrow">שירות ליווי והתאמה של מערכות סגירה למרפסות</div>
           <div className="section-heading hero-heading">
             <span>01</span>
             <h1>
-              <span className="hero-title-main">Балкон не в порядке?</span>{" "}
-              <span className="hero-title-sub">Мы поможем подобрать систему, которая подходит именно вам</span>
+              <span className="hero-title-main">המרפסת לא עובדת בשבילכם?</span>{" "}
+              <span className="hero-title-sub">נעזור לכם לבחור את המערכת שמתאימה בדיוק לכם</span>
             </h1>
           </div>
           <p className="hero-lead">
-            Мы диспетчерская служба: помогаем выбрать систему закрытия балкона и перголы среди
-            нескольких проверенных вариантов. Специалист привозит образцы, вы сравниваете вживую и
-            выбираете сами.
+            אנחנו שירות שמלווה אתכם בבחירת מערכת לסגירת מרפסת או פרגולה מתוך כמה אפשרויות מבוססות. איש מקצוע מגיע עם דוגמאות, אתם משווים בעצמכם במקום ובוחרים.
           </p>
           <div className="hero-actions">
             <WhatsAppButton />
             <Button asChild size="lg" variant="outline">
               <a href="#calculation">
-                Получить предварительный расчёт
+                קבלו הערכת מחיר ראשונית
                 <ArrowDown />
               </a>
             </Button>
           </div>
           <p className="price-note">
-            Выезд специалиста – бесплатно. Вы платите только за расчёт и подготовку проекта: от 300 ₪.
+            הגעת איש המקצוע אליכם – בחינם. משלמים רק על חישוב והכנת התוכנית: <span dir="ltr" className="ltr-isolate">החל מ-300 ₪</span>.
           </p>
         </div>
         <div className="hero-photo">
           <img
             src={balkonHero.url}
-            alt="Балкон с панорамным безрамным остеклением и видом на город"
+            alt="מרפסת עם סגירת זכוכית פנורמית ללא מסגרת ונוף לעיר"
             fetchPriority="high"
             decoding="async"
           />
         </div>
       </section>
 
-      <Divider image={dividerWindow} text="Ещё один сезон без остекления – ещё один сезон впустую" />
+      <Divider image={dividerWindow} text="עוד עונה בלי סגירה – עוד עונה שהולכת לאיבוד" />
 
       <section className="section-shell problem-section">
-        <SectionHeading number="02">Проблема</SectionHeading>
+        <SectionHeading number="02">הבעיה</SectionHeading>
         <div className="problem-grid">
           {[
-            "Балкон в новой квартире так и остался голой бетонной коробкой.",
-            "Летом на балконе или террасе нельзя долго находиться из-за жары и ветра, а зимой – из-за холода.",
-            "Из соседних домов видно всё, что происходит на балконе.",
-            "Ребёнок подходит к перилам без ограждения, и это страшно.",
-            "Шум с улицы мешает спокойно жить, всё покрывается пылью за день.",
+            "המרפסת בדירה החדשה נשארה קופסת בטון חשופה.",
+            "בקיץ אי אפשר לשבת במרפסת מרוב חום ורוח, ובחורף מרוב קור.",
+            "מהבניינים הסמוכים רואים כל מה שקורה במרפסת.",
+            "הילד מתקרב לחלון הפתוח, וזה מפחיד.",
+            "הרעש מהרחוב לא מאפשר לפתוח חלון, וכל דבר מתכסה באבק תוך יום.",
           ].map((text, index) => (
             <div className="problem-item" key={text}>
               <span>0{index + 1}</span>
@@ -380,61 +358,55 @@ function Index() {
           ))}
         </div>
         <p className="statement">
-          Причины разные, а решение одно: понять, какая система подходит именно вашему балкону, и
-          не переплатить за то, что развалится через год.
+          הסיבות שונות, והפתרון אחד: להבין איזו מערכת מתאימה בדיוק למרפסת שלכם, ולא לשלם יותר מדי על משהו שיתפרק תוך שנה.
         </p>
       </section>
 
       <section className="blue-band">
         <div className="section-shell narrow">
-          <SectionHeading number="03">Мы диспетчеры</SectionHeading>
+          <SectionHeading number="03">מי אנחנו</SectionHeading>
           <p className="large-copy">
-            «Bonim» – не производитель и не фирма-установщик. Мы диспетчерская служба: специалисты,
-            которые помогают подобрать нужную систему закрытия балкона или перголы среди нескольких
-            проверенных производителей. Наш специалист приезжает с образцами, показывает разницу
-            вживую, вы
-            выбираете. Мы не навязываем вам конкретную систему – наша задача, чтобы вы выбрали то,
-            что подходит именно вашему балкону и бюджету.
+            <span dir="ltr" className="ltr-isolate">BONIM</span> היא לא יצרן ולא חברת התקנה. אנחנו שירות ליווי והתאמה: אנשי מקצוע שעוזרים לבחור את המערכת המתאימה לסגירת מרפסת או פרגולה מתוך כמה יצרנים מבוססים. איש המקצוע שלנו מגיע עם דוגמאות ומראה את ההבדלים במקום, ואתם בוחרים. אנחנו לא מכתיבים מערכת מסוימת – המטרה שלנו שתבחרו את מה שמתאים בדיוק למרפסת ולתקציב שלכם.
           </p>
         </div>
       </section>
 
       <section className="section-shell">
-        <SectionHeading number="04">Что привезём</SectionHeading>
-        <p className="section-intro">Несколько типов конструкций от разных производителей. Сравните сами.</p>
-        <div className="comparison-table" role="table" aria-label="Сравнение типов конструкций">
+        <SectionHeading number="04">מה נביא איתנו</SectionHeading>
+        <p className="section-intro">כמה סוגי מערכות מיצרנים שונים. השוו בעצמכם.</p>
+        <div className="comparison-table" role="table" aria-label="השוואת סוגי מערכות">
           <div className="compare-row compare-head" role="row">
-            <span>Тип конструкции</span><span>Как работает</span><span>Цена</span><span>Что важно знать</span>
+            <span>סוג המערכת</span><span>איך זה עובד</span><span>מחיר</span><span>מה חשוב לדעת</span>
           </div>
           <div className="compare-row" role="row">
-            <strong>Безрамная складывающаяся</strong>
-            <span>складываются гармошкой, открывают до 100% проёма, панорамный вид</span>
-            <strong>от 1250 ₪/м²</strong>
-            <span>толщина профиля и материал механизма различаются у разных производителей – от этого зависят надёжность и срок службы</span>
+            <strong>זכוכית נאספת ללא מסגרת</strong>
+            <span>נאספת כמו אקורדיון, פותחת עד <bdi dir="ltr">100%</bdi> מהפתח, נוף פנורמי</span>
+            <strong><span dir="ltr" className="ltr-isolate">החל מ-1,250 ₪ למ״ר</span></strong>
+            <span>עובי הפרופיל וחומר המנגנון שונים בין יצרנים, ומהם תלויים אמינות ואורך חיים</span>
           </div>
           <div className="compare-row" role="row">
-            <strong>Раздвижная</strong>
-            <span>створки сдвигаются в стороны, экономят место</span>
-            <strong>от 1100 ₪/м²</strong>
-            <span>более бюджетное решение, подходит, если панорамное открывание не обязательно</span>
+            <strong>מערכת הזזה</strong>
+            <span>הכנפיים נעות הצידה וחוסכות מקום</span>
+            <strong><span dir="ltr" className="ltr-isolate">החל מ-1,100 ₪ למ״ר</span></strong>
+            <span>פתרון חסכוני יותר, מתאים כשלא חייבים פתיחה פנורמית</span>
           </div>
         </div>
-        <div className="system-galleries" aria-label="Фотографии систем остекления">
+        <div className="system-galleries" aria-label="תמונות של מערכות סגירה">
           {systemGalleries.map((gallery) => (
-            <section className="system-gallery" key={gallery.system} aria-label={`Фотографии: ${gallery.system}`}>
+            <section className="system-gallery" key={gallery.system} aria-label={`תמונות: ${gallery.system}`}>
               <h3>{gallery.system}</h3>
               <div className="system-photo-track">
                 {gallery.photos.length === 0
                   ? [1, 2, 3, 4].map((n) => (
                       <div className="system-photo system-photo--placeholder" key={n}>
-                        <span>Фото появится</span>
+                        <span>התמונה תופיע כאן</span>
                       </div>
                     ))
                   : gallery.photos.map((photo, index) => (
                       <div className="system-photo" key={photo}>
                         <img
                           src={photo}
-                          alt={`${gallery.system}: фото ${index + 1}`}
+                          alt={`${gallery.system}: תמונה ${index + 1}`}
                           loading="lazy"
                           decoding="async"
                         />
@@ -446,46 +418,39 @@ function Index() {
           ))}
         </div>
         <p className="info-strip">
-          У систем есть отличия, которые не видны на фото: толщина профиля, материал колёс,
-          технология изготовления и установки, замки и стоперы и многое другое, а также срок поставки
-          – от 24 рабочих дней у систем местных производителей, у остальных срок называем после
-          проверки наличия у поставщика. Специалист привезёт несколько образцов и честно покажет
-          разницу вживую, с цифрами в руках. Вы увидите отличие в толщине профиля своими глазами.
+          בין המערכות יש הבדלים שלא רואים בתמונה: עובי הפרופיל, חומר הגלגלים, טכנולוגיית הייצור וההתקנה, מנעולים ועצרים ועוד, וגם זמן האספקה – מ-24 ימי עבודה אצל יצרנים מקומיים, ואצל האחרים נמסור את הזמן לאחר בדיקת זמינות מול הספק. איש המקצוע יביא כמה דוגמאות ויראה בכנות את ההבדל במקום, עם מספרים ביד. תראו במו עיניכם את ההבדל בעובי הפרופיל.
         </p>
       </section>
 
-      <Divider image={dividerSunbeam} text="Один замер – и балкон начинает работать на вас, а не простаивать" />
+      <Divider image={dividerSunbeam} text="מדידה אחת – והמרפסת מתחילה לעבוד בשבילכם במקום לעמוד ריקה" />
 
       <section className="soft-band">
         <div className="section-shell">
-          <SectionHeading number="05">Как это работает</SectionHeading>
+          <SectionHeading number="05">איך זה עובד</SectionHeading>
           <ol className="steps-grid">
             {[
-              "Звоните, пишете в WhatsApp, оставляете заявку на сайте или в Facebook.",
-              "Присылаете размеры балкона – чем точнее, тем точнее будет предварительный расчёт.",
-              "В тот же день получаете предварительный расчёт с разными тарифами.",
-              "Оплачиваете подготовку итогового проекта: от 300 ₪.",
-              "Специалист бесплатно приезжает с образцами, снимает точные размеры.",
-              "Получаете итоговое коммерческое предложение с точной суммой.",
-              "Выбираете удобную вам систему. Если не решились, то расчёт и готовый профессиональный проект остаются у вас в любом случае.",
-              "Подписываете договор напрямую с исполнителем.",
+              <>מתקשרים, כותבים ב<span dir="ltr" className="ltr-isolate">WhatsApp</span>, משאירים פנייה באתר או ב<span dir="ltr" className="ltr-isolate">Facebook</span>.</>,
+              "שולחים את מידות המרפסת – ככל שהמידות מדויקות יותר, כך ההערכה הראשונית מדויקת יותר.",
+              "עוד באותו יום מקבלים הערכת מחיר ראשונית עם כמה מסלולים.",
+              <>משלמים על הכנת התוכנית הסופית: <span dir="ltr" className="ltr-isolate">החל מ-300 ₪</span>.</>,
+              "איש המקצוע מגיע בחינם עם דוגמאות ומודד מידות מדויקות.",
+              "מקבלים הצעת מחיר סופית עם סכום מדויק.",
+              "בוחרים את המערכת שנוחה לכם. גם אם לא החלטתם, החישוב והתוכנית המקצועית נשארים אצלכם בכל מקרה.",
+              "חותמים על הסכם ישירות מול המבצע.",
             ].map((step, index) => (
-              <li key={step}><span>{index + 1}</span><p>{step}</p></li>
+              <li key={index}><span>{index + 1}</span><p>{step}</p></li>
             ))}
           </ol>
         </div>
       </section>
 
       <section className="section-shell measure-section">
-        <SectionHeading number="06">Предварительный расчёт по вашим размерам</SectionHeading>
+        <SectionHeading number="06">הערכת מחיר ראשונית לפי המידות שלכם</SectionHeading>
         <p className="section-intro measure-intro">
-          Не обязательно вызывать специалиста, чтобы понять порядок цен. Напишите размеры балкона или
-          перголы (инструкция ниже) – в WhatsApp, через форму на сайте или в заявке Facebook – и мы
-          пришлём предварительный расчёт в течение дня. Чем точнее вы пришлёте размеры, тем точнее
-          будет предварительная стоимость.
+          לא חייבים להזמין איש מקצוע כדי להבין את סדר הגודל של המחירים. שלחו לנו את מידות המרפסת או הפרגולה (ההוראות למטה) – בוואטסאפ, בטופס באתר או בפנייה בפייסבוק – ונשלח הערכת מחיר ראשונית עוד באותו יום. ככל שהמידות מדויקות יותר, כך ההערכה מדויקת יותר.
         </p>
         <div className="tab-container">
-          <div className="tab-header" role="tablist" aria-label="Инструкция по замеру">
+          <div className="tab-header" role="tablist" aria-label="הוראות מדידה">
             <button
               type="button"
               role="tab"
@@ -494,7 +459,7 @@ function Index() {
               onClick={() => setMeasureTab("balcony")}
             >
               <Ruler aria-hidden="true" />
-              Инструкция для балкона/лоджии
+              הוראות למרפסת / לוגיה
             </button>
             <button
               type="button"
@@ -504,7 +469,7 @@ function Index() {
               onClick={() => setMeasureTab("pergola")}
             >
               <Leaf aria-hidden="true" />
-              Инструкция для перголы/террасы
+              הוראות לפרגולה / טרסה
             </button>
           </div>
 
@@ -513,19 +478,19 @@ function Index() {
             role="tabpanel"
             hidden={measureTab !== "balcony"}
           >
-            <h3>Как измерить самостоятельно</h3>
+            <h3>איך למדוד בעצמכם</h3>
             <div className="measure-layout">
               <div>
                 <div className="measure-list">
-                  <p><span className="measure-number">1</span><span>Ширина: от стены до стены, если балкон прямой. Если закрываете 2–3 стороны, от перил до перил или от перил до стены и укажите общую сумму длин.</span></p>
-                  <p><span className="measure-number">2</span><span>Высота: от перил до потолка или от пола до потолка, если нет стеклянного ограждения (мааке цхухит). Если нет потолка или частично нет потолка, возьмите для расчёта высоту 150 см. Стоимость перголы, необходимой в этом случае, рассчитывают отдельно.</span></p>
-                  <p className="measure-unnumbered"><Check /><span>Отметьте, есть ли парапет и доходит ли остекление от пола до потолка.</span></p>
+                  <p><span className="measure-number">1</span><span>רוחב: מקיר לקיר, אם המרפסת ישרה. אם סוגרים 2–3 צדדים – ממעקה למעקה או ממעקה לקיר, ורשמו את סכום האורכים הכולל.</span></p>
+                  <p><span className="measure-number">2</span><span>גובה: מהמעקה עד התקרה, או מהרצפה עד התקרה אם אין מעקה זכוכית. אם אין תקרה או שיש תקרה חלקית – קחו לחישוב גובה של 150 ס״מ. עלות הפרגולה הנדרשת במקרה כזה מחושבת בנפרד.</span></p>
+                  <p className="measure-unnumbered"><Check /><span>ציינו אם יש מעקה (פרפט) והאם הזיגוג מגיע מהרצפה עד התקרה.</span></p>
                 </div>
               </div>
               <img
                 className="measurement-diagram"
                 src={balconyMeasureDiagram.url}
-                alt="Схема замера балкона: 1 – ширина, 2 – высота"
+                alt="תרשים מדידת מרפסת: 1 – רוחב, 2 – גובה"
                 loading="lazy"
                 decoding="async"
               />
@@ -537,102 +502,99 @@ function Index() {
             role="tabpanel"
             hidden={measureTab !== "pergola"}
           >
-            <h3>Как измерить перголу</h3>
+            <h3>איך למדוד פרגולה</h3>
             <div className="measure-layout">
               <div>
-                <p className="measure-lead">Если вы закрываете перголу, измерьте каждую сторону, которую хотите закрыть, как отдельный прямоугольник.</p>
+                <p className="measure-lead">אם סוגרים פרגולה, מודדים כל צד שרוצים לסגור כמלבן נפרד.</p>
                 <div className="measure-list">
-                  <p><span className="measure-number">1</span><span>Ширина (W): расстояние между опорными столбами.</span></p>
-                  <p><span className="measure-number">2</span><span>Высота (H): расстояние от пола до нижней части крыши или балки.</span></p>
-                  <p><span className="measure-number">3</span><span>Отметьте, есть ли примыкание к дому и длина этого примыкания (стороны).</span></p>
+                  <p><span className="measure-number">1</span><span>רוחב (W): המרחק בין עמודי התמיכה.</span></p>
+                  <p><span className="measure-number">2</span><span>גובה (H): המרחק מהרצפה עד החלק התחתון של הגג או הקורה.</span></p>
+                  <p><span className="measure-number">3</span><span>ציינו אם הפרגולה צמודה לבית ומה אורך הצד הצמוד.</span></p>
                 </div>
-                <p className="measure-hint">Окончательный замер всегда делает специалист.</p>
+                <p className="measure-hint">המדידה הסופית תמיד נעשית על ידי איש מקצוע.</p>
               </div>
               <img
                 className="measurement-diagram"
                 src={pergolaMeasureDiagram.url}
-                alt="Схема замера перголы: 1 – ширина, 2 – высота, 3 – примыкание к дому"
+                alt="תרשים מדידת פרגולה: 1 – רוחב, 2 – גובה, 3 – חיבור לבית"
                 loading="lazy"
                 decoding="async"
               />
             </div>
           </div>
           <p className="tip measure-common-note">
-            Даже если вы не закажете через нас – профессиональный расчёт и подготовленный проект
-            остаются у вас. Если вы живёте до 60 километров – дорога входит в стоимость подготовки
-            проекта (от 300 ₪).
-            Если расстояние больше, мы попросим доплату за проезд специалиста.
+            גם אם לא תזמינו דרכנו – החישוב המקצועי והתוכנית שהוכנה נשארים אצלכם. אם אתם גרים עד 60 ק״מ – הנסיעה כלולה במחיר הכנת התוכנית (<span dir="ltr" className="ltr-isolate">החל מ-300 ₪</span>). אם המרחק גדול יותר, נבקש תוספת עבור נסיעת איש המקצוע.
           </p>
           <button
             type="button"
             className="whatsapp-link whatsapp-link--standalone"
             onClick={() => window.open(whatsappUrl, "_blank", "noopener,noreferrer")}
           >
-            Заказать бесплатный выезд замерщика
+            הזמינו מודד ללא עלות
           </button>
         </div>
       </section>
 
       <section className="blue-band">
         <div className="section-shell">
-          <SectionHeading number="07">Что происходит на замере</SectionHeading>
+          <SectionHeading number="07">מה קורה במדידה</SectionHeading>
           <div className="check-grid">
             {[
-              "Специалист привозит настоящие образцы профиля, не картинки.",
-              "Снимает точные размеры вашего балкона.",
-              "Показывает разницу между системами вживую.",
-              "Честно называет особенности и ограничения каждого варианта.",
-              "В течение 24 часов получаете точный расчёт и сам проект.",
-              "Даже если вы не закажете через нас – профессиональный расчёт и подготовленный проект остаются у вас.",
+              "איש המקצוע מביא דוגמאות אמיתיות של פרופיל, לא תמונות.",
+              "מודד את מידות המרפסת בדיוק.",
+              "מראה את ההבדל בין המערכות במקום.",
+              "מציין בכנות את המאפיינים והמגבלות של כל אפשרות.",
+              "תוך 24 שעות מקבלים חישוב מדויק ואת התוכנית עצמה.",
+              "גם אם לא תזמינו דרכנו – החישוב המקצועי והתוכנית שהוכנה נשארים אצלכם.",
             ].map((item) => <p key={item}><Check />{item}</p>)}
           </div>
         </div>
       </section>
 
       <section className="section-shell split-section">
-        <div className="number-card">от <span className="price-nowrap">300 ₪</span></div>
+        <div className="number-card">החל מ-<span className="price-nowrap ltr-isolate" dir="ltr">300 ₪</span></div>
         <div>
-          <SectionHeading number="08"><span className="section-title-main">Специалист&nbsp;приезжает бесплатно.</span>{" "}<span className="section-title-sub">За что от 300 ₪?</span></SectionHeading>
-          <p>Сам замер – услуга специалиста – бесплатный. От 300 ₪ покрывают две вещи: подготовку расчёта и проекта вашего будущего балкона с точными цифрами, и доставку специалиста к вам. Если вы живёте до 60 километров – дорога входит в сумму. Если расстояние больше, мы попросим доплату за проезд специалиста.</p>
-          <p>Если решите не заказывать дальше проект, профессиональный расчёт, смета и точный проект останутся у вас. Вы сможете обратиться с ними к любым производителям.</p>
+          <SectionHeading number="08"><span className="section-title-main">איש המקצוע מגיע בחינם.</span>{" "}<span className="section-title-sub">על מה משלמים <span dir="ltr" className="ltr-isolate">החל מ-300 ₪</span>?</span></SectionHeading>
+          <p>המדידה עצמה, שירות איש המקצוע, היא בחינם. הסכום <span dir="ltr" className="ltr-isolate">החל מ-300 ₪</span> מכסה שני דברים: הכנת החישוב והתוכנית של המרפסת העתידית שלכם עם מספרים מדויקים, והגעת איש המקצוע אליכם. אם אתם גרים עד <bdi dir="ltr">60 ק״מ</bdi> – הנסיעה כלולה בסכום. אם המרחק גדול יותר, נבקש תוספת עבור נסיעת איש המקצוע.</p>
+          <p>אם תחליטו לא להמשיך להזמנה, החישוב המקצועי, הצעת המחיר המפורטת והתוכנית המדויקת נשארים אצלכם. תוכלו לפנות איתם לכל יצרן.</p>
         </div>
       </section>
 
       <section className="soft-band">
         <div className="section-shell narrow">
-          <SectionHeading number="09">Как мы зарабатываем</SectionHeading>
-          <p className="large-copy dark-copy">Мы получаем одинаковое вознаграждение независимо от вашего выбора. Потому готовы продемонстрировать системы с более толстым профилем и надёжными механизмами, системы, у которых ниже риск деформации. Покажем это в цифрах и на образцах на замере. Покажем системы, которые не используют современные решения крепежа стекол и которые используют.</p>
+          <SectionHeading number="09">איך אנחנו מרוויחים</SectionHeading>
+          <p className="large-copy dark-copy">אנחנו מקבלים תגמול זהה בלי קשר לבחירה שלכם. לכן אנחנו מוכנים להראות מערכות עם פרופיל עבה יותר ומנגנונים אמינים, מערכות עם סיכון נמוך יותר לעיוות. נראה זאת במספרים ובדוגמאות במהלך המדידה. נראה גם מערכות שלא משתמשות בפתרונות עיגון מודרניים לזכוכית, וגם כאלה שכן.</p>
         </div>
       </section>
 
       <section className="section-shell">
-        <SectionHeading number="10">Было и стало</SectionHeading>
+        <SectionHeading number="10">לפני ואחרי</SectionHeading>
         <div className="photo-pairs">
           {[
-            { city: "Эйлат", folder: "pair-1" },
-            { city: "Петах-Тиква", folder: "pair-2" },
-            { city: "Рамле", folder: "pair-3" },
+            { city: "אילת", folder: "pair-1" },
+            { city: "פתח תקווה", folder: "pair-2" },
+            { city: "רמלה", folder: "pair-3" },
           ].map(({ city, folder }) => (
             <article className="photo-pair" key={folder}>
               <div className="photo-grid">
                 <figure>
-                  <span className="photo-label">ДО</span>
+                  <span className="photo-label">לפני</span>
                   <PortfolioImage
                     src={`/media/before-after/${folder}/before.webp`}
-                    alt={`До: балкон, ${city}`}
-                    placeholder="[Место для фотографии]"
+                    alt={`לפני: מרפסת, ${city}`}
+                    placeholder="[מקום לתמונה]"
                   />
                 </figure>
                 <figure>
-                  <span className="photo-label">ПОСЛЕ</span>
+                  <span className="photo-label">אחרי</span>
                   <PortfolioImage
                     src={`/media/before-after/${folder}/after.webp`}
-                    alt={`После: остекление балкона, ${city}`}
-                    placeholder="[Место для фотографии]"
+                    alt={`אחרי: סגירת מרפסת, ${city}`}
+                    placeholder="[מקום לתמונה]"
                   />
                 </figure>
               </div>
-              <p>{city}. Работу выполнил партнёр-исполнитель сети.</p>
+              <p>{city}. העבודה בוצעה על ידי השותף המבצע של הרשת.</p>
             </article>
           ))}
         </div>
@@ -640,23 +602,23 @@ function Index() {
 
       <section className="soft-band">
         <div className="section-shell">
-          <SectionHeading number="11">Реальные объекты наших партнёров</SectionHeading>
+          <SectionHeading number="11">פרויקטים אמיתיים של השותפים שלנו</SectionHeading>
           <PortfolioCarousel />
         </div>
       </section>
 
       <section className="section-shell guarantee-section">
-        <SectionHeading number="12">Кто исполнитель, чья гарантия</SectionHeading>
-        <p className="section-intro">Договор на работы вы подписываете напрямую с исполнителем. Гарантия – его, условия увидите в договоре до оплаты аванса.</p>
+        <SectionHeading number="12">מי המבצע ומי נותן את האחריות</SectionHeading>
+        <p className="section-intro">את הסכם העבודה חותמים ישירות מול המבצע. האחריות היא שלו, ואת התנאים תראו בהסכם לפני תשלום המקדמה.</p>
         <div className="guarantee-banner">
           <ShieldCheck />
-          <strong>Гарантия от 1 года до 5 лет в зависимости от системы.</strong>
+          <strong>אחריות של שנה עד <bdi dir="ltr">5</bdi> שנים, בהתאם למערכת.</strong>
         </div>
       </section>
 
       <section className="blue-band faq-section">
         <div className="section-shell narrow">
-          <SectionHeading number="13">Вопросы и возражения</SectionHeading>
+          <SectionHeading number="13">שאלות ותשובות</SectionHeading>
           <div className="faq-list">
             {faqItems.map((item, index) => {
               const isOpen = openFaq === index;
@@ -673,73 +635,73 @@ function Index() {
         </div>
       </section>
 
-      <Divider image={dividerCozy} text="Вот каким может быть ваш вечер на балконе. Осталось оставить заявку" />
+      <Divider image={dividerCozy} text="ככה יכול להיראות הערב שלכם במרפסת. נשאר רק להשאיר פנייה" />
 
       <section id="calculation" className="section-shell form-section">
         <div className="form-copy">
-          <SectionHeading number="14">Получить предварительный расчёт</SectionHeading>
+          <SectionHeading number="14">קבלו הערכת מחיר ראשונית</SectionHeading>
           <p className="decorative-sign" dir="rtl">בונים בלקונים / BONIM BALCONIM</p>
         </div>
         <div className="form-panel">
           {submitted ? (
-            <div className="success-message" role="status"><Check /><p>Спасибо, предварительный расчёт пришлём в течение дня</p></div>
+            <div className="success-message" role="status"><Check /><p>תודה! נשלח הערכת מחיר ראשונית במהלך היום</p></div>
           ) : (
             <form onSubmit={submitForm}>
               <div className="hp-field" aria-hidden="true">
                 <label>
-                  Оставьте это поле пустым
+                  השאירו שדה זה ריק
                   <Input name="hp_check" type="text" tabIndex={-1} autoComplete="off" />
                 </label>
               </div>
-              <label>Телефон<Input name="phone" type="tel" required maxLength={30} autoComplete="tel" /></label>
-              <label>Имя<Input name="name" required minLength={2} maxLength={100} autoComplete="name" /></label>
+              <label>טלפון<Input name="phone" type="tel" dir="ltr" required maxLength={30} autoComplete="tel" /></label>
+              <label>שם<Input name="name" required minLength={2} maxLength={100} autoComplete="name" /></label>
 
               <div className="field-row">
-                <label>Ширина (см)<Input name="width" type="number" required min="1" max="10000" inputMode="decimal" /></label>
-                <label>Высота (см)<Input name="height" type="number" required min="1" max="10000" inputMode="decimal" /></label>
+                <label>רוחב (ס״מ)<Input name="width" type="number" required min="1" max="10000" inputMode="decimal" /></label>
+                <label>גובה (ס״מ)<Input name="height" type="number" required min="1" max="10000" inputMode="decimal" /></label>
               </div>
               <label className="consent-row">
                 <Checkbox checked={consent} onCheckedChange={(value) => setConsent(value === true)} required />
-                <span>Согласен(на) на обработку персональных данных для связи по заявке</span>
+                <span>אני מסכים/ה לעיבוד המידע האישי שלי לצורך יצירת קשר בעקבות הפנייה</span>
               </label>
               {submitError ? (
                 <p className="form-error" role="alert">
-                  Не удалось отправить заявку. Напишите нам в WhatsApp или позвоните: +972 55-940-4379
+                  לא הצלחנו לשלוח את הפנייה. כתבו לנו בוואטסאפ או התקשרו: <span dir="ltr" className="ltr-isolate">+972 55-940-4379</span>
                 </p>
               ) : null}
               <Button type="submit" size="lg" className="submit-button" disabled={sending}>
-                Получить предварительный расчёт <ArrowRight />
+                 קבלו הערכת מחיר ראשונית <ArrowRight className="directional-icon" />
               </Button>
             </form>
           )}
-          <div className="form-divider"><span>или</span></div>
+          <div className="form-divider"><span>או</span></div>
           <WhatsAppButton secondary />
         </div>
       </section>
 
       <footer className="site-footer">
         <div className="section-shell footer-grid">
-          <BrandMark compact slogan="ru" />
+          <BrandMark compact slogan="he" />
           <div className="footer-links">
-            <Link to="/privacy">Политика конфиденциальности</Link>
-            <Link to="/terms">Условия оказания услуг</Link>
+            <a href="/he/privacy">מדיניות פרטיות</a>
+            <a href="/he/terms">תנאי שירות</a>
             <div className="footer-contacts">
               <div className="footer-socials">
                 <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
-                <a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" aria-label="Telegram-бот @bonimbalconimbot"><Send /></a>
+                <a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" aria-label="בוט טלגרם @bonimbalconimbot"><Send /></a>
               </div>
-              <p><a href="tel:+972559404379">+972 55-940-4379</a></p>
-              <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer">@bonimbalconimbot</a></p>
-              <p><a href="mailto:info@bonimbalconim.com">info@bonimbalconim.com</a></p>
-              <p>г. Рамле, ул. Моше Даян, 8</p>
+              <p><a href="tel:+972559404379" dir="ltr" className="ltr-isolate">+972 55-940-4379</a></p>
+              <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" dir="ltr" className="ltr-isolate">@bonimbalconimbot</a></p>
+              <p>כתבו לנו: <a href="mailto:info@bonimbalconim.com" dir="ltr" className="ltr-isolate">info@bonimbalconim.com</a></p>
+              <p>רחוב משה דיין 8, רמלה</p>
             </div>
           </div>
           <p dir="rtl">בונים בלקונים / BONIM BALCONIM</p>
         </div>
       </footer>
 
-      <a className="mobile-whatsapp" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="Написать в WhatsApp">
-        <MessageCircle />Написать в WhatsApp
+      <a className="mobile-whatsapp" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="כתבו לנו בוואטסאפ">
+        <MessageCircle />כתבו לנו ב<span dir="ltr" className="ltr-isolate">WhatsApp</span>
       </a>
     </main>
   );
