@@ -17,6 +17,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as HeIndexRouteImport } from './routes/he.index'
 import { Route as HePortfolioRouteImport } from './routes/he.portfolio'
 import { Route as HePrivacyRouteImport } from './routes/he.privacy'
+import { Route as HeTermsRouteImport } from './routes/he.terms'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +59,11 @@ const HePrivacyRoute = HePrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => HeRoute,
 } as any)
+const HeTermsRoute = HeTermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => HeRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/he/portfolio': typeof HePortfolioRoute
   '/he/privacy': typeof HePrivacyRoute
+  '/he/terms': typeof HeTermsRoute
   '/he/': typeof HeIndexRoute
 }
 export interface FileRoutesByTo {
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/he/portfolio': typeof HePortfolioRoute
   '/he/privacy': typeof HePrivacyRoute
+  '/he/terms': typeof HeTermsRoute
   '/he': typeof HeIndexRoute
 }
 export interface FileRoutesById {
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/he/portfolio': typeof HePortfolioRoute
   '/he/privacy': typeof HePrivacyRoute
+  '/he/terms': typeof HeTermsRoute
   '/he/': typeof HeIndexRoute
 }
 export interface FileRouteTypes {
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/he/portfolio'
     | '/he/privacy'
+    | '/he/terms'
     | '/he/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/he/portfolio'
     | '/he/privacy'
+    | '/he/terms'
     | '/he'
   id:
     | '__root__'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/he/portfolio'
     | '/he/privacy'
+    | '/he/terms'
     | '/he/'
   fileRoutesById: FileRoutesById
 }
@@ -187,18 +199,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HePrivacyRouteImport
       parentRoute: typeof HeRoute
     }
+    '/he/terms': {
+      id: '/he/terms'
+      path: '/terms'
+      fullPath: '/he/terms'
+      preLoaderRoute: typeof HeTermsRouteImport
+      parentRoute: typeof HeRoute
+    }
   }
 }
 
 interface HeRouteChildren {
   HePortfolioRoute: typeof HePortfolioRoute
   HePrivacyRoute: typeof HePrivacyRoute
+  HeTermsRoute: typeof HeTermsRoute
   HeIndexRoute: typeof HeIndexRoute
 }
 
 const HeRouteChildren: HeRouteChildren = {
   HePortfolioRoute: HePortfolioRoute,
   HePrivacyRoute: HePrivacyRoute,
+  HeTermsRoute: HeTermsRoute,
   HeIndexRoute: HeIndexRoute,
 }
 
