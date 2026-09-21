@@ -155,9 +155,9 @@ export const Route = createFileRoute("/")({
       { name: "twitter:title", content: "BONIM – подбор систем остекления балконов в Израиле" },
     ],
     links: [
-      { rel: "alternate", hrefLang: "ru", href: "https://bonim-view-builder.lovable.app/" },
-      { rel: "alternate", hrefLang: "he", href: "https://bonim-view-builder.lovable.app/he" },
-      { rel: "canonical", href: "https://bonim-view-builder.lovable.app/" },
+      { rel: "alternate", hrefLang: "ru", href: "https://bonimbalconim.com/" },
+      { rel: "alternate", hrefLang: "he", href: "https://bonimbalconim.com/he" },
+      { rel: "canonical", href: "https://bonimbalconim.com/" },
     ],
     scripts: [
       {
