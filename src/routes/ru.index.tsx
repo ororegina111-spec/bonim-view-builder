@@ -55,7 +55,7 @@ import { Input } from "@/components/ui/input";
 import { PortfolioImage } from "@/components/portfolio-image";
 import { portfolioProjects } from "@/data/portfolio";
 import { getTracking } from "@/lib/tracking";
-import { SITE_ORIGIN } from "@/lib/site";
+import { FACEBOOK_URL, SITE_ORIGIN } from "@/lib/site";
 
 const whatsappUrl = "https://wa.me/972559404379";
 
@@ -728,7 +728,7 @@ function Index() {
             <Link to="/ru/terms">Условия оказания услуг</Link>
             <div className="footer-contacts">
               <div className="footer-socials">
-                <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
+                <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook /></a>
                 <a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" aria-label="Telegram-бот @bonimbalconimbot"><Send /></a>
               </div>
               <p><a href="tel:+972559404379">+972 55-940-4379</a></p>

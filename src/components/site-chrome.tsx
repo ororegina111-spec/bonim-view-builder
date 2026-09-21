@@ -3,6 +3,7 @@ import { Facebook, MessageCircle, Phone, Send } from "lucide-react";
 
 import logoAsset from "@/assets/bonim-logo.png.asset.json";
 import { Button } from "@/components/ui/button";
+import { FACEBOOK_URL } from "@/lib/site";
 
 export const whatsappUrl = "https://wa.me/972559404379";
 
@@ -88,7 +89,7 @@ export function SiteFooter({ lang = "ru" }: { lang?: SiteLanguage }) {
            {lang === "he" ? <Link to="/portfolio">פרויקטים אמיתיים של השותפים שלנו</Link> : <Link to="/ru/portfolio">Реальные объекты наших партнёров</Link>}
           <div className="footer-contacts">
             <div className="footer-socials">
-              <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook /></a>
               <a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" aria-label={lang === "he" ? "בוט טלגרם @bonimbalconimbot" : "Telegram-бот @bonimbalconimbot"}><Send /></a>
             </div>
              <p><a href="tel:+972559404379" dir="ltr" className="ltr-isolate">+972 55-940-4379</a></p>
