@@ -595,7 +595,7 @@ function Index() {
       <section className="section-shell split-section">
         <div className="number-card">от <span className="price-nowrap">300 ₪</span></div>
         <div>
-          <SectionHeading number="08"><span className="section-title-main">Специалист&nbsp;приезжает бесплатно.</span>{" "}<span className="section-title-sub">За что от 300 ₪?</span></SectionHeading>
+          <SectionHeading number="08"><span className="section-title-main">Специалист приезжает бесплатно.</span>{" "}<span className="section-title-sub">За что от 300 ₪?</span></SectionHeading>
           <p>Сам замер – услуга специалиста – бесплатный. От 300 ₪ покрывают две вещи: подготовку расчёта и проекта вашего будущего балкона с точными цифрами, и доставку специалиста к вам. Если вы живёте до 60 километров – дорога входит в сумму. Если расстояние больше, мы попросим доплату за проезд специалиста.</p>
           <p>Если решите не заказывать дальше проект, профессиональный расчёт, смета и точный проект останутся у вас. Вы сможете обратиться с ними к любым производителям.</p>
         </div>
@@ -679,11 +679,11 @@ function Index() {
       <Divider image={dividerCozy} text="Вот каким может быть ваш вечер на балконе. Осталось оставить заявку" />
 
       <section id="calculation" className="section-shell form-section">
-        <div className="form-copy">
+        <div className="form-copy min-w-0">
           <SectionHeading number="14">Получить предварительный расчёт</SectionHeading>
           <p className="decorative-sign" dir="rtl">בונים בלקונים / BONIM BALCONIM</p>
         </div>
-        <div className="form-panel">
+        <div className="form-panel min-w-0">
           {submitted ? (
             <div className="success-message" role="status"><Check /><p>Спасибо, предварительный расчёт пришлём в течение дня</p></div>
           ) : (
