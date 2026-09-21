@@ -321,7 +321,7 @@
   .price-nowrap { white-space: nowrap; }
 
   .photo-pairs { display: grid; gap: 32px; }
-  .photo-pair { margin: 0; max-width: 920px; margin-inline: auto; }
+  .photo-pair { margin: 0 auto; width: 100%; max-width: 920px; }
   .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .photo-grid figure {
     position: relative;
