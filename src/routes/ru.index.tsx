@@ -310,7 +310,7 @@ function Index() {
         <div className="header-tools">
           <div className="language-switch" role="group" aria-label="Выбор языка">
             <Button asChild size="icon" variant="ghost" className="language-button" aria-label="Иврит">
-              <Link to="/ru" lang="he">עב</Link>
+              <Link to="/" lang="he">עב</Link>
             </Button>
             <Button asChild size="icon" variant="ghost" className="language-button active" aria-label="Русский язык">
               <Link to="/ru" aria-current="page">РУ</Link>
