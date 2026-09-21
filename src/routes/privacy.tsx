@@ -19,7 +19,7 @@ export const Route = createFileRoute("/privacy")({
           "מדיניות פרטיות של אתר BONIM – בחירה והתאמה של מערכות סגירה למרפסות ופרגולות בישראל.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: `${SITE_ORIGIN}/he/privacy` },
+      { property: "og:url", content: `${SITE_ORIGIN}/privacy` },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "מדיניות פרטיות – BONIM" },
       {
@@ -29,9 +29,10 @@ export const Route = createFileRoute("/privacy")({
       },
     ],
     links: [
-      { rel: "canonical", href: `${SITE_ORIGIN}/he/privacy` },
-      { rel: "alternate", hrefLang: "he", href: `${SITE_ORIGIN}/he/privacy` },
-      { rel: "alternate", hrefLang: "ru", href: `${SITE_ORIGIN}/privacy` },
+      { rel: "canonical", href: `${SITE_ORIGIN}/privacy` },
+      { rel: "alternate", hrefLang: "he", href: `${SITE_ORIGIN}/privacy` },
+      { rel: "alternate", hrefLang: "ru", href: `${SITE_ORIGIN}/ru/privacy` },
+      { rel: "alternate", hrefLang: "x-default", href: `${SITE_ORIGIN}/privacy` },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
