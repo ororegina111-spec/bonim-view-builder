@@ -144,7 +144,7 @@ function HebrewPrivacyPage() {
         <h2>9. תנאים נוספים</h2>
         <p>9.1. מנהלי האתר רשאים לערוך שינויים במדיניות פרטיות זו ללא הסכמת המשתמש.</p>
         <p>9.2. מדיניות הפרטיות החדשה נכנסת לתוקף מרגע פרסומה באתר זה, אלא אם נקבע אחרת בנוסח החדש.</p>
-        <p>9.3. את כל ההצעות או השאלות בנוגע למדיניות פרטיות זו יש להפנות לכתובת הדואר האלקטרוני <a href="mailto:info@bonimbalconim.com" dir="ltr" className="ltr-isolate">info@bonimbalconim.com</a></p>
+        <p>9.3. את כל ההצעות או השאלות בנוגע למדיניות פרטיות זו יש להפנות לכתובת הדואר האלקטרוני <a href="mailto:info@bonimbalconim.co.il" dir="ltr" className="ltr-isolate">info@bonimbalconim.co.il</a></p>
         <p>9.4. מדיניות הפרטיות התקפה מפורסמת בדף שבכתובת: <Link to="/privacy" dir="ltr" className="ltr-isolate">/privacy</Link> (אתר <Ltr>BONIM</Ltr>).</p>
       </div>
       <SiteFooter lang="he" />

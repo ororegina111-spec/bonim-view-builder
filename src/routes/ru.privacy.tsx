@@ -334,7 +334,7 @@ function PrivacyPage() {
         <p>
           9.3. Все предложения или вопросы по настоящей Политике
           конфиденциальности следует сообщать по адресу электронной почты{" "}
-          <a href="mailto:info@bonimbalconim.com">info@bonimbalconim.com</a>
+          <a href="mailto:info@bonimbalconim.co.il">info@bonimbalconim.co.il</a>
         </p>
         <p>
           9.4. Действующая Политика конфиденциальности размещена на странице

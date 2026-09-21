@@ -733,7 +733,7 @@ function Index() {
               </div>
               <p><a href="tel:+972559404379">+972 55-940-4379</a></p>
               <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer">@bonimbalconimbot</a></p>
-              <p><a href="mailto:info@bonimbalconim.com">info@bonimbalconim.com</a></p>
+              <p><a href="mailto:info@bonimbalconim.co.il">info@bonimbalconim.co.il</a></p>
               <p>г. Рамле, ул. Моше Даян, 8</p>
             </div>
           </div>

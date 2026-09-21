@@ -694,7 +694,7 @@ function HebrewHomePage() {
               </div>
               <p><a href="tel:+972559404379" dir="ltr" className="ltr-isolate">+972 55-940-4379</a></p>
               <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" dir="ltr" className="ltr-isolate">@bonimbalconimbot</a></p>
-              <p>כתבו לנו: <a href="mailto:info@bonimbalconim.com" dir="ltr" className="ltr-isolate">info@bonimbalconim.com</a></p>
+              <p>כתבו לנו: <a href="mailto:info@bonimbalconim.co.il" dir="ltr" className="ltr-isolate">info@bonimbalconim.co.il</a></p>
               <p>רחוב משה דיין 8, רמלה</p>
             </div>
           </div>

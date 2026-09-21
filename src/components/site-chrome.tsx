@@ -56,7 +56,7 @@ export function SiteHeader({ homeHref = "#top", lang = "ru" }: { homeHref?: stri
             className={lang === "he" ? "language-button active" : "language-button"}
              aria-label={lang === "he" ? "עברית" : "Иврит"}
           >
-            <Link to="/he" lang="he" aria-current={lang === "he" ? "page" : undefined}>עב</Link>
+            <Link to="/" lang="he" aria-current={lang === "he" ? "page" : undefined}>עב</Link>
           </Button>
           <Button
             asChild
@@ -65,7 +65,7 @@ export function SiteHeader({ homeHref = "#top", lang = "ru" }: { homeHref?: stri
             className={lang === "ru" ? "language-button active" : "language-button"}
              aria-label={lang === "he" ? "רוסית" : "Русский язык"}
           >
-            <Link to="/" aria-current={lang === "ru" ? "page" : undefined}>РУ</Link>
+            <Link to="/ru" aria-current={lang === "ru" ? "page" : undefined}>РУ</Link>
           </Button>
         </div>
          <a className="header-phone" href="tel:+972559404379" aria-label={lang === "he" ? "התקשרו למספר +972 55-940-4379" : "Позвонить по телефону +972 55-940-4379"} title={lang === "he" ? "התקשרו" : "Позвонить"}>
@@ -83,9 +83,9 @@ export function SiteFooter({ lang = "ru" }: { lang?: SiteLanguage }) {
       <div className="section-shell footer-grid">
         <BrandMark compact slogan={lang} />
          <div className="footer-links">
-           {lang === "he" ? <a href="/he/privacy">מדיניות פרטיות</a> : <Link to="/privacy">Политика конфиденциальности</Link>}
-           {lang === "he" ? <a href="/he/terms">תנאי שירות</a> : <Link to="/terms">Условия оказания услуг</Link>}
-           {lang === "he" ? <Link to="/he/portfolio">פרויקטים אמיתיים של השותפים שלנו</Link> : <Link to="/portfolio">Реальные объекты наших партнёров</Link>}
+           {lang === "he" ? <a href="/privacy">מדיניות פרטיות</a> : <Link to="/ru/privacy">Политика конфиденциальности</Link>}
+           {lang === "he" ? <a href="/terms">תנאי שירות</a> : <Link to="/ru/terms">Условия оказания услуг</Link>}
+           {lang === "he" ? <Link to="/portfolio">פרויקטים אמיתיים של השותפים שלנו</Link> : <Link to="/ru/portfolio">Реальные объекты наших партнёров</Link>}
           <div className="footer-contacts">
             <div className="footer-socials">
               <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
@@ -93,7 +93,7 @@ export function SiteFooter({ lang = "ru" }: { lang?: SiteLanguage }) {
             </div>
              <p><a href="tel:+972559404379" dir="ltr" className="ltr-isolate">+972 55-940-4379</a></p>
              <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" dir="ltr" className="ltr-isolate">@bonimbalconimbot</a></p>
-             <p>{lang === "he" ? <>כתבו לנו: <a href="mailto:info@bonimbalconim.com" dir="ltr" className="ltr-isolate">info@bonimbalconim.com</a></> : <a href="mailto:info@bonimbalconim.com">info@bonimbalconim.com</a>}</p>
+             <p>{lang === "he" ? <>כתבו לנו: <a href="mailto:info@bonimbalconim.co.il" dir="ltr" className="ltr-isolate">info@bonimbalconim.co.il</a></> : <a href="mailto:info@bonimbalconim.co.il">info@bonimbalconim.co.il</a>}</p>
              <p>{lang === "he" ? "רחוב משה דיין 8, רמלה" : "г. Рамле, ул. Моше Даян, 8"}</p>
           </div>
         </div>
