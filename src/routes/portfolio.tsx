@@ -5,24 +5,37 @@ import { Play, X } from "lucide-react";
 import { PortfolioImage } from "@/components/portfolio-image";
 import { MobileWhatsApp, SiteFooter, SiteHeader, WhatsAppButton } from "@/components/site-chrome";
 import { portfolioProjects, type PortfolioProject } from "@/data/portfolio";
+import { SITE_ORIGIN } from "@/lib/site";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Реальные объекты наших партнёров – BONIM" },
+       { title: "פרויקטים אמיתיים של השותפים שלנו – BONIM" },
       {
         name: "description",
         content:
-          "Галерея балконов и пергол, закрытых партнёрами-исполнителями BONIM: город, описание проекта и фотографии выполненных работ.",
+          "העבודות בוצעו על ידי השותפים המבצעים של הרשת. לחצו על הכרטיס כדי לראות תמונות וסרטונים של הפרויקט.",
       },
-      { property: "og:title", content: "Реальные объекты наших партнёров – BONIM" },
+       { property: "og:title", content: "פרויקטים אמיתיים של השותפים שלנו – BONIM" },
       {
         property: "og:description",
-        content: "Фотографии реальных балконов и пергол, остеклённых партнёрами BONIM в Израиле.",
+         content: "העבודות בוצעו על ידי השותפים המבצעים של הרשת. לחצו על הכרטיס כדי לראות תמונות וסרטונים של הפרויקט.",
       },
       { property: "og:type", content: "website" },
+       { property: "og:url", content: `${SITE_ORIGIN}/portfolio` },
       { name: "twitter:card", content: "summary_large_image" },
+       { name: "twitter:title", content: "פרויקטים אמיתיים של השותפים שלנו – BONIM" },
+       { name: "twitter:description", content: "העבודות בוצעו על ידי השותפים המבצעים של הרשת. לחצו על הכרטיס כדי לראות תמונות וסרטונים של הפרויקט." },
     ],
+     links: [
+       { rel: "canonical", href: `${SITE_ORIGIN}/portfolio` },
+       { rel: "alternate", hrefLang: "he", href: `${SITE_ORIGIN}/portfolio` },
+       { rel: "alternate", hrefLang: "ru", href: `${SITE_ORIGIN}/ru/portfolio` },
+       { rel: "alternate", hrefLang: "x-default", href: `${SITE_ORIGIN}/portfolio` },
+       { rel: "preconnect", href: "https://fonts.googleapis.com" },
+       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" },
+     ],
   }),
   component: PortfolioPage,
 });
@@ -31,49 +44,49 @@ function PortfolioPage() {
   const [active, setActive] = useState<PortfolioProject | null>(null);
 
   return (
-    <main>
-       <SiteHeader homeHref="/" lang="ru" />
+    <main className="he-page" lang="he" dir="rtl">
+       <SiteHeader homeHref="/" lang="he" />
 
       <section className="section-shell portfolio-page">
-        <Link to="/" className="legal-back">← На главную</Link>
-        <h1>Реальные объекты наших партнёров</h1>
+        <Link to="/" className="legal-back">→ לדף הבית</Link>
+        <h1>פרויקטים אמיתיים של השותפים שלנו</h1>
         <p className="section-intro">
-          Нажмите на карточку, чтобы посмотреть фотографии и видео проекта.
+          העבודות בוצעו על ידי השותפים המבצעים של הרשת. לחצו על הכרטיס כדי לראות תמונות וסרטונים של הפרויקט.
         </p>
 
         <div className="portfolio-grid">
           {portfolioProjects.map((project) => (
             <button type="button" className="portfolio-card" key={project.id} onClick={() => setActive(project)}>
               <span className="portfolio-cover">
-                <PortfolioImage src={project.cover} alt={project.title} />
-                {project.videos.length > 0 ? <span className="portfolio-video-badge" aria-label="Есть видео"><Play /></span> : null}
+                 <PortfolioImage src={project.cover} alt={project.titleHe} placeholder="[תמונת הפרויקט]" />
+                 {project.videos.length > 0 ? <span className="portfolio-video-badge" aria-label="יש סרטון"><Play /></span> : null}
               </span>
-              <span className="portfolio-title">{project.title}</span>
-              {project.date ? <span className="portfolio-date">{project.date}</span> : null}
-              <span className="portfolio-description">{project.description}</span>
+               <span className="portfolio-title">{project.titleHe}</span>
+               {project.dateHe ? <span className="portfolio-date">{project.dateHe}</span> : null}
+               <span className="portfolio-description">{project.descriptionHe}</span>
             </button>
           ))}
         </div>
 
         <div className="portfolio-cta">
-          <WhatsAppButton />
+           <WhatsAppButton lang="he" />
         </div>
       </section>
 
       {active ? (
-        <div className="portfolio-viewer" role="dialog" aria-modal="true" aria-label={active.title}>
+         <div className="portfolio-viewer" role="dialog" aria-modal="true" aria-label={active.titleHe}>
           <div className="portfolio-viewer-panel">
-            <button type="button" className="portfolio-viewer-close" onClick={() => setActive(null)} aria-label="Закрыть">
+             <button type="button" className="portfolio-viewer-close" onClick={() => setActive(null)} aria-label="סגירה">
               <X />
             </button>
-            <h2>{active.title}</h2>
-            {active.date ? <p>{active.date}</p> : null}
+             <h2>{active.titleHe}</h2>
+             {active.dateHe ? <p>{active.dateHe}</p> : null}
             <div className="portfolio-viewer-photos">
               {active.photos.length === 0 && active.videos.length === 0 ? (
-                <div className="portfolio-cover">[Фото проекта]</div>
+                 <div className="portfolio-cover">[תמונת הפרויקט]</div>
               ) : null}
               {active.photos.map((photo, index) => (
-                <PortfolioImage key={photo} src={photo} alt={`${active.title}, фото ${index + 1}`} />
+                 <PortfolioImage key={photo} src={photo} alt={`${active.titleHe}, תמונה ${index + 1}`} placeholder="[תמונת הפרויקט]" />
               ))}
               {active.videos.map((video) => (
                 <video key={video} controls playsInline preload="none" poster={active.cover}>
@@ -85,8 +98,8 @@ function PortfolioPage() {
         </div>
       ) : null}
 
-       <SiteFooter lang="ru" />
-       <MobileWhatsApp lang="ru" />
+        <SiteFooter lang="he" />
+        <MobileWhatsApp lang="he" />
     </main>
   );
 }

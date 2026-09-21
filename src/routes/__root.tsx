@@ -97,9 +97,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
-  const isHebrew = useRouterState({ select: (state) => state.location.pathname === "/he" || state.location.pathname.startsWith("/he/") });
+  const isRussian = useRouterState({ select: (state) => state.location.pathname === "/ru" || state.location.pathname.startsWith("/ru/") });
   return (
-    <html lang={isHebrew ? "he" : "ru"} dir={isHebrew ? "rtl" : "ltr"}>
+    <html lang={isRussian ? "ru" : "he"} dir={isRussian ? "ltr" : "rtl"}>
       <head>
         <HeadContent />
       </head>
@@ -114,15 +114,15 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
-  const isHebrewPage = useRouterState({
+  const isRussianPage = useRouterState({
     select: (state) =>
-      state.location.pathname === "/he" || state.location.pathname.startsWith("/he/"),
+      state.location.pathname === "/ru" || state.location.pathname.startsWith("/ru/"),
   });
 
   useEffect(() => {
-    document.documentElement.lang = isHebrewPage ? "he" : "ru";
-    document.documentElement.dir = isHebrewPage ? "rtl" : "ltr";
-  }, [isHebrewPage]);
+    document.documentElement.lang = isRussianPage ? "ru" : "he";
+    document.documentElement.dir = isRussianPage ? "ltr" : "rtl";
+  }, [isRussianPage]);
 
   useEffect(() => {
     captureTracking();
