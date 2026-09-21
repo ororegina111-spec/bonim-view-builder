@@ -25,7 +25,7 @@ function TermsPage() {
   return (
     <main className="legal-page">
       <div className="section-shell narrow legal-shell">
-        <Link to="/" className="legal-back">
+        <Link to="/ru" className="legal-back">
           ← На главную
         </Link>
         <h1>Пользовательское соглашение</h1>

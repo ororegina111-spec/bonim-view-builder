@@ -26,7 +26,7 @@ function PrivacyPage() {
   return (
     <main className="legal-page">
       <div className="section-shell narrow legal-shell">
-        <Link to="/" className="legal-back">
+        <Link to="/ru" className="legal-back">
           ← На главную
         </Link>
         <h1>Политика конфиденциальности</h1>
@@ -330,7 +330,7 @@ function PrivacyPage() {
         </p>
         <p>
           9.4. Действующая Политика конфиденциальности размещена на странице
-          по адресу: <Link to="/privacy">/privacy</Link> (сайт BONIM).
+          по адресу: <Link to="/ru/privacy">/ru/privacy</Link> (сайт BONIM).
         </p>
       </div>
     </main>

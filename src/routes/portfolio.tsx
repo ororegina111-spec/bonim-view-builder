@@ -43,10 +43,10 @@ function PortfolioPage() {
 
   return (
     <main className="he-page" lang="he" dir="rtl">
-       <SiteHeader homeHref="/he" lang="he" />
+       <SiteHeader homeHref="/" lang="he" />
 
       <section className="section-shell portfolio-page">
-        <Link to="/he" className="legal-back">→ לדף הבית</Link>
+        <Link to="/" className="legal-back">→ לדף הבית</Link>
         <h1>פרויקטים אמיתיים של השותפים שלנו</h1>
         <p className="section-intro">
           העבודות בוצעו על ידי השותפים המבצעים של הרשת. לחצו על הכרטיס כדי לראות תמונות וסרטונים של הפרויקט.

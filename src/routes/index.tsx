@@ -224,7 +224,7 @@ function PortfolioCarousel() {
         <button type="button" onClick={() => scrollBy(-1)} aria-label="פרויקטים קודמים"><ChevronLeft /></button>
         <button type="button" onClick={() => scrollBy(1)} aria-label="פרויקטים הבאים"><ChevronRight /></button>
       </div>
-      <Link to="/he/portfolio" className="portfolio-more">עוד פרויקטים</Link>
+      <Link to="/portfolio" className="portfolio-more">עוד פרויקטים</Link>
     </div>
   );
 }
@@ -290,10 +290,10 @@ function HebrewHomePage() {
         <div className="header-tools">
           <div className="language-switch" role="group" aria-label="בחירת שפה">
             <Button asChild size="icon" variant="ghost" className="language-button active" aria-label="עברית">
-              <Link to="/he" lang="he" aria-current="page">עב</Link>
+              <Link to="/" lang="he" aria-current="page">עב</Link>
             </Button>
             <Button asChild size="icon" variant="ghost" className="language-button" aria-label="רוסית">
-              <Link to="/">РУ</Link>
+              <Link to="/ru">РУ</Link>
             </Button>
           </div>
           <a className="header-phone" href="tel:+972559404379" aria-label="התקשרו למספר +972 55-940-4379" title="התקשרו">
@@ -683,8 +683,8 @@ function HebrewHomePage() {
         <div className="section-shell footer-grid">
           <BrandMark compact slogan="he" />
           <div className="footer-links">
-            <a href="/he/privacy">מדיניות פרטיות</a>
-            <a href="/he/terms">תנאי שירות</a>
+            <a href="/privacy">מדיניות פרטיות</a>
+            <a href="/terms">תנאי שירות</a>
             <div className="footer-contacts">
               <div className="footer-socials">
                 <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>

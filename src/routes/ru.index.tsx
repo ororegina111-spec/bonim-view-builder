@@ -244,7 +244,7 @@ function PortfolioCarousel() {
         <button type="button" onClick={() => scrollBy(-1)} aria-label="Предыдущие проекты"><ChevronLeft /></button>
         <button type="button" onClick={() => scrollBy(1)} aria-label="Следующие проекты"><ChevronRight /></button>
       </div>
-      <Link to="/portfolio" className="portfolio-more">Смотреть ещё</Link>
+      <Link to="/ru/portfolio" className="portfolio-more">Смотреть ещё</Link>
     </div>
   );
 }
@@ -310,10 +310,10 @@ function Index() {
         <div className="header-tools">
           <div className="language-switch" role="group" aria-label="Выбор языка">
             <Button asChild size="icon" variant="ghost" className="language-button" aria-label="Иврит">
-              <Link to="/he" lang="he">עב</Link>
+              <Link to="/ru" lang="he">עב</Link>
             </Button>
             <Button asChild size="icon" variant="ghost" className="language-button active" aria-label="Русский язык">
-              <Link to="/" aria-current="page">РУ</Link>
+              <Link to="/ru" aria-current="page">РУ</Link>
             </Button>
           </div>
           <a className="header-phone" href="tel:+972559404379" aria-label="Позвонить по телефону +972 55-940-4379" title="Позвонить">
@@ -721,8 +721,8 @@ function Index() {
         <div className="section-shell footer-grid">
           <BrandMark compact slogan="ru" />
           <div className="footer-links">
-            <Link to="/privacy">Политика конфиденциальности</Link>
-            <Link to="/terms">Условия оказания услуг</Link>
+            <Link to="/ru/privacy">Политика конфиденциальности</Link>
+            <Link to="/ru/terms">Условия оказания услуг</Link>
             <div className="footer-contacts">
               <div className="footer-socials">
                 <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>

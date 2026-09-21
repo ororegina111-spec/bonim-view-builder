@@ -49,9 +49,9 @@ function Ltr({ children }: { children: string }) {
 function HebrewTermsPage() {
   return (
     <main className="he-page legal-page" lang="he" dir="rtl">
-      <SiteHeader homeHref="/he" lang="he" />
+      <SiteHeader homeHref="/" lang="he" />
       <div className="section-shell narrow legal-shell">
-        <Link to="/he" className="legal-back">
+        <Link to="/" className="legal-back">
           → לדף הבית
         </Link>
         <h1>הסכם משתמש</h1>

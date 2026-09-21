@@ -49,9 +49,9 @@ function Ltr({ children }: { children: string }) {
 function HebrewPrivacyPage() {
   return (
     <main className="he-page legal-page" lang="he" dir="rtl">
-      <SiteHeader homeHref="/he" lang="he" />
+      <SiteHeader homeHref="/" lang="he" />
       <div className="section-shell narrow legal-shell">
-        <Link to="/he" className="legal-back">
+        <Link to="/" className="legal-back">
           → לדף הבית
         </Link>
         <h1>מדיניות פרטיות</h1>
@@ -143,7 +143,7 @@ function HebrewPrivacyPage() {
         <p>9.1. מנהלי האתר רשאים לערוך שינויים במדיניות פרטיות זו ללא הסכמת המשתמש.</p>
         <p>9.2. מדיניות הפרטיות החדשה נכנסת לתוקף מרגע פרסומה באתר זה, אלא אם נקבע אחרת בנוסח החדש.</p>
         <p>9.3. את כל ההצעות או השאלות בנוגע למדיניות פרטיות זו יש להפנות לכתובת הדואר האלקטרוני <a href="mailto:info@bonimbalconim.com" dir="ltr" className="ltr-isolate">info@bonimbalconim.com</a></p>
-        <p>9.4. מדיניות הפרטיות התקפה מפורסמת בדף שבכתובת: <Link to="/he/privacy" dir="ltr" className="ltr-isolate">/he/privacy</Link> (אתר <Ltr>BONIM</Ltr>).</p>
+        <p>9.4. מדיניות הפרטיות התקפה מפורסמת בדף שבכתובת: <Link to="/privacy" dir="ltr" className="ltr-isolate">/privacy</Link> (אתר <Ltr>BONIM</Ltr>).</p>
       </div>
       <SiteFooter lang="he" />
     </main>

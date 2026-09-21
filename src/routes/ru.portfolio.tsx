@@ -32,10 +32,10 @@ function PortfolioPage() {
 
   return (
     <main>
-       <SiteHeader homeHref="/" lang="ru" />
+       <SiteHeader homeHref="/ru" lang="ru" />
 
       <section className="section-shell portfolio-page">
-        <Link to="/" className="legal-back">← На главную</Link>
+        <Link to="/ru" className="legal-back">← На главную</Link>
         <h1>Реальные объекты наших партнёров</h1>
         <p className="section-intro">
           Нажмите на карточку, чтобы посмотреть фотографии и видео проекта.
