@@ -115,7 +115,7 @@ const faqSchema = {
   })),
 };
 
-export const Route = createFileRoute("/he/")({
+export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "BONIM – בחירה והתאמה של מערכות סגירה למרפסות בישראל" },

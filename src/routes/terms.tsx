@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
-export const Route = createFileRoute("/he/terms")({
+export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
       { title: "הסכם משתמש – BONIM" },

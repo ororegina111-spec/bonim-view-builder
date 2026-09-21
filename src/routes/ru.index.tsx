@@ -135,7 +135,7 @@ const faqSchema = {
   })),
 };
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/ru/")({
   head: () => ({
     meta: [
       { title: "BONIM – подбор систем остекления балконов в Израиле" },

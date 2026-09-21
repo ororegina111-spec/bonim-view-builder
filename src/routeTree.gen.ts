@@ -10,23 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as HeRouteImport } from './routes/he'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as RuRouteImport } from './routes/ru'
 import { Route as TermsRouteImport } from './routes/terms'
-import { Route as HeIndexRouteImport } from './routes/he.index'
-import { Route as HePortfolioRouteImport } from './routes/he.portfolio'
-import { Route as HePrivacyRouteImport } from './routes/he.privacy'
-import { Route as HeTermsRouteImport } from './routes/he.terms'
+import { Route as RuIndexRouteImport } from './routes/ru.index'
+import { Route as RuPortfolioRouteImport } from './routes/ru.portfolio'
+import { Route as RuPrivacyRouteImport } from './routes/ru.privacy'
+import { Route as RuTermsRouteImport } from './routes/ru.terms'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HeRoute = HeRouteImport.update({
-  id: '/he',
-  path: '/he',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioRoute = PortfolioRouteImport.update({
@@ -39,105 +34,110 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RuRoute = RuRouteImport.update({
+  id: '/ru',
+  path: '/ru',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HeIndexRoute = HeIndexRouteImport.update({
+const RuIndexRoute = RuIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => HeRoute,
+  getParentRoute: () => RuRoute,
 } as any)
-const HePortfolioRoute = HePortfolioRouteImport.update({
+const RuPortfolioRoute = RuPortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
-  getParentRoute: () => HeRoute,
+  getParentRoute: () => RuRoute,
 } as any)
-const HePrivacyRoute = HePrivacyRouteImport.update({
+const RuPrivacyRoute = RuPrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
-  getParentRoute: () => HeRoute,
+  getParentRoute: () => RuRoute,
 } as any)
-const HeTermsRoute = HeTermsRouteImport.update({
+const RuTermsRoute = RuTermsRouteImport.update({
   id: '/terms',
   path: '/terms',
-  getParentRoute: () => HeRoute,
+  getParentRoute: () => RuRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/he': typeof HeRouteWithChildren
   '/portfolio': typeof PortfolioRoute
   '/privacy': typeof PrivacyRoute
+  '/ru': typeof RuRouteWithChildren
   '/terms': typeof TermsRoute
-  '/he/portfolio': typeof HePortfolioRoute
-  '/he/privacy': typeof HePrivacyRoute
-  '/he/terms': typeof HeTermsRoute
-  '/he/': typeof HeIndexRoute
+  '/ru/portfolio': typeof RuPortfolioRoute
+  '/ru/privacy': typeof RuPrivacyRoute
+  '/ru/terms': typeof RuTermsRoute
+  '/ru/': typeof RuIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/portfolio': typeof PortfolioRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
-  '/he/portfolio': typeof HePortfolioRoute
-  '/he/privacy': typeof HePrivacyRoute
-  '/he/terms': typeof HeTermsRoute
-  '/he': typeof HeIndexRoute
+  '/ru/portfolio': typeof RuPortfolioRoute
+  '/ru/privacy': typeof RuPrivacyRoute
+  '/ru/terms': typeof RuTermsRoute
+  '/ru': typeof RuIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/he': typeof HeRouteWithChildren
   '/portfolio': typeof PortfolioRoute
   '/privacy': typeof PrivacyRoute
+  '/ru': typeof RuRouteWithChildren
   '/terms': typeof TermsRoute
-  '/he/portfolio': typeof HePortfolioRoute
-  '/he/privacy': typeof HePrivacyRoute
-  '/he/terms': typeof HeTermsRoute
-  '/he/': typeof HeIndexRoute
+  '/ru/portfolio': typeof RuPortfolioRoute
+  '/ru/privacy': typeof RuPrivacyRoute
+  '/ru/terms': typeof RuTermsRoute
+  '/ru/': typeof RuIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/he'
     | '/portfolio'
     | '/privacy'
+    | '/ru'
     | '/terms'
-    | '/he/portfolio'
-    | '/he/privacy'
-    | '/he/terms'
-    | '/he/'
+    | '/ru/portfolio'
+    | '/ru/privacy'
+    | '/ru/terms'
+    | '/ru/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/portfolio'
     | '/privacy'
     | '/terms'
-    | '/he/portfolio'
-    | '/he/privacy'
-    | '/he/terms'
-    | '/he'
+    | '/ru/portfolio'
+    | '/ru/privacy'
+    | '/ru/terms'
+    | '/ru'
   id:
     | '__root__'
     | '/'
-    | '/he'
     | '/portfolio'
     | '/privacy'
+    | '/ru'
     | '/terms'
-    | '/he/portfolio'
-    | '/he/privacy'
-    | '/he/terms'
-    | '/he/'
+    | '/ru/portfolio'
+    | '/ru/privacy'
+    | '/ru/terms'
+    | '/ru/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  HeRoute: typeof HeRouteWithChildren
   PortfolioRoute: typeof PortfolioRoute
   PrivacyRoute: typeof PrivacyRoute
+  RuRoute: typeof RuRouteWithChildren
   TermsRoute: typeof TermsRoute
 }
 
@@ -148,13 +148,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/he': {
-      id: '/he'
-      path: '/he'
-      fullPath: '/he'
-      preLoaderRoute: typeof HeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio': {
@@ -171,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ru': {
+      id: '/ru'
+      path: '/ru'
+      fullPath: '/ru'
+      preLoaderRoute: typeof RuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -178,58 +178,58 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/he/': {
-      id: '/he/'
+    '/ru/': {
+      id: '/ru/'
       path: '/'
-      fullPath: '/he/'
-      preLoaderRoute: typeof HeIndexRouteImport
-      parentRoute: typeof HeRoute
+      fullPath: '/ru/'
+      preLoaderRoute: typeof RuIndexRouteImport
+      parentRoute: typeof RuRoute
     }
-    '/he/portfolio': {
-      id: '/he/portfolio'
+    '/ru/portfolio': {
+      id: '/ru/portfolio'
       path: '/portfolio'
-      fullPath: '/he/portfolio'
-      preLoaderRoute: typeof HePortfolioRouteImport
-      parentRoute: typeof HeRoute
+      fullPath: '/ru/portfolio'
+      preLoaderRoute: typeof RuPortfolioRouteImport
+      parentRoute: typeof RuRoute
     }
-    '/he/privacy': {
-      id: '/he/privacy'
+    '/ru/privacy': {
+      id: '/ru/privacy'
       path: '/privacy'
-      fullPath: '/he/privacy'
-      preLoaderRoute: typeof HePrivacyRouteImport
-      parentRoute: typeof HeRoute
+      fullPath: '/ru/privacy'
+      preLoaderRoute: typeof RuPrivacyRouteImport
+      parentRoute: typeof RuRoute
     }
-    '/he/terms': {
-      id: '/he/terms'
+    '/ru/terms': {
+      id: '/ru/terms'
       path: '/terms'
-      fullPath: '/he/terms'
-      preLoaderRoute: typeof HeTermsRouteImport
-      parentRoute: typeof HeRoute
+      fullPath: '/ru/terms'
+      preLoaderRoute: typeof RuTermsRouteImport
+      parentRoute: typeof RuRoute
     }
   }
 }
 
-interface HeRouteChildren {
-  HePortfolioRoute: typeof HePortfolioRoute
-  HePrivacyRoute: typeof HePrivacyRoute
-  HeTermsRoute: typeof HeTermsRoute
-  HeIndexRoute: typeof HeIndexRoute
+interface RuRouteChildren {
+  RuPortfolioRoute: typeof RuPortfolioRoute
+  RuPrivacyRoute: typeof RuPrivacyRoute
+  RuTermsRoute: typeof RuTermsRoute
+  RuIndexRoute: typeof RuIndexRoute
 }
 
-const HeRouteChildren: HeRouteChildren = {
-  HePortfolioRoute: HePortfolioRoute,
-  HePrivacyRoute: HePrivacyRoute,
-  HeTermsRoute: HeTermsRoute,
-  HeIndexRoute: HeIndexRoute,
+const RuRouteChildren: RuRouteChildren = {
+  RuPortfolioRoute: RuPortfolioRoute,
+  RuPrivacyRoute: RuPrivacyRoute,
+  RuTermsRoute: RuTermsRoute,
+  RuIndexRoute: RuIndexRoute,
 }
 
-const HeRouteWithChildren = HeRoute._addFileChildren(HeRouteChildren)
+const RuRouteWithChildren = RuRoute._addFileChildren(RuRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  HeRoute: HeRouteWithChildren,
   PortfolioRoute: PortfolioRoute,
   PrivacyRoute: PrivacyRoute,
+  RuRoute: RuRouteWithChildren,
   TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport

@@ -1,9 +1,9 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/he")({
-  component: HebrewLayout,
+export const Route = createFileRoute("/ru")({
+  component: RussianLayout,
 });
 
-function HebrewLayout() {
+function RussianLayout() {
   return <Outlet />;
 }

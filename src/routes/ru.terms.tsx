@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/terms")({
+export const Route = createFileRoute("/ru/terms")({
   head: () => ({
     meta: [
       { title: "Условия оказания услуг – BONIM" },

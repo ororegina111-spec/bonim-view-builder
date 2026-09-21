@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
-export const Route = createFileRoute("/he/privacy")({
+export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
       { title: "מדיניות פרטיות – BONIM" },
