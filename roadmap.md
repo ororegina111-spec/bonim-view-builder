@@ -33,5 +33,5 @@
 - [ ] Порции 4–5: добавить оставшиеся тексты и страницы после получения материалов.
 
 ## 21.09 — Смена структуры адресов
-- [ ] Иврит на `/`, русский в `/ru`; обновить ссылки, lang/dir, canonical/og:url/hreflang от SITE_ORIGIN (bonimbalconim.co.il)
-- [ ] Заменить почту info@bonimbalconim.com на info@bonimbalconim.co.il по всему проекту
+- [x] Иврит на `/`, русский в `/ru`; обновить ссылки, lang/dir, canonical/og:url/hreflang от SITE_ORIGIN (bonimbalconim.co.il)
+- [x] Заменить почту info@bonimbalconim.com на info@bonimbalconim.co.il по всему проекту
