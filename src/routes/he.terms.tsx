@@ -18,7 +18,7 @@ export const Route = createFileRoute("/he/terms")({
           "הסכם משתמש ותנאי שירות של אתר BONIM – בחירה והתאמה של מערכות סגירה למרפסות ופרגולות בישראל.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://bonim-view-builder.lovable.app/he/terms" },
+      { property: "og:url", content: "https://bonimbalconim.com/he/terms" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "הסכם משתמש – BONIM" },
       {
@@ -28,9 +28,9 @@ export const Route = createFileRoute("/he/terms")({
       },
     ],
     links: [
-      { rel: "canonical", href: "https://bonim-view-builder.lovable.app/he/terms" },
-      { rel: "alternate", hrefLang: "he", href: "https://bonim-view-builder.lovable.app/he/terms" },
-      { rel: "alternate", hrefLang: "ru", href: "https://bonim-view-builder.lovable.app/terms" },
+      { rel: "canonical", href: "https://bonimbalconim.com/he/terms" },
+      { rel: "alternate", hrefLang: "he", href: "https://bonimbalconim.com/he/terms" },
+      { rel: "alternate", hrefLang: "ru", href: "https://bonimbalconim.com/terms" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

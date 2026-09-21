@@ -18,7 +18,7 @@ export const Route = createFileRoute("/he/privacy")({
           "מדיניות פרטיות של אתר BONIM – בחירה והתאמה של מערכות סגירה למרפסות ופרגולות בישראל.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://bonim-view-builder.lovable.app/he/privacy" },
+      { property: "og:url", content: "https://bonimbalconim.com/he/privacy" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "מדיניות פרטיות – BONIM" },
       {
@@ -28,9 +28,9 @@ export const Route = createFileRoute("/he/privacy")({
       },
     ],
     links: [
-      { rel: "canonical", href: "https://bonim-view-builder.lovable.app/he/privacy" },
-      { rel: "alternate", hrefLang: "he", href: "https://bonim-view-builder.lovable.app/he/privacy" },
-      { rel: "alternate", hrefLang: "ru", href: "https://bonim-view-builder.lovable.app/privacy" },
+      { rel: "canonical", href: "https://bonimbalconim.com/he/privacy" },
+      { rel: "alternate", hrefLang: "he", href: "https://bonimbalconim.com/he/privacy" },
+      { rel: "alternate", hrefLang: "ru", href: "https://bonimbalconim.com/privacy" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

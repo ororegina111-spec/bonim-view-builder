@@ -114,6 +114,16 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  const isHebrewPage = useRouterState({
+    select: (state) =>
+      state.location.pathname === "/he" || state.location.pathname.startsWith("/he/"),
+  });
+
+  useEffect(() => {
+    document.documentElement.lang = isHebrewPage ? "he" : "ru";
+    document.documentElement.dir = isHebrewPage ? "rtl" : "ltr";
+  }, [isHebrewPage]);
+
   useEffect(() => {
     captureTracking();
   }, []);
