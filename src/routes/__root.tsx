@@ -97,7 +97,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
-  const isHebrew = useRouterState({ select: (state) => state.location.pathname === "/he" || state.location.pathname.startsWith("/he/") });
+  const isRussian = useRouterState({ select: (state) => state.location.pathname === "/ru" || state.location.pathname.startsWith("/ru/") });
   return (
     <html lang={isHebrew ? "he" : "ru"} dir={isHebrew ? "rtl" : "ltr"}>
       <head>
