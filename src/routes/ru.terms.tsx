@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { SITE_ORIGIN } from "@/lib/site";
 
 export const Route = createFileRoute("/ru/terms")({
@@ -32,6 +34,7 @@ export const Route = createFileRoute("/ru/terms")({
 function TermsPage() {
   return (
     <main className="legal-page">
+      <SiteHeader homeHref="/ru" lang="ru" />
       <div className="section-shell narrow legal-shell">
         <Link to="/ru" className="legal-back">
           ← На главную
@@ -136,6 +139,7 @@ function TermsPage() {
           охраняемые в соответствии с законодательством материалы Сайта.
         </p>
       </div>
+      <SiteFooter lang="ru" />
     </main>
   );
 }
