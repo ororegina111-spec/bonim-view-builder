@@ -679,11 +679,11 @@ function Index() {
       <Divider image={dividerCozy} text="Вот каким может быть ваш вечер на балконе. Осталось оставить заявку" />
 
       <section id="calculation" className="section-shell form-section">
-        <div className="form-copy">
+        <div className="form-copy min-w-0">
           <SectionHeading number="14">Получить предварительный расчёт</SectionHeading>
           <p className="decorative-sign" dir="rtl">בונים בלקונים / BONIM BALCONIM</p>
         </div>
-        <div className="form-panel">
+        <div className="form-panel min-w-0">
           {submitted ? (
             <div className="success-message" role="status"><Check /><p>Спасибо, предварительный расчёт пришлём в течение дня</p></div>
           ) : (
