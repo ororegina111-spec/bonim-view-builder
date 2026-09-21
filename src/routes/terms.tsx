@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { SITE_ORIGIN } from "@/lib/site";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
@@ -18,7 +19,7 @@ export const Route = createFileRoute("/terms")({
           "הסכם משתמש ותנאי שירות של אתר BONIM – בחירה והתאמה של מערכות סגירה למרפסות ופרגולות בישראל.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://bonimbalconim.com/he/terms" },
+      { property: "og:url", content: `${SITE_ORIGIN}/he/terms` },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "הסכם משתמש – BONIM" },
       {
@@ -28,9 +29,9 @@ export const Route = createFileRoute("/terms")({
       },
     ],
     links: [
-      { rel: "canonical", href: "https://bonimbalconim.com/he/terms" },
-      { rel: "alternate", hrefLang: "he", href: "https://bonimbalconim.com/he/terms" },
-      { rel: "alternate", hrefLang: "ru", href: "https://bonimbalconim.com/terms" },
+      { rel: "canonical", href: `${SITE_ORIGIN}/he/terms` },
+      { rel: "alternate", hrefLang: "he", href: `${SITE_ORIGIN}/he/terms` },
+      { rel: "alternate", hrefLang: "ru", href: `${SITE_ORIGIN}/terms` },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

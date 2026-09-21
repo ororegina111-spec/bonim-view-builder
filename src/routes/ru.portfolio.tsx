@@ -5,6 +5,7 @@ import { Play, X } from "lucide-react";
 import { PortfolioImage } from "@/components/portfolio-image";
 import { MobileWhatsApp, SiteFooter, SiteHeader, WhatsAppButton } from "@/components/site-chrome";
 import { portfolioProjects, type PortfolioProject } from "@/data/portfolio";
+import { SITE_ORIGIN } from "@/lib/site";
 
 export const Route = createFileRoute("/ru/portfolio")({
   head: () => ({

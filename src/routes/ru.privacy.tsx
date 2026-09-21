@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { SITE_ORIGIN } from "@/lib/site";
 
 export const Route = createFileRoute("/ru/privacy")({
   head: () => ({

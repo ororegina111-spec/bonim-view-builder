@@ -55,6 +55,7 @@ import { Input } from "@/components/ui/input";
 import { PortfolioImage } from "@/components/portfolio-image";
 import { portfolioProjects } from "@/data/portfolio";
 import { getTracking } from "@/lib/tracking";
+import { SITE_ORIGIN } from "@/lib/site";
 
 const whatsappUrl = "https://wa.me/972559404379";
 

@@ -55,6 +55,7 @@ import { Input } from "@/components/ui/input";
 import { PortfolioImage } from "@/components/portfolio-image";
 import { portfolioProjects } from "@/data/portfolio";
 import { getTracking } from "@/lib/tracking";
+import { SITE_ORIGIN } from "@/lib/site";
 
 const whatsappUrl = `https://wa.me/972559404379?text=${encodeURIComponent("שלום, אני מעוניין/ת לברר על סגירת מרפסת")}`;
 
@@ -131,15 +132,15 @@ export const Route = createFileRoute("/")({
           "השוו כמה אפשרויות וקבלו הערכת מחיר ראשונית לפי מידות המרפסת שלכם.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://bonimbalconim.com/he" },
+      { property: "og:url", content: `${SITE_ORIGIN}/he` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "BONIM – בחירת מערכות סגירה למרפסות" },
       { name: "twitter:description", content: "השוו כמה אפשרויות וקבלו הערכת מחיר ראשונית לפי מידות המרפסת שלכם." },
     ],
     links: [
-      { rel: "alternate", hrefLang: "he", href: "https://bonimbalconim.com/he" },
-      { rel: "alternate", hrefLang: "ru", href: "https://bonimbalconim.com/" },
-      { rel: "canonical", href: "https://bonimbalconim.com/he" },
+      { rel: "alternate", hrefLang: "he", href: `${SITE_ORIGIN}/he` },
+      { rel: "alternate", hrefLang: "ru", href: `${SITE_ORIGIN}/` },
+      { rel: "canonical", href: `${SITE_ORIGIN}/he` },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" },

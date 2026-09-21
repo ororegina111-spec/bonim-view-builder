@@ -5,6 +5,7 @@ import { Play, X } from "lucide-react";
 import { PortfolioImage } from "@/components/portfolio-image";
 import { MobileWhatsApp, SiteFooter, SiteHeader, WhatsAppButton } from "@/components/site-chrome";
 import { portfolioProjects, type PortfolioProject } from "@/data/portfolio";
+import { SITE_ORIGIN } from "@/lib/site";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -21,15 +22,15 @@ export const Route = createFileRoute("/portfolio")({
          content: "העבודות בוצעו על ידי השותפים המבצעים של הרשת. לחצו על הכרטיס כדי לראות תמונות וסרטונים של הפרויקט.",
       },
       { property: "og:type", content: "website" },
-       { property: "og:url", content: "https://bonimbalconim.com/he/portfolio" },
+       { property: "og:url", content: `${SITE_ORIGIN}/he/portfolio` },
       { name: "twitter:card", content: "summary_large_image" },
        { name: "twitter:title", content: "פרויקטים אמיתיים של השותפים שלנו – BONIM" },
        { name: "twitter:description", content: "העבודות בוצעו על ידי השותפים המבצעים של הרשת. לחצו על הכרטיס כדי לראות תמונות וסרטונים של הפרויקט." },
     ],
      links: [
-       { rel: "canonical", href: "https://bonimbalconim.com/he/portfolio" },
-       { rel: "alternate", hrefLang: "he", href: "https://bonimbalconim.com/he/portfolio" },
-       { rel: "alternate", hrefLang: "ru", href: "https://bonimbalconim.com/portfolio" },
+       { rel: "canonical", href: `${SITE_ORIGIN}/he/portfolio` },
+       { rel: "alternate", hrefLang: "he", href: `${SITE_ORIGIN}/he/portfolio` },
+       { rel: "alternate", hrefLang: "ru", href: `${SITE_ORIGIN}/portfolio` },
        { rel: "preconnect", href: "https://fonts.googleapis.com" },
        { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
        { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" },

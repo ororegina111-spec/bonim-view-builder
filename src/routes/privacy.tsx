@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { SITE_ORIGIN } from "@/lib/site";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -18,7 +19,7 @@ export const Route = createFileRoute("/privacy")({
           "מדיניות פרטיות של אתר BONIM – בחירה והתאמה של מערכות סגירה למרפסות ופרגולות בישראל.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://bonimbalconim.com/he/privacy" },
+      { property: "og:url", content: `${SITE_ORIGIN}/he/privacy` },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "מדיניות פרטיות – BONIM" },
       {
@@ -28,9 +29,9 @@ export const Route = createFileRoute("/privacy")({
       },
     ],
     links: [
-      { rel: "canonical", href: "https://bonimbalconim.com/he/privacy" },
-      { rel: "alternate", hrefLang: "he", href: "https://bonimbalconim.com/he/privacy" },
-      { rel: "alternate", hrefLang: "ru", href: "https://bonimbalconim.com/privacy" },
+      { rel: "canonical", href: `${SITE_ORIGIN}/he/privacy` },
+      { rel: "alternate", hrefLang: "he", href: `${SITE_ORIGIN}/he/privacy` },
+      { rel: "alternate", hrefLang: "ru", href: `${SITE_ORIGIN}/privacy` },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
