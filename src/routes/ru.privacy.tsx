@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { SITE_ORIGIN } from "@/lib/site";
 
 export const Route = createFileRoute("/ru/privacy")({
@@ -33,6 +35,7 @@ export const Route = createFileRoute("/ru/privacy")({
 function PrivacyPage() {
   return (
     <main className="legal-page">
+      <SiteHeader homeHref="/ru" lang="ru" />
       <div className="section-shell narrow legal-shell">
         <Link to="/ru" className="legal-back">
           ← На главную
@@ -341,6 +344,7 @@ function PrivacyPage() {
           по адресу: <Link to="/ru/privacy">/ru/privacy</Link> (сайт BONIM).
         </p>
       </div>
+      <SiteFooter lang="ru" />
     </main>
   );
 }
