@@ -89,7 +89,7 @@ export function SiteFooter({ lang = "ru" }: { lang?: SiteLanguage }) {
           <div className="footer-contacts">
             <div className="footer-socials">
               <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
-              <a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" aria-label="Telegram-бот @bonimbalconimbot"><Send /></a>
+              <a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" aria-label={lang === "he" ? "בוט טלגרם @bonimbalconimbot" : "Telegram-бот @bonimbalconimbot"}><Send /></a>
             </div>
              <p><a href="tel:+972559404379" dir="ltr" className="ltr-isolate">+972 55-940-4379</a></p>
              <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" dir="ltr" className="ltr-isolate">@bonimbalconimbot</a></p>

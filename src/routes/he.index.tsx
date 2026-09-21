@@ -211,7 +211,7 @@ function PortfolioCarousel() {
         {portfolioProjects.slice(0, 5).map((project) => (
           <article className="portfolio-card" key={project.id}>
             <span className="portfolio-cover">
-              <PortfolioImage src={project.cover} alt={project.titleHe} />
+              <PortfolioImage src={project.cover} alt={project.titleHe} placeholder="[תמונת הפרויקט]" />
               {project.videos.length > 0 ? <span className="portfolio-video-badge" aria-label="יש סרטון"><Play /></span> : null}
             </span>
             <span className="portfolio-title">{project.titleHe}</span>
@@ -688,7 +688,7 @@ function HebrewHomePage() {
             <div className="footer-contacts">
               <div className="footer-socials">
                 <a href="ЗАПОЛНИТЬ_FACEBOOK" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
-                <a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" aria-label="Telegram @bonimbalconimbot"><Send /></a>
+                <a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" aria-label="בוט טלגרם @bonimbalconimbot"><Send /></a>
               </div>
               <p><a href="tel:+972559404379" dir="ltr" className="ltr-isolate">+972 55-940-4379</a></p>
               <p><a href="https://t.me/bonimbalconimbot" target="_blank" rel="noreferrer" dir="ltr" className="ltr-isolate">@bonimbalconimbot</a></p>
