@@ -35,3 +35,5 @@
 ## 21.09 — Смена структуры адресов
 - [x] Иврит на `/`, русский в `/ru`; обновить ссылки, lang/dir, canonical/og:url/hreflang от SITE_ORIGIN (bonimbalconim.co.il)
 - [x] Заменить почту info@bonimbalconim.com на info@bonimbalconim.co.il по всему проекту
+## Текущая задача
+- [ ] Убрать переполнение из-за длинных неразрывных фраз и проверить 8 страниц на ширинах 360, 375 и 390 px.
